@@ -235,7 +235,7 @@ void set_PF(uint32_t result)
 	uint32_t i,count=0;
 	for(i=1;i<=128;i*=2)
 	{
-		if((temp&&i)==0)
+		if((temp&&i)!=0)
 		{
 			count++;
 		}
