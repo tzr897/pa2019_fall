@@ -231,21 +231,17 @@ void set_SF(uint32_t result,size_t data_size)
 
 void set_PF(uint32_t result)
 {
-	uint32_t temp=result;
-	uint32_t i,count=0;
+	uint32_t i,count=8;
 	for(i=1;i<=128;i*=2)
 	{
-		if((temp&&i)!=0)
-		{
-			count++;
-		}
-		temp=result;
+		if((result&i)==0)
+			count--;
 	}
 	if(count%2==0)
 		cpu.eflags.PF=1;
 	else
 		cpu.eflags.PF=0;
-
+	
 }
 
 void set_OF_add(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
