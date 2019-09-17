@@ -47,10 +47,8 @@ uint32_t alu_adc(uint32_t src, uint32_t dest, size_t data_size)
 	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
 	assert(0);
 	return 0;*/
-	uint32_t CF;
+	uint32_t CF=set_CF_adc(res,src,data_size);
 	uint32_t res=0;
-	
-	CF=set_CF_adc(res,src,data_size);
 	res=dest+src+CF;
 	
 	
