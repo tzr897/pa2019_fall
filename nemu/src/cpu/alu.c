@@ -346,36 +346,32 @@ void set_OF_adc(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
 			dest=sign_ext(dest&0xFFFF,16);
 		default:break;
 	}
-	// if((result==0x7FFFFFFF+0x7FFFFFFF+1))
-	// {
-	// 	cpu.eflags.OF=1;
-	// }
-	// else
-	// {
-	// 	if(sign(src)==sign(dest))
-	// 	{
-	// 		if(sign(src)!=sign(result))
-	// 			cpu.eflags.OF=1;
-	// 		else
-	// 			cpu.eflags.OF=0;
-	// 	}
-	// 	else
-	// 	{
-	// 		cpu.eflags.OF=0;
-	// 	}	
-	// }
-	if(sign(src)==sign(dest))
+	if(cpu.eflags.CF==1)
 	{
-		if(sign(src)!=sign(result))
+		if(sign(src)==sign(dest))
+		{
 			cpu.eflags.OF=1;
+		}
 		else
+		{
 			cpu.eflags.OF=0;
+		}
 	}
 	else
 	{
-		cpu.eflags.OF=0;
+		if(sign(src)==sign(dest))
+		{
+			if(sign(src)!=sign(result))
+				cpu.eflags.OF=1;
+			else
+				cpu.eflags.OF=0;
+		}
+		else
+		{
+			cpu.eflags.OF=0;
+		}
 	}
-
+	
 }
 
 
