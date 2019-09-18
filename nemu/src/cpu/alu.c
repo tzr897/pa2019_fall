@@ -1,4 +1,4 @@
-#include "cpu/cpu.h"
+d#include "cpu/cpu.h"
 
 //alu_add()
 void set_CF_add(uint32_t result,uint32_t src,size_t data_size);
@@ -8,7 +8,7 @@ void set_PF(uint32_t result);
 void set_OF_add(uint32_t result,uint32_t src,uint32_t dest,size_t data_size);
 
 //alu_adc()
-uint32_t set_CF_adc(uint32_t result,uint32_t src,size_t data_size);
+void set_CF_adc(uint32_t result,uint32_t src,size_t data_size);
 void set_OF_adc(uint32_t result,uint32_t src,uint32_t dest,size_t data_size);
 
 
@@ -47,11 +47,10 @@ uint32_t alu_adc(uint32_t src, uint32_t dest, size_t data_size)
 	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
 	assert(0);
 	return 0;*/
-	uint32_t CF=set_CF_adc(res,src,data_size);
 	uint32_t res=0;
-	res=dest+src+CF;
+	res=dest+src+cpu.eflags.CF;
 	
-	
+	set_CF_adc(res,src,data_size);
 	set_PF(res);
 	set_ZF(res,data_size);
 	set_SF(res,data_size);
@@ -296,7 +295,7 @@ void set_OF_add(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
 
 //alu_adc()////////////////
 
-uint32_t set_CF_adc(uint32_t result,uint32_t src,size_t data_size)
+void set_CF_adc(uint32_t result,uint32_t src,size_t data_size)
 {
 	result=sign_ext(result&(0xFFFFFFFF>>(32-data_size)),data_size);
 	src=sign_ext(src&(0xFFFFFFFF>>(32-data_size)),data_size);
