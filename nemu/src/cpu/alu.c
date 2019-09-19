@@ -1,10 +1,12 @@
 #include "cpu/cpu.h"
 
-//alu_add()
-void set_CF_add(uint32_t result,uint32_t src,size_t data_size);
+
 void set_ZF(uint32_t result,size_t data_size);
 void set_SF(uint32_t result,size_t data_size);
 void set_PF(uint32_t result);
+
+//alu_add()
+void set_CF_add(uint32_t result,uint32_t src,size_t data_size);
 void set_OF_add(uint32_t result,uint32_t src,uint32_t dest,size_t data_size);
 
 //alu_adc()
@@ -14,6 +16,10 @@ void set_OF_adc(uint32_t result,uint32_t src,uint32_t dest,size_t data_size);
 //alu_sub()
 void set_CF_sub(uint32_t result,uint32_t src,size_t data_size);
 void set_OF_sub(uint32_t result,uint32_t src,uint32_t dest,size_t data_size);
+
+//alu_sbb()
+void set_CF_sbb(uint32_t result,uint32_t src,size_t data_size);
+void set_OF_sbb(uint32_t result,uint32_t src,uint32_t dest,size_t data_size);
 
 
 uint32_t alu_add(uint32_t src, uint32_t dest, size_t data_size)
