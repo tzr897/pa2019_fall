@@ -397,9 +397,13 @@ void set_OF_add(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
 			dest=sign_ext(dest&0xFFFF,16);
 		default:break;
 	}
-	if((sign(src)!=sign(src+result))&&(sign(src)==sign(result)))
+	if(sign(dest)!=sign(src))
 	{
-		cpu.eflags.OF=1;
+		if(sign(res)==sign(src))
+			cpu.eflags.OF=1;
+		else
+			cpu.eflags.OF=0;
+		
 	}
 	else
 	{
