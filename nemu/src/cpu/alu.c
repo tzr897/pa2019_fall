@@ -399,7 +399,7 @@ void set_OF_sub(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
 	}
 	if(sign(dest)==sign(src))
 	{
-		if(sign(res)!=sign(src))
+		if(sign(result)!=sign(src))
 			cpu.eflags.OF=1;
 		else
 			cpu.eflags.OF=0;	
