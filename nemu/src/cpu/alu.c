@@ -397,16 +397,16 @@ void set_OF_sub(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
 			dest=sign_ext(dest&0xFFFF,16);
 		default:break;
 	}
-	if(sign(dest)!=sign(src))
+	if(sign(src)!=sign(dest))
 	{
-		if(sign(result)==sign(src))
+		if(sign(src)==sign(result))
 			cpu.eflags.OF=1;
 		else
-			cpu.eflags.OF=0;	
+			cpu.eflags.OF=0;
 	}
 	else
 	{
-		cpu.flags.OF=0;
+		cpu.eflags.OF=0;
 	}
 
 }
