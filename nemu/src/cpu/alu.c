@@ -382,7 +382,7 @@ void set_CF_sub(uint32_t result,uint32_t src,size_t data_size)
 	cpu.eflags.CF=src>(result+src);
 }
 
-void set_OF_add(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
+void set_OF_sub(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
 {
 	switch(data_size)
 	{
@@ -402,16 +402,12 @@ void set_OF_add(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
 		if(sign(res)==sign(src))
 			cpu.eflags.OF=1;
 		else
-			cpu.eflags.OF=0;
-		
+			cpu.eflags.OF=0;	
 	}
 	else
 	{
 		cpu.flags.OF=0;
 	}
-	
-
-
 
 }
 
