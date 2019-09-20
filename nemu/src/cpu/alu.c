@@ -239,9 +239,21 @@ uint32_t alu_sal(uint32_t src, uint32_t dest, size_t data_size)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_sal(src, dest, data_size);
 #else
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
-	assert(0);
-	return 0;
+	switch(data_size)
+	{
+		case 8:
+			src=sign_ext(src&0xFF,8);
+			dest=sign_ext(dest&0xFF,8);
+			break;
+		case 16:
+			src=sign_ext(src&0xFFFF,16);
+			dest=sign_ext(dest&0xFFFF,16);
+		default:break;
+	}
+	uint32_t res=dest<<src;
+	res=res&(0xFFFFFFFF>>(32-data_size));
+	return res;
+
 #endif
 }
 ////////////////////////////////////////////////////////
