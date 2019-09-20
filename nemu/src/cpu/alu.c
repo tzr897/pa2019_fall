@@ -163,10 +163,11 @@ uint32_t alu_and(uint32_t src, uint32_t dest, size_t data_size)
 #else
 	uint32_t res;
 	res=(src&dest);
+	res=res&(0xFFFFFFFF>>(32-data_size));
 	set_PF(res);
 	set_ZF(res,data_size);
 	set_SF(res,data_size);
-	return return res&(0xFFFFFFFF>>(32-data_size));
+	return res;
 #endif
 }
 
