@@ -425,11 +425,11 @@ void set_CF_sbb(uint32_t result,uint32_t src,size_t data_size)
 	src=sign_ext(src&(0xFFFFFFFF>>(32-data_size)),data_size);
 	if(cpu.eflags.CF==1)
 	{
-		// if(result==src-1)
-		// {
-		// 	cpu.eflags.CF=1;
-		// }
-		// else
+		if(result==src-1)
+		{
+			cpu.eflags.CF=1;
+		}
+		else
 		{
 			cpu.eflags.CF=src>(result+src+1);
 		}
@@ -437,7 +437,7 @@ void set_CF_sbb(uint32_t result,uint32_t src,size_t data_size)
 	}
 	else
 	{
-		cpu.eflags.CF=src>(result+src+1);
+		cpu.eflags.CF=src>(result+src);
 	}
 
 
