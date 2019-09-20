@@ -21,6 +21,10 @@ void set_OF_sub(uint32_t result,uint32_t src,uint32_t dest,size_t data_size);
 void set_CF_sbb(uint32_t result,uint32_t src,size_t data_size);
 void set_OF_sbb(uint32_t result,uint32_t src,uint32_t dest,size_t data_size);
 
+//alu_sal()
+void set_CF_shl(uint32_t result,uint32_t src,size_t data_size);
+void set_OF_shl(uint32_t result,uint32_t src,uint32_t dest,size_t data_size);
+
 
 uint32_t alu_add(uint32_t src, uint32_t dest, size_t data_size)
 {
@@ -206,6 +210,7 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_shl(src, dest, data_size);
 #else
+	uint32_t res;
 	switch(data_size)
 	{
 		case 8:
@@ -217,8 +222,13 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 			dest=sign_ext(dest&0xFFFF,16);
 		default:break;
 	}
-	uint32_t res=dest<<src;
+	res=dest<<src;
 	res=res&(0xFFFFFFFF>>(32-data_size));
+	set_PF(res);
+	set_ZF(res,data_size);
+	set_SF(res,data_size);
+	set_OF_adc(res,src,dest,data_size);
+	set_CF_adc(res,src,data_size);
 	return res;
 #endif
 }
