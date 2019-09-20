@@ -216,10 +216,12 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 		case 8:
 			src=sign_ext(src&0xFF,8);
 			dest=sign_ext(dest&0xFF,8);
+			res=dest<<src;
 			break;
 		case 16:
 			src=sign_ext(src&0xFFFF,16);
 			dest=sign_ext(dest&0xFFFF,16);
+			res=dest<<src;
 		default:break;
 	}
 	res=dest<<src;	
