@@ -556,6 +556,17 @@ void set_CF_shl(uint32_t result,uint32_t src,size_t data_size)
 {
 	uint32_t dest;
 	dest=result<<src;
+	dest=dest&(0xFFFFFFFF>>(32-data_size));
+	// switch(data_size)
+	// {
+	// 	case 8:
+	// 		dest
+	// 		break;
+	// 	case 16:
+	// 		src=sign_ext(src&0xFFFF,16);
+	// 		dest=sign_ext(dest&0xFFFF,16);
+	// 	default:break;
+	// }
 	cpu.eflags.CF=sign(dest);
 }
 
