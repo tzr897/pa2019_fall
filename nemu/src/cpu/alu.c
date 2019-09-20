@@ -212,6 +212,7 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 	return __ref_alu_shl(src, dest, data_size);
 #else
 	uint32_t res;
+	uint32_t sign;
 	// switch(data_size)
 	// {
 	// 	case 8:
@@ -223,7 +224,17 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 	// 		dest=sign_ext(dest&0xFFFF,16);
 	// 	default:break;
 	// }
-	uint32_t sign;
+	switch(data_size)
+	{
+		case 8:
+			src=sign_ext(src&0xFF,8);
+			dest=sign_ext(dest&0xFF,8);
+			break;
+		case 16:
+			src=sign_ext(src&0xFFFF,16);
+			dest=sign_ext(dest&0xFFFF,16);
+		default:break;
+	}
 	res=dest<<src;	
 	dest=dest&(0xFFFFFFFF>>(32-data_size));
 	sign=sign(dest);
@@ -241,7 +252,8 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 	set_ZF(res,data_size);
 	set_SF(res,data_size);
 	set_OF_shl(res,src,dest,data_size);
-	set_CF_shl(sign);
+	cpu.eflags.CF=res>>data_size;
+	//set_CF_shl(sign);
 	//set_CF_shl(res,src,data_size);
 	return res;
 #endif
