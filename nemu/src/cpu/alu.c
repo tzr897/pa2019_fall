@@ -437,7 +437,7 @@ void set_CF_sbb(uint32_t result,uint32_t src,size_t data_size)
 	}
 	else
 	{
-		cpu.eflags.CF=src>(result+src);
+		cpu.eflags.CF=src>(result+src+1);
 	}
 
 
