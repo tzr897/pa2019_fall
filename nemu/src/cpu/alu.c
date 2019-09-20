@@ -211,30 +211,28 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 	return __ref_alu_shl(src, dest, data_size);
 #else
 	uint32_t res;
-	switch(data_size)
-	{
-		case 8:
-			src=sign_ext(src&0xFF,8);
-			dest=sign_ext(dest&0xFF,8);
-			res=dest<<src;
-			break;
-		case 16:
-			src=sign_ext(src&0xFFFF,16);
-			dest=sign_ext(dest&0xFFFF,16);
-			res=dest<<src;
-		default:break;
-	}
+	// switch(data_size)
+	// {
+	// 	case 8:
+	// 		src=sign_ext(src&0xFF,8);
+	// 		dest=sign_ext(dest&0xFF,8);
+	// 		break;
+	// 	case 16:
+	// 		src=sign_ext(src&0xFFFF,16);
+	// 		dest=sign_ext(dest&0xFFFF,16);
+	// 	default:break;
+	// }
 	res=dest<<src;	
 	res=res&(0xFFFFFFFF>>(32-data_size));
-	switch(data_size)
-	{
-		case 8:
-			res=sign_ext(res&0xFF,8);
-			break;
-		case 16:
-			res=sign_ext(res&0xFFFF,16);
-		default:break;
-	}
+	// switch(data_size)
+	// {
+	// 	case 8:
+	// 		res=sign_ext(res&0xFF,8);
+	// 		break;
+	// 	case 16:
+	// 		res=sign_ext(res&0xFFFF,16);
+	// 	default:break;
+	// }
 	set_PF(res);
 	set_ZF(res,data_size);
 	set_SF(res,data_size);
