@@ -545,10 +545,12 @@ void set_OF_sbb(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
 //alu_sal()
 void set_CF_shl(uint32_t result,uint32_t src,size_t data_size)
 {
-
+	uint32_t dest;
+	dest=result<<src;
+	cpu.eflags.CF=sign(dest);
 }
 
 void set_OF_shl(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
 {
-	
+
 }
