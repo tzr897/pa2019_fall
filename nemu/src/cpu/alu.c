@@ -22,7 +22,7 @@ void set_CF_sbb(uint32_t result,uint32_t src,size_t data_size);
 void set_OF_sbb(uint32_t result,uint32_t src,uint32_t dest,size_t data_size);
 
 //alu_shl()
-void set_CF_shl(bool sign);
+void set_CF_shl(uint32_t sign);
 //void set_CF_shl(uint32_t result,uint32_t src,size_t data_size);
 void set_OF_shl(uint32_t result,uint32_t src,uint32_t dest,size_t data_size);
 
@@ -223,7 +223,7 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 	// 		dest=sign_ext(dest&0xFFFF,16);
 	// 	default:break;
 	// }
-	bool sign;
+	uint32_ sign;
 	res=dest<<src;	
 	dest=dest&(0xFFFFFFFF>>(32-data_size));
 	sign=sign(dest);
@@ -557,7 +557,7 @@ void set_OF_sbb(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
 
 ////////////////////////////////////////////
 //alu_sal()
-void set_CF_shl(bool sign)
+void set_CF_shl(uint32_t sign)
 {
 	// uint32_t dest;
 	// dest=result<<src;
