@@ -213,7 +213,7 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 #else
 	uint32_t res,t;	
 	dest=dest&(0xFFFFFFFF>>(32-data_size));
-	t=dest>>data_size;
+	t=dest>>(data_size-1);
 	res=dest<<src;	
 	res=res&(0xFFFFFFFF>>(32-data_size));
 	// switch(data_size)
