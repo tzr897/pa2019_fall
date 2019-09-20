@@ -460,7 +460,7 @@ void set_OF_sbb(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
 	}
 	if(cpu.eflags.CF==1)
 	{
-		if(result==src)
+		if(result+src+1==src)
 		{
 			cpu.eflags.OF=0;
 		}
