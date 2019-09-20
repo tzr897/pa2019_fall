@@ -227,8 +227,8 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 	set_PF(res);
 	set_ZF(res,data_size);
 	set_SF(res,data_size);
-	set_OF_adc(res,src,dest,data_size);
-	set_CF_adc(res,src,data_size);
+	set_OF_shl(res,src,dest,data_size);
+	set_CF_shl(res,src,data_size);
 	return res;
 #endif
 }
