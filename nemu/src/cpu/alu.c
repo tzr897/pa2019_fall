@@ -211,18 +211,18 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_shl(src, dest, data_size);
 #else
-	uint32_t res,sign;	
+	uint32_t res,sign,t;	
 	
 	res=dest<<(src-1);	
-	//t=res;
+	t=res;
 	sign=sign(res);
-	res=res<<1;
+	res=t<<1;
 	res=res&(0xFFFFFFFF>>(32-data_size));
 	set_PF(res);
 	set_ZF(res,data_size);
 	set_SF(res,data_size);
 	//set_OF_shl(res,src,dest,data_size);
-	cpu.eflags.CF=t;
+	cpu.eflags.CF=sign;
 	//set_CF_shl(sign);
 	//set_CF_shl(res,src,data_size);
 	return res;
