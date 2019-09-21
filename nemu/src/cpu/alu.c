@@ -272,12 +272,12 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 
 	if (sign==0)
 	{
-		res = dest >> (src);
+		res = dest >> (src+1);
 		res = res & (0xFFFFFFFF >> (32 - data_size));
 	}
 	else
 	{
-		for (i = 0; i < src; ++i)
+		for (i = 0; i <= src; ++i)
 		{
 			t = t >> 1;
 			res = t | and_t;
