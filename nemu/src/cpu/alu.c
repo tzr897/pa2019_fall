@@ -274,6 +274,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	{
 		dest=(int32_t)dest;
 		src=(int32_t)src;
+		
 		res=dest>>(src-1);
 		t=res;
 		sign=t&0x1;
