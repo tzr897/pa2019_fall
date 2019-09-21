@@ -252,42 +252,39 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_sar(src, dest, data_size);
 #else
-	uint32_t res,t,i;
+	uint32_t res,t;
 	bool sign;
-	
 	dest=dest&(0xFFFFFFFF>>(32-data_size));
 	src=src&(0xFFFFFFFF>>(32-data_size));
-	t=dest;
-	sign=t>>(data_size);
-	if(sign==0)
-	{
-		res=dest>>(src-1);
-		t=res;
-		sign=t&0x1;
-		res=res>>0x1;
-		res=res&(0xFFFFFFFF>>(32-data_size));
-		set_PF(res);
-		set_ZF(res,data_size);
-		set_SF(res,data_size);
-		cpu.eflags.CF=sign;
-		return res;
-	}
-	else
-	{
-		uint32_t and_t=0x1<<(src);
-		//and_t=and_t&(0xFFFFFFFF>>(32-data_size));
-		for(i=0;i<src;++i)
-		{
-			dest=dest>>0x1;
-			res=dest|and_t;
-		}
-		res=res&(0xFFFFFFFF>>(32-data_size));
-		set_PF(res);
-		set_ZF(res,data_size);
-		set_SF(res,data_size);
-		cpu.eflags.CF=sign;
-		return res;
-	}
+	res=dest>>src;
+	t=1<<(data_size-src-1);
+	res=res|t;
+	res=res&(0xFFFFFFFF>>(32-data_size));
+	return res;
+	// while(t!=0)
+	// {
+	// 	t=t>>1;
+	// 	count++;
+	// }
+	// t=dest;
+	// sign=t>>(count-1);
+	// if(sign==0)
+	// {
+	// 	res=dest>>(src-1);
+	// 	t=res;
+	// 	sign=t&0x1;
+	// 	res=res>>0x1;
+	// 	res=res&(0xFFFFFFFF>>(32-data_size));
+	// 	set_PF(res);
+	// 	set_ZF(res,data_size);
+	// 	set_SF(res,data_size);
+	// 	cpu.eflags.CF=sign;
+	// 	return res;
+	// }
+	// else
+	// {
+		
+	// }
 	
 	// res=dest>>(src-1);
 	// t=res;
