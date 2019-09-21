@@ -252,36 +252,62 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_sar(src, dest, data_size);
 #else
-	uint32_t res,t,i,and_t;
-	int sign;
-	t=dest;
-	dest=dest&(0xFFFFFFFF>>(32-data_size));
-	src=src&(0xFFFFFFFF>>(32-data_size));
-	t=t&(0xFFFFFFFF>>(32-data_size));
+	uint32_t t,and_t,res,i;
+	bool sign;
+	t = dest;
+	dest=dest &(0xFFFFFFFF >> (32 - data_size));
+	src=src & (0xFFFFFFFF >> (32 - data_size));
+	t = t & (0xFFFFFFFF >> (32 - data_size));
 	sign = (t >> (data_size - 1)) & 0x1;
-	and_t=1<<(data_size-1);
-	t=dest;
-	if(!sign)
+	and_t = 1 << (data_size - 1);
+	t = dest;
+
+	if (sign)
 	{
-		res=dest>>src;
-		res=res&(0xFFFFFFFF>>(32-data_size));
+		for (i = 0; i < src; ++i)
+		{
+			t = t >> 1;
+			res = t | and_t;
+			t = res;
+		}
+		res = res & (0xFFFFFFFF >> (32 - data_size));
 	}
 	else
 	{
-		for(i=0;i<src;++i)
-		{
-			t=t>>1;
-			res=t|and_t;
-			t=res;
-		}
-		res=res&(0xFFFFFFFF>>(32-data_size));
-		
+		res = dest >> src;
+		res = res & (0xFFFFFFFF >> (32 - data_size));
 	}
-	set_PF(res);
-	set_ZF(res,data_size);
-	set_SF(res,data_size);
-	cpu.eflags.CF=sign;
-	return res;
+
+	// uint32_t res,t,i,and_t;
+	// int sign;
+	// t=dest;
+	// dest=dest&(0xFFFFFFFF>>(32-data_size));
+	// src=src&(0xFFFFFFFF>>(32-data_size));
+	// t=t&(0xFFFFFFFF>>(32-data_size));
+	// sign = (t >> (data_size - 1)) & 0x1;
+	// and_t=1<<(data_size-1);
+	// t=dest;
+	// if(!sign)
+	// {
+	// 	res=dest>>src;
+	// 	res=res&(0xFFFFFFFF>>(32-data_size));
+	// }
+	// else
+	// {
+	// 	for(i=0;i<src;++i)
+	// 	{
+	// 		t=t>>1;
+	// 		res=t|and_t;
+	// 		t=res;
+	// 	}
+	// 	res=res&(0xFFFFFFFF>>(32-data_size));
+		
+	// }
+	// set_PF(res);
+	// set_ZF(res,data_size);
+	// set_SF(res,data_size);
+	// cpu.eflags.CF=sign;
+	// return res;
 #endif
 }
 
