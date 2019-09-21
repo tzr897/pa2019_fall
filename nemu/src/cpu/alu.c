@@ -261,7 +261,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	//t2=t;
 	//t2= t2 & (0xFFFFFFFF >> (32 - data_size));
 	
-	t2=dest>>(src);
+	t2=dest>>(src-1);
 	
 	cflag=t2&0x1;
 	dest=t;
@@ -278,7 +278,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	}
 	else
 	{
-		for (i = 0; i < =src; ++i)
+		for (i = 0; i < src; ++i)
 		{
 			t = t >> 1;
 			res = t | and_t;
@@ -316,7 +316,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	set_PF(t);
 	set_ZF(t,data_size);
 	set_SF(t,data_size);
-	cpu.eflags.CF=sign;
+	cpu.eflags.CF=cflag;
 	return res;
 #endif
 }
