@@ -253,7 +253,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	return __ref_alu_sar(src, dest, data_size);
 #else
 	uint32_t res,t,i,and_t,t2;
-	uint32_t sign;
+	bool sign;
 	t=dest;
 	dest=dest&(0xFFFFFFFF>>(32-data_size));
 	src=src&(0xFFFFFFFF>>(32-data_size));
@@ -264,17 +264,17 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	if(sign==0)
 	{
 		res=dest>>src;
-		res=res&(0xFFFFFFFF>>(32-data_size));
+		//res=res&(0xFFFFFFFF>>(32-data_size));
 	}
 	else
 	{
-		for(i=0;i<=src;++i)
+		for(i=0;i<src;++i)
 		{
 			t=t>>1;
 			res=t|and_t;
 			t=res;
 		}
-		res=res&(0xFFFFFFFF>>(32-data_size));
+		//res=res&(0xFFFFFFFF>>(32-data_size));
 		
 	}
 	set_PF(res);
@@ -282,60 +282,6 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	set_SF(res,data_size);
 	cpu.eflags.CF=sign;
 	return res;
-	/////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-	//////////////////////////////////////////////////////////
-	// t=1<<(8*data_size-src-1);
-	// t=t&(0xFFFFFFFF>>(32-data_size));
-	// res=(res^t)-t;
-	// //res=res|t;
-	// res=res&(0xFFFFFFFF>>(32-data_size));
-	// set_PF(res);
-	// set_ZF(res,data_size);
-	// set_SF(res,data_size);
-	// //cpu.eflags.CF=sign;
-	// return res;
-	// while(t!=0)
-	// {
-	// 	t=t>>1;
-	// 	count++;
-	// }
-	// t=dest;
-	// sign=t>>(count-1);
-	// if(sign==0)
-	// {
-	// 	res=dest>>(src-1);
-	// 	t=res;
-	// 	sign=t&0x1;
-	// 	res=res>>0x1;
-	// 	res=res&(0xFFFFFFFF>>(32-data_size));
-	// 	set_PF(res);
-	// 	set_ZF(res,data_size);
-	// 	set_SF(res,data_size);
-	// 	cpu.eflags.CF=sign;
-	// 	return res;
-	// }
-	// else
-	// {
-		
-	// }
-	
-	// res=dest>>(src-1);
-	// t=res;
-	// sign=t&0x1;
-	// res=res>>0x1;
-	// res=res&(0xFFFFFFFF>>(32-data_size));
-	// set_PF(res);
-	// set_ZF(res,data_size);
-	// set_SF(res,data_size);
-	// cpu.eflags.CF=sign;
-	// return res;
 #endif
 }
 
