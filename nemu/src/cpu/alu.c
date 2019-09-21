@@ -252,9 +252,52 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_sar(src, dest, data_size);
 #else
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
-	assert(0);
-	return 0;
+	uint32_t res,t;
+	bool sign;
+	
+	dest=dest&(0xFFFFFFFF>>(32-data_size));
+	src=src&(0xFFFFFFFF>>(32-data_size));
+	if(sign(dest)==0)
+	{
+		res=dest>>(src-1);
+		t=res;
+		sign=t&0x1;
+		res=res>>0x1;
+		res=res&(0xFFFFFFFF>>(32-data_size));
+		set_PF(res);
+		set_ZF(res,data_size);
+		set_SF(res,data_size);
+		cpu.eflags.CF=sign;
+		return res;
+	}
+	else
+	{
+		dest=(int32_t)dest;
+		src=(int32_t)src;
+		res=dest>>(src-1);
+		t=res;
+		sign=t&0x1;
+		res=res>>0x1;
+		res=(uint32_t)res;
+		res=res&(0xFFFFFFFF>>(32-data_size));
+		set_PF(res);
+		set_ZF(res,data_size);
+		set_SF(res,data_size);
+		cpu.eflags.CF=sign;
+		return res;
+
+	}
+	
+	// res=dest>>(src-1);
+	// t=res;
+	// sign=t&0x1;
+	// res=res>>0x1;
+	// res=res&(0xFFFFFFFF>>(32-data_size));
+	// set_PF(res);
+	// set_ZF(res,data_size);
+	// set_SF(res,data_size);
+	// cpu.eflags.CF=sign;
+	// return res;
 #endif
 }
 
