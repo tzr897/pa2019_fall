@@ -243,10 +243,6 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size)
 	set_SF(res,data_size);
 	cpu.eflags.CF=sign;
 	return res;
-	// printf("%x\n",0x1010011>>2);
-	// printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
-	// assert(0);
-	// return 0;
 #endif
 }
 
