@@ -254,15 +254,8 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 #else
 	uint32_t t,and_t,res,i,t2;
 	bool sign,cflag;
-
-	dest=dest & (0xFFFFFFFF >> (32 - data_size));
-	src=src & (0xFFFFFFFF >> (32 - data_size));
-
-	//t = dest;
-	//t = t & (0xFFFFFFFF >> (32 - data_size));
-	//t2=t;
-	//t2= t2 & (0xFFFFFFFF >> (32 - data_size));
-	//t2=dest>>(src-1);
+	//dest=dest & (0xFFFFFFFF >> (32 - data_size));
+	//src=src & (0xFFFFFFFF >> (32 - data_size));
 	t2=dest;
 	t=dest>>(src-1);
 	cflag=t&1;
@@ -290,37 +283,11 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 		}
 		res = res & (0xFFFFFFFF >> (32 - data_size));
 	}
-
-	// uint32_t res,t,i,and_t;
-	// int sign;
-	// t=dest;
-	// dest=dest&(0xFFFFFFFF>>(32-data_size));
-	// src=src&(0xFFFFFFFF>>(32-data_size));
-	// t=t&(0xFFFFFFFF>>(32-data_size));
-	// sign = (t >> (data_size - 1)) & 0x1;
-	// and_t=1<<(data_size-1);
-	// t=dest;
-	// if(!sign)
-	// {
-	// 	res=dest>>src;
-	// 	res=res&(0xFFFFFFFF>>(32-data_size));
-	// }
-	// else
-	// {
-	// 	for(i=0;i<src;++i)
-	// 	{
-	// 		t=t>>1;
-	// 		res=t|and_t;
-	// 		t=res;
-	// 	}
-	// 	res=res&(0xFFFFFFFF>>(32-data_size));
-		
-	// }
 	t=res;
 	set_PF(t);
 	set_ZF(t,data_size);
 	set_SF(t,data_size);
-	cpu.eflags.CF=0;
+	cpu.eflags.CF=cflag;
 #endif
 }
 
