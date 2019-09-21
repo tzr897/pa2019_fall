@@ -274,14 +274,12 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	}
 	else
 	{
-		uint32_t and_t=0x1<<(data_size-1);
+		uint32_t and_t=0x1<<(src-1);
 		//and_t=and_t&(0xFFFFFFFF>>(32-data_size));
 		for(i=0;i<src;++i)
 		{
 			dest=dest>>0x1;
 			res=dest|and_t;
-
-			
 		}
 		res=res&(0xFFFFFFFF>>(32-data_size));
 		set_PF(res);
