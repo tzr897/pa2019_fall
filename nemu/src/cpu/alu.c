@@ -271,18 +271,17 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	{
 		for(i=0;i<src;++i)
 		{
-			t=t>>0x1;
-			t2=t|and_t;
-			res=t2;
+			t=t>>1;
+			res=t|and_t;
 			t=res;
 		}
 		res=res&(0xFFFFFFFF>>(32-data_size));
 		
 	}
-	// set_PF(res);
-	// set_ZF(res,data_size);
-	// set_SF(res,data_size);
-	//cpu.eflags.CF=sign;
+	set_PF(res);
+	set_ZF(res,data_size);
+	set_SF(res,data_size);
+	cpu.eflags.CF=sign;
 	return res;
 	/////////////////////////////////////////////////////////
 
