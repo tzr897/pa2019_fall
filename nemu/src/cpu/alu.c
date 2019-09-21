@@ -255,8 +255,8 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	/////////////
 	uint32_t t,andt,res,i;
 	bool sign,cflag;
-	//dest=dest&(0xFFFFFFFF >> (32-data_size));
-	//src=src&(0xFFFFFFFF >> (32-data_size));
+	dest=dest&(0xFFFFFFFF >> (32-data_size));
+	src=src&(0xFFFFFFFF >> (32-data_size));
 	t=dest >> (src-1);
 	cflag=t&0x1;
 	t=dest;
@@ -267,7 +267,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	if(sign==false)
 	{
 		res=dest >> src;
-		//res=res&(0xFFFFFFFF >> (32-data_size));
+		res=res&(0xFFFFFFFF >> (32-data_size));
 		
 	}
 	else
@@ -278,13 +278,13 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 			res=t|andt;
 			t=res;
 		}
-		//res=res&(0xFFFFFFFF >> (32-data_size));
+		res=res&(0xFFFFFFFF >> (32-data_size));
 	}
-	set_PF(res);
-	set_ZF(res,data_size);
-	set_SF(res,data_size);
-	cpu.eflags.CF=cflag;
-	return res;
+	// set_PF(res);
+	// set_ZF(res,data_size);
+	// set_SF(res,data_size);
+	// cpu.eflags.CF=cflag;
+	// return res;
 	/////////////
 
 
