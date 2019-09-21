@@ -243,6 +243,7 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size)
 	// return res;
 	uint32_t res;
 	bool sign;
+	src=src&(0xFFFFFFFF>>(32-data_size));
 	res=(unsigned int)dest>>(src-1);
 	t=res;
 	sign=t&0x1;
