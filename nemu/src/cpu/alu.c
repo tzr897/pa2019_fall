@@ -283,6 +283,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	set_ZF(res,data_size);
 	set_SF(res,data_size);
 	cpu.eflags.CF=cflag;
+	return res;
 	/////////////
 	// uint32_t t,and_t,res,i,t2;
 	// bool sign,cflag;
