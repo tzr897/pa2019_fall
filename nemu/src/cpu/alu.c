@@ -21,10 +21,7 @@ void set_OF_sub(uint32_t result,uint32_t src,uint32_t dest,size_t data_size);
 void set_CF_sbb(uint32_t result,uint32_t src,size_t data_size);
 void set_OF_sbb(uint32_t result,uint32_t src,uint32_t dest,size_t data_size);
 
-//alu_shl()
-void set_CF_shl(uint32_t sign);
-//void set_CF_shl(uint32_t result,uint32_t src,size_t data_size);
-void set_OF_shl(uint32_t result,uint32_t src,uint32_t dest,size_t data_size);
+
 
 
 uint32_t alu_add(uint32_t src, uint32_t dest, size_t data_size)
@@ -216,18 +213,13 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 	src=src&(0xFFFFFFFF>>(32-data_size));
 	res=dest<<(src-1);	
 	t=res;
-	////////
 	sign=t>>(data_size-1);
-	///////
 	res=t<<1;
 	res=res&(0xFFFFFFFF>>(32-data_size));
 	set_PF(res);
 	set_ZF(res,data_size);
 	set_SF(res,data_size);
-	//set_OF_shl(res,src,dest,data_size);
 	cpu.eflags.CF=sign;
-	//set_CF_shl(sign);
-	//set_CF_shl(res,src,data_size);
 	return res;
 #endif
 }
@@ -541,26 +533,3 @@ void set_OF_sbb(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
 }
 
 ////////////////////////////////////////////
-//alu_sal()
-void set_CF_shl(uint32_t sign)
-{
-	// uint32_t dest;
-	// dest=result<<src;
-	// dest=dest&(0xFFFFFFFF>>(32-data_size));
-	// switch(data_size)
-	// {
-	// 	case 8:
-	// 		dest
-	// 		break;
-	// 	case 16:
-	// 		src=sign_ext(src&0xFFFF,16);
-	// 		dest=sign_ext(dest&0xFFFF,16);
-	// 	default:break;
-	// }
-	cpu.eflags.CF=sign;
-}
-
-void set_OF_shl(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
-{
-
-}
