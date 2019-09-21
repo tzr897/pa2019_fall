@@ -256,9 +256,9 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	int sign,cflag;
 	//dest=dest & (0xFFFFFFFF >> (32 - data_size));
 	//src=src & (0xFFFFFFFF >> (32 - data_size));
-	t2=src;
-	t=dest>>(src-1);
-	cflag=t&0x1;
+	t2=dest;
+	//t=dest>>(src-1);
+	cflag=(dest>>(src-1))&0x1;
 	t=dest;
 	//t = t & (0xFFFFFFFF >> (32 - data_size));
 	sign = ((t >> (data_size - 1)) & 0x1);
