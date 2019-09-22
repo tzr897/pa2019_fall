@@ -134,8 +134,6 @@ uint32_t alu_div(uint64_t src, uint64_t dest, size_t data_size)
 		res32=res;
 		return res32;
 	}
-	
-
 #endif
 }
 
