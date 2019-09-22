@@ -122,18 +122,20 @@ uint32_t alu_div(uint64_t src, uint64_t dest, size_t data_size)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_div(src, dest, data_size);
 #else
-	uint64_t res;
-	uint32_t res32;
+	uint64_t res=0;
+	uint32_t res32=0;
 	if(src==0)
 	{
-		//exit(1);
+		exit(1);
+		return 0;
 	}
 	else
 	{
 		res=dest/src;
+		res32=res;
+		return res32;
 	}
-	res32=res;
-	return res32;
+	
 
 #endif
 }
