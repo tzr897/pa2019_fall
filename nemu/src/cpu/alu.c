@@ -270,6 +270,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	}
 	else
 	{
+		res=0;
 		for(i=0;i<src;++i)
 		{
 			t=t >> 1;
