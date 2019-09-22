@@ -22,8 +22,8 @@ void set_CF_sbb(uint32_t result,uint32_t src,size_t data_size);
 void set_OF_sbb(uint32_t result,uint32_t src,uint32_t dest,size_t data_size);
 
 //alu_mul()
-void set_CF_mul(uint64_t result,uint32_t src,size_t data_size);
-void set_OF_mul(uint64_t result,uint32_t src,uint32_t dest,size_t data_size);
+void set_CF_mul(uint64_t result);
+void set_OF_mul(uint64_t result);
 
 
 uint32_t alu_add(uint32_t src, uint32_t dest, size_t data_size)
@@ -100,7 +100,8 @@ uint64_t alu_mul(uint32_t src, uint32_t dest, size_t data_size)
 	uint64_t src64=src,dest64=dest;
 	uint64_t res=0;
 	res=dest64*src64;
-	set_CF_mul(res,src,data_size);
+	set_CF_mul(res);
+	set_OF_mul(res);
 	return res;
 #endif
 }
@@ -578,7 +579,7 @@ void set_OF_sbb(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
 
 ////////////////////////////////////////////
 //alu_mul()
-void set_CF_mul(uint64_t result,uint32_t src,size_t data_size)
+void set_CF_mul(uint64_t result)
 {
 	uint32_t t;
 	t=result>>32;
@@ -591,7 +592,7 @@ void set_CF_mul(uint64_t result,uint32_t src,size_t data_size)
 		cpu.eflags.CF=1;
 	}	
 }
-void set_OF_mul(uint64_t result,uint32_t src,uint32_t dest,size_t data_size)
+void set_OF_mul(uint64_t result)
 {
 	uint32_t t;
 	t=result>>32;
