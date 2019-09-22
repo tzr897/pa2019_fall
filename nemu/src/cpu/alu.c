@@ -589,7 +589,18 @@ void set_CF_mul(uint64_t result,uint32_t src,size_t data_size)
 	else
 	{
 		cpu.eflags.CF=1;
-	}
-	
+	}	
 }
-void set_OF_mul(uint64_t result,uint32_t src,uint32_t dest,size_t data_size);
+void set_OF_mul(uint64_t result,uint32_t src,uint32_t dest,size_t data_size)
+{
+	uint32_t t;
+	t=result>>32;
+	if(t==0)
+	{
+		cpu.eflags.OF=0;
+	}
+	else
+	{
+		cpu.eflags.OF=1;
+	}
+}
