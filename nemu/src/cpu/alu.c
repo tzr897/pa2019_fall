@@ -253,16 +253,16 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	return __ref_alu_sar(src, dest, data_size);
 #else
 	/////////////
-	// uint32_t t,andt,res,i;
-	// bool sign,cflag;
-	// dest=dest&(0xFFFFFFFF >> (32-data_size));
-	// src=src&(0xFFFFFFFF >> (32-data_size));
-	// t=dest >> (src-1);
-	// cflag=t & 0x1;
-	// t=dest;
-	// sign=(t >> (data_size-1))&0x1;
-	// andt=0x1 << (data_size-1);
-	// t=dest;
+	uint32_t t,andt,res,i;
+	bool sign,cflag;
+	dest=dest&(0xFFFFFFFF >> (32-data_size));
+	src=src&(0xFFFFFFFF >> (32-data_size));
+	t=dest >> (src-1);
+	cflag=t & 0x1;
+	t=dest;
+	sign=(t >> (data_size-1))&0x1;
+	andt=0x1 << (data_size-1);
+	t=dest;
 	
 	// if(sign==false)
 	// {
@@ -322,9 +322,9 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	// set_ZF(t,data_size);
 	// set_SF(t,data_size);
 	// cpu.eflags.CF=cflag;
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
-	printf("another problem\n");
-	//assert(0);
+	// printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
+	// printf("another problem\n");
+	// assert(0);
 	return 0;
 #endif
 }
