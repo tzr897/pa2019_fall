@@ -22,8 +22,7 @@ void set_CF_sbb(uint32_t result,uint32_t src,size_t data_size);
 void set_OF_sbb(uint32_t result,uint32_t src,uint32_t dest,size_t data_size);
 
 //alu_mul()
-void set_CF_mul(uint64_t result);
-void set_OF_mul(uint64_t result);
+void set_CF_mul(uint64_t result,size_t data_size);
 
 
 uint32_t alu_add(uint32_t src, uint32_t dest, size_t data_size)
@@ -100,7 +99,7 @@ uint64_t alu_mul(uint32_t src, uint32_t dest, size_t data_size)
 	uint64_t src64=src,dest64=dest;
 	uint64_t res;
 	res=dest64*src64;
-	set_CF_mul(res);
+	set_CF_mul(res,data_size);
 	cpu.eflags.OF=cpu.eflags.CF;
 	return res;
 #endif
@@ -579,10 +578,10 @@ void set_OF_sbb(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
 
 ////////////////////////////////////////////
 //alu_mul()
-void set_CF_mul(uint64_t result)
+void set_CF_mul(uint64_t result,size_t data_size)
 {
 	uint32_t t;
-	t=result>>32;
+	t=result>>(data_size/2);
 	if(t==0)
 	{
 		cpu.eflags.CF=0;
@@ -591,17 +590,4 @@ void set_CF_mul(uint64_t result)
 	{
 		cpu.eflags.CF=1;
 	}	
-}
-void set_OF_mul(uint64_t result)
-{
-	uint32_t t;
-	t=result>>32;
-	if(t==0)
-	{
-		cpu.eflags.OF=0;
-	}
-	else
-	{
-		cpu.eflags.OF=1;
-	}
 }
