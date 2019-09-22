@@ -126,8 +126,7 @@ uint32_t alu_div(uint64_t src, uint64_t dest, size_t data_size)
 	uint32_t res32=0;
 	if(src==0)
 	{
-		exit(1);
-		return 0;
+		abort();
 	}
 	else
 	{
@@ -157,9 +156,11 @@ uint32_t alu_mod(uint64_t src, uint64_t dest)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_mod(src, dest);
 #else
-	// printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
-	// assert(0);
-	// return 0;
+	uint64_t res;
+	uint32_t res32;
+	res=dest%src;
+	res32=res;
+	return res32;
 #endif
 }
 
