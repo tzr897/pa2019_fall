@@ -324,7 +324,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	// cpu.eflags.CF=cflag;
 	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
 	printf("another problem\n");
-	assert(0);
+	//assert(0);
 	return 0;
 #endif
 }
