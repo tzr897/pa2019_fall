@@ -581,7 +581,7 @@ void set_OF_sbb(uint32_t result,uint32_t src,uint32_t dest,size_t data_size)
 void set_CF_mul(uint64_t result,size_t data_size)
 {
 	uint64_t t;
-	t=result>>(data_size);
+	t=result>>data_size;
 	if(t==0)
 	{
 		cpu.eflags.CF=0;
