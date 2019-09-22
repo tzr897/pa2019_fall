@@ -253,38 +253,38 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	return __ref_alu_sar(src, dest, data_size);
 #else
 	////////////////
-	uint32_t t,andt,res,i;
-	uint32_t sign,cflag;
-	dest=dest&(0xFFFFFFFF >> (32-data_size));
-	src=src&(0xFFFFFFFF >> (32-data_size));
-	t=dest >> (src-1);
-	cflag=t & 0x1;
-	t=dest;
-	sign=(t >> (data_size-1))&0x1;
-	andt=0x1 << (data_size-1);
-	t=dest;
+	// uint32_t t,andt,res,i;
+	// uint32_t sign,cflag;
+	// dest=dest&(0xFFFFFFFF >> (32-data_size));
+	// src=src&(0xFFFFFFFF >> (32-data_size));
+	// t=dest >> (src-1);
+	// cflag=t & 0x1;
+	// t=dest;
+	// sign=(t >> (data_size-1))&0x1;
+	// andt=0x1 << (data_size-1);
+	// t=dest;
 	
-	if(sign==0)
-	{
-		res=dest >> src;
-		res=res&(0xFFFFFFFF >> (32-data_size));
+	// if(sign==0)
+	// {
+	// 	res=dest >> src;
+	// 	res=res&(0xFFFFFFFF >> (32-data_size));
 		
-	}
-	else
-	{
-		for(i=0;i<src;++i)
-		{
-			t=t >> 1;
-			res=t|andt;
-			t=res;
-		}
-		res=res&(0xFFFFFFFF >> (32-data_size));
-	}
-	set_PF(res);
-	set_ZF(res,data_size);
-	set_SF(res,data_size);
-	cpu.eflags.CF=cflag;
-	return res;
+	// }
+	// else
+	// {
+	// 	for(i=0;i<src;++i)
+	// 	{
+	// 		t=t >> 1;
+	// 		res=t|andt;
+	// 		t=res;
+	// 	}
+	// 	res=res&(0xFFFFFFFF >> (32-data_size));
+	// }
+	// set_PF(res);
+	// set_ZF(res,data_size);
+	// set_SF(res,data_size);
+	// cpu.eflags.CF=cflag;
+	// return res;
 	///////////
 
 
@@ -322,9 +322,9 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	// set_ZF(t,data_size);
 	// set_SF(t,data_size);
 	// cpu.eflags.CF=cflag;
-	// printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
-	// assert(0);
-	// return 0;
+	printf("\e[0;31mPlease implement me at alu.c?????\e[0m\n");
+	assert(0);
+	return 0;
 #endif
 }
 
