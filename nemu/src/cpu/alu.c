@@ -264,28 +264,28 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	andt=0x1 << (data_size-1);
 	t=dest;
 	
-	// if(sign==false)
-	// {
-	// 	res=dest >> src;
-	// 	res=res&(0xFFFFFFFF >> (32-data_size));
+	if(sign==false)
+	{
+		res=dest >> src;
+		res=res&(0xFFFFFFFF >> (32-data_size));
 		
-	// }
-	// else
-	// {
-	// 	for(i=0;i<src;++i)
-	// 	{
-	// 		t=t >> 1;
-	// 		res=t|andt;
-	// 		t=res;
-	// 	}
-	// 	res=res&(0xFFFFFFFF >> (32-data_size));
-	// }
-	// set_PF(res);
-	// set_ZF(res,data_size);
-	// set_SF(res,data_size);
-	// cpu.eflags.CF=cflag;
-	// return res;
-	/////////////
+	}
+	else
+	{
+		for(i=0;i<src;++i)
+		{
+			t=t >> 1;
+			res=t|andt;
+			t=res;
+		}
+		res=res&(0xFFFFFFFF >> (32-data_size));
+	}
+	set_PF(res);
+	set_ZF(res,data_size);
+	set_SF(res,data_size);
+	cpu.eflags.CF=cflag;
+	return res;
+	///////////
 
 
 	// uint32_t t,and_t,res,i,t2;
