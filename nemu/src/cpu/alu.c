@@ -126,7 +126,7 @@ uint32_t alu_div(uint64_t src, uint64_t dest, size_t data_size)
 	uint32_t res32;
 	if(src==0)
 	{
-		exit(1);
+		//exit(1);
 	}
 	else
 	{
