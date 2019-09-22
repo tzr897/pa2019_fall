@@ -98,10 +98,10 @@ uint64_t alu_mul(uint32_t src, uint32_t dest, size_t data_size)
 	return __ref_alu_mul(src, dest, data_size);
 #else
 	uint64_t src64=src,dest64=dest;
-	uint64_t res=0;
+	uint64_t res;
 	res=dest64*src64;
 	set_CF_mul(res);
-	//set_OF_mul(res);
+	cpu.eflags.OF=cpu.eflags.CF;
 	return res;
 #endif
 }
