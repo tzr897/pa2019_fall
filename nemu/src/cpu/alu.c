@@ -320,9 +320,9 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 	// set_ZF(t,data_size);
 	// set_SF(t,data_size);
 	// cpu.eflags.CF=cflag;
-	printf("\e[0;31m!!!!!!?????\e[0m\n");
-	assert(0);
-	return 0;
+	// printf("\e[0;31m!!!!!!?????\e[0m\n");
+	// assert(0);
+	// return 0;
 #endif
 }
 
