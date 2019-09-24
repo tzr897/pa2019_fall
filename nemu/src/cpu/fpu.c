@@ -12,12 +12,12 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 	// normalization
 	bool overflow = false; // true if the result is INFINITY or 0 during normalize
 
-	if ((sig_grs >> (23 + 3)) > 1 || exp < 0)
+	if ((sig_grs >> (23 + 3)) > 1 || exp < 0)//xuyao yougui
 	{
 		// normalize toward right
-		while ((((sig_grs >> (23 + 3)) > 1) && exp < 0xff) // condition 1
+		while ((((sig_grs >> (23 + 3)) > 1) && exp < 0xff) // condition 1//xuyao yougui
 			   ||										   // or
-			   (sig_grs > 0x04 && exp < 0)				   // condition 2
+			   (sig_grs > 0x04 && exp < 0)				   // condition 2//jiema wei shangyi
 			   )
 		{
 
@@ -27,7 +27,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			//sticky bit
 		}
 
-		if (exp >= 0xff)
+		if (exp >= 0xff)//jiema shangyi
 		{
 			/* TODO: assign the number to infinity */
 			
@@ -48,14 +48,14 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		{
 			/* TODO: assign the number to zero */
 			
-			
+
 			overflow = true;
 		}
 	}
-	else if (((sig_grs >> (23 + 3)) == 0) && exp > 0)
+	else if (((sig_grs >> (23 + 3)) == 0) && exp > 0)//xuyao zuogui
 	{
 		// normalize toward left
-		while (((sig_grs >> (23 + 3)) == 0) && exp > 0)
+		while (((sig_grs >> (23 + 3)) == 0) && exp > 0)//xuyao zuogui & jiema > 0
 		{
 			/* TODO: shift left */
 			sig_grs=sig_grs<<1;
@@ -71,7 +71,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			//sticky bit
 		}
 	}
-	else if (exp == 0 && sig_grs >> (23 + 3) == 1)
+	else if (exp == 0 && sig_grs >> (23 + 3) == 1)//feiguigehuashu dedao guigehuashu
 	{
 		// two denormals result in a normal
 		exp++;
@@ -80,8 +80,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 	if (!overflow)
 	{
 		/* TODO: round up and remove the GRS bits */
-		printf("\e[0;31mPlease implement me at fpu.c\e[0m\n");
-		assert(0);
+		
 	}
 
 	FLOAT f;
