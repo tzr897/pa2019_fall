@@ -33,11 +33,11 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			
 			if(sign(sig_grs)==1)
 			{
-				f.val=P_INF_F;
+				return P_INF_F;
 			}
 			else
 			{
-				f.val=N_INF_F;
+				return N_INF_F;
 			}
 			
 			overflow = true;
@@ -57,11 +57,11 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			
 			if(sign(sig_grs)==1)
 			{
-				f.val=P_ZERO_F;
+				return P_ZERO_F;
 			}
 			else
 			{
-				f.val=N_ZERO_F;
+				return N_ZERO_F;
 			}
 			
 			overflow = true;
