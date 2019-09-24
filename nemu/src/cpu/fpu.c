@@ -99,10 +99,12 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		if(grs>4)
 		{
 			sig_grs+=4;
+			sig_grs=(sig_grs>>3);
 		}
 		else if(grs<4)
 		{
 			sig_grs-=4;
+			sig_grs=(sig_grs>>3);
 		}
 		else
 		{
@@ -117,7 +119,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			
 		}
 		
-		sig_grs=(sig_grs>>3);
+		
 		
 		
 
