@@ -94,10 +94,19 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 	if (!overflow)
 	{
 		/* TODO: round up and remove the GRS bits */
-		uint32_t sticky=0;
-		sticky=sig_grs & 0x1;
+		uint32_t judge=0;
+		if(judge>4)
+		{
+			sig_grs+=8;
+		}
+		else
+		{
+			sig_grs-=4;
+		}
+		sig_grs=(sig_grs>>3);
+		
+		
 
-		//if(sticky)
 	}
 
 	FLOAT f;
