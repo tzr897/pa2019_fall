@@ -169,7 +169,15 @@ uint32_t internal_float_add(uint32_t b, uint32_t a)
 
 	// alignment shift for fa
 	uint32_t shift = 0;
-
+	if(fa.exponent>=fb.exponent)
+	{
+		shift=fa.exponent-fb.exponent;
+	}
+	else
+	{
+		shift=fb.exponent-fa.exponent;
+	}
+	
 	/* TODO: shift = ? */
 
 
