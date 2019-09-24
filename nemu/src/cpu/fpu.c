@@ -33,11 +33,11 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			
 			if(sign(sig_grs)==1)
 			{
-				fa.val=P_INF_F;
+				f.val=P_INF_F;
 			}
 			else
 			{
-				fa.val=N_INF_F;
+				f.val=N_INF_F;
 			}
 			
 			overflow = true;
@@ -57,11 +57,11 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			
 			if(sign(sig_grs)==1)
 			{
-				fa.val=P_ZERO_F;
+				f.val=P_ZERO_F;
 			}
 			else
 			{
-				fa.val=N_ZERO_F;
+				f.val=N_ZERO_F;
 			}
 			
 			overflow = true;
@@ -96,7 +96,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		/* TODO: round up and remove the GRS bits */
 		bool sticky;
 		sticky=sig_grs&0x1;
-		if(sticky)
+		//if(sticky)
 	}
 
 	FLOAT f;
