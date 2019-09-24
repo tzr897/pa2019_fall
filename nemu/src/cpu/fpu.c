@@ -31,6 +31,14 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		{
 			/* TODO: assign the number to infinity */
 			
+			if(sign(sig_grs)==1)
+			{
+				fa.val=P_INF_F;
+			}
+			else
+			{
+				fa.val=N_INF_F;
+			}
 			
 			overflow = true;
 		}
@@ -41,14 +49,21 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			/* TODO: shift right, pay attention to sticky bit*/
 			
 			sig_grs=sig_grs>>1;
-			exp--;
 			//sticky bit
 		}
 		if (exp < 0)
 		{
 			/* TODO: assign the number to zero */
 			
-
+			if(sign(sig_grs)==1)
+			{
+				fa.val=P_ZERO_F;
+			}
+			else
+			{
+				fa.val=N_ZERO_F;
+			}
+			
 			overflow = true;
 		}
 	}
@@ -67,7 +82,6 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			/* TODO: shift right, pay attention to sticky bit*/
 
 			sig_grs=sig_grs>>1;
-			exp--;
 			//sticky bit
 		}
 	}
@@ -80,7 +94,9 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 	if (!overflow)
 	{
 		/* TODO: round up and remove the GRS bits */
-		
+		bool sticky;
+		sticky=sig_grs>>25;
+		if()
 	}
 
 	FLOAT f;
