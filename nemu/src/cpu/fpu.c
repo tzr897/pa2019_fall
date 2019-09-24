@@ -106,13 +106,13 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		}
 		else
 		{
-			if(0x1&((sig_grs+4)>>3)==1)
+			if(0x1&((sig_grs)>>3)==1)
 			{
-				sig_grs=((sig_grs+4)>>3)+0x1;
+				sig_grs=((sig_grs)>>3)+0x1;
 			}
 			else
 			{
-				sig_grs=((sig_grs+4)>>3)+0x1;
+				sig_grs=((sig_grs)>>3);
 			}
 			
 		}
