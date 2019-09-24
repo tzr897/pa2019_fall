@@ -95,8 +95,8 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 	{
 		/* TODO: round up and remove the GRS bits */
 		bool sticky;
-		sticky=sig_grs>>25;
-		if()
+		sticky=sig_grs&0x1;
+		if(sticky)
 	}
 
 	FLOAT f;
