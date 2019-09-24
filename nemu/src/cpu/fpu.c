@@ -94,15 +94,29 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 	if (!overflow)
 	{
 		/* TODO: round up and remove the GRS bits */
-		uint32_t judge=0;
-		if(judge>4)
+		uint32_t grs=0;
+		grs=sig_grs & 0x7;
+		if(grs>4)
 		{
-			sig_grs+=8;
+			sig_grs+=4;
 		}
-		else
+		else if(grs<4)
 		{
 			sig_grs-=4;
 		}
+		else
+		{
+			if(0x1&((sig_grs+4)>>3)==1)
+			{
+				sig_grs=((sig_grs+4)>>3)+0x1;
+			}
+			else
+			{
+				sig_grs=((sig_grs+4)>>3)+0x1;
+			}
+			
+		}
+		
 		sig_grs=(sig_grs>>3);
 		
 		
