@@ -50,6 +50,10 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			
 			sig_grs=sig_grs>>1;
 			//sticky bit
+			uint32_t sticky = 0;
+			sticky = sticky | (sig_a & 0x1);
+			sig_grs = sig_a >> 1;
+			sig_grs |= sticky;
 		}
 		if (exp < 0)
 		{
@@ -83,6 +87,10 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 
 			sig_grs=sig_grs>>1;
 			//sticky bit
+			uint32_t sticky = 0;
+			sticky = sticky | (sig_a & 0x1);
+			sig_grs = sig_a >> 1;
+			sig_grs |= sticky;
 		}
 	}
 	else if (exp == 0 && sig_grs >> (23 + 3) == 1)//feiguigehuashu dedao guigehuashu
@@ -94,6 +102,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 	if (!overflow)
 	{
 		/* TODO: round up and remove the GRS bits */
+		//zijixiede
 		uint32_t grs=0;
 		grs=sig_grs & 0x7;
 		if(grs>4)
@@ -207,6 +216,7 @@ uint32_t internal_float_add(uint32_t b, uint32_t a)
 		sig_b |= 0x800000; // the hidden 1
 
 	// alignment shift for fa
+	//zijixiede
 	uint32_t shift = 0;
 	if(fa.exponent>=fb.exponent)
 	{
