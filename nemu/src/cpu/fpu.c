@@ -223,13 +223,12 @@ uint32_t internal_float_add(uint32_t b, uint32_t a)
 		return b;
 	}
 
-	// if (fa.exponent > fb.exponent)
-	// {
-	// 	fa.val = b;
-	// 	fb.val = a;
-	// }
-	shift = (fb.exponent == 0 ? fb.exponent + 1 : fb.exponent) - (fa.exponent == 0 ? fa.exponent + 1 : 
-fa.exponent);
+	if (fa.exponent > fb.exponent)
+	{
+		fa.val = b;
+		fb.val = a;
+	}
+	
 
 	uint32_t sig_a, sig_b, sig_res;
 	sig_a = fa.fraction;
@@ -242,15 +241,16 @@ fa.exponent);
 	// alignment shift for fa
 	//zijixiede
 	uint32_t shift = 0;
-	if(fa.exponent>=fb.exponent)
-	{
-		shift=fa.exponent-fb.exponent;
-	}
-	else
-	{
-		shift=fb.exponent-fa.exponent;
-	}
-	
+	// if(fa.exponent>=fb.exponent)
+	// {
+	// 	shift=fa.exponent-fb.exponent;
+	// }
+	// else
+	// {
+	// 	shift=fb.exponent-fa.exponent;
+	// }
+	shift = (fb.exponent == 0 ? fb.exponent + 1 : fb.exponent) - (fa.exponent == 0 ? fa.exponent + 1 : 
+fa.exponent);
 	/* TODO: shift = ? */
 
 
