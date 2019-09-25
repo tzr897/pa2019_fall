@@ -12,7 +12,7 @@ void fpu_test_add()
 		p_nan.fval, n_nan.fval, denorm_3.fval, small_1.fval, small_2.fval,
 		10000000, 1.2, 1.1, 1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, -0.1, -0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1, -10000000};*//zhihouyao
 	FLOAT a, b, res, res_fpu;
-	//int i, j;//zhihouyao
+	int i;//j;//zhihouyao j
 	// int count = 0;
 	/*
 	for (i = 0; i < sizeof(input) / sizeof(float); i++)
