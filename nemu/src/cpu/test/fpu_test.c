@@ -3,14 +3,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-static FLOAT p_zero, n_zero, p_inf, n_inf, p_nan, n_nan, denorm_1, denorm_2, denorm_3, big_1, big_2, small_1, small_2;
+//static FLOAT p_zero, n_zero, p_inf, n_inf, p_nan, n_nan, denorm_1, denorm_2, denorm_3, big_1, big_2, small_1, small_2;zhihouyao
 
 void fpu_test_add()
 {
 	/* float input[] = {
 		p_zero.fval, n_zero.fval, p_inf.fval, n_inf.fval, denorm_1.fval, denorm_2.fval, big_1.fval, big_2.fval,
 		p_nan.fval, n_nan.fval, denorm_3.fval, small_1.fval, small_2.fval,
-		10000000, 1.2, 1.1, 1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, -0.1, -0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1, -10000000};*//zhihouyao
+		10000000, 1.2, 1.1, 1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, -0.1, -0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1, -10000000};*///zhihouyao
 	FLOAT a, b, res, res_fpu;
 	int i;//j;//zhihouyao j
 	// int count = 0;
