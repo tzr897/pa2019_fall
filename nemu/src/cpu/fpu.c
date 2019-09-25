@@ -22,7 +22,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		{
 
 			/* TODO: shift right, pay attention to sticky bit*/
-			sig_grs=sig_grs>>1;
+			//sig_grs=sig_grs>>1;
 			exp++;
 			//sticky bit
 			uint32_t sticky = 0;
@@ -30,12 +30,13 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			sig_grs = sig_grs >> 1;
 			sig_grs |= sticky;
 		}
+		
 
 		if (exp >= 0xff)//jiema shangyi
 		{
 			/* TODO: assign the number to infinity */
 			
-			if(sign(sig_grs)==1)
+			if(sign==1)
 			{
 				return N_INF_F;
 			}
@@ -52,7 +53,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			// as a result, the significand should shift right once more
 			/* TODO: shift right, pay attention to sticky bit*/
 			
-			sig_grs=sig_grs>>1;
+			//sig_grs=sig_grs>>1;
 			//sticky bit
 			uint32_t sticky = 0;
 			sticky = sticky | (sig_grs & 0x1);
@@ -63,7 +64,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		{
 			/* TODO: assign the number to zero */
 			
-			if(sign(sig_grs)==1)
+			if(sign==1)
 			{
 				return N_ZERO_F;
 			}
@@ -89,7 +90,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			// denormal
 			/* TODO: shift right, pay attention to sticky bit*/
 
-			sig_grs=sig_grs>>1;
+			//sig_grs=sig_grs>>1;
 			//sticky bit
 			uint32_t sticky = 0;
 			sticky = sticky | (sig_grs & 0x1);
@@ -138,7 +139,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 
 		if(exp>=0xff)
 		{
-			if(sign(sig_grs)==1)
+			if(sign==1)
 			{
 				return N_INF_F;
 			}
