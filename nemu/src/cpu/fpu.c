@@ -132,7 +132,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			sig_grs=(sig_grs>>3);
 			if((sig_grs&0x1)==0)
 			{
-				sig_grs+=0x2;
+				sig_grs+=0x4;
 			}
 
 			
