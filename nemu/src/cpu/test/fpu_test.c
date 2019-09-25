@@ -3,18 +3,18 @@
 #include <stdlib.h>
 #include <time.h>
 
-//static FLOAT p_zero, n_zero, p_inf, n_inf, p_nan, n_nan, denorm_1, denorm_2, denorm_3, big_1, big_2, small_1, small_2;zhihouyao
+static FLOAT p_zero, n_zero, p_inf, n_inf, p_nan, n_nan, denorm_1, denorm_2, denorm_3, big_1, big_2, small_1, small_2;
 
 void fpu_test_add()
 {
-	/* float input[] = {
+	float input[] = {
 		p_zero.fval, n_zero.fval, p_inf.fval, n_inf.fval, denorm_1.fval, denorm_2.fval, big_1.fval, big_2.fval,
 		p_nan.fval, n_nan.fval, denorm_3.fval, small_1.fval, small_2.fval,
-		10000000, 1.2, 1.1, 1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, -0.1, -0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1, -10000000};*///zhihouyao
+		10000000, 1.2, 1.1, 1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, -0.1, -0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1, -10000000};
 	FLOAT a, b, res, res_fpu;
-	int i;//j;//zhihouyao j
+	int i,j;
 	// int count = 0;
-	/*
+	
 	for (i = 0; i < sizeof(input) / sizeof(float); i++)
 	{
 		for (j = 0; j < sizeof(input) / sizeof(float); j++)
@@ -24,18 +24,13 @@ void fpu_test_add()
 			b.fval = input[j];
 			res.fval = a.fval + b.fval;
 			res_fpu.val = internal_float_add(b.val, a.val);
-			printf("float add a = %f, b = %f, ua = %x, ub = %x, res = %x, res_fpu = %x, res = %f, res_fpu = %f\n", a.fval, b.fval, a.val, b.val, res.val, res_fpu.val, res.fval, res_fpu.fval);//zhihoushan printf
+			printf("float add a = %f, b = %f, ua = %x, ub = %x, res = %x, res_fpu = %x, res = %f, res_fpu = %f\n", a.fval, b.fval, a.val, b.val, res.val, res_fpu.val, res.fval, res_fpu.fval);
 			assert(res_fpu.val == res.val);
 		}
 	}
-	*/
-	a.fval=1;
-	b.fval=800000;
-	res.fval=a.val+b.fval;
-	res_fpu.val=internal_float_add(b.val,a.val);
-	printf("a=%f,b=%f,ua=%x,ub=%x,res=%x,res_fpu=%x,res=%f,res_fpu=%f\n",a.fval,b.fval,a.val,b.val,res.val,res_fpu.val,res.fval,res_fpu.fval);
-	assert(res_fpu.val==res.val);
-	/* zhihouyao
+	
+	
+
 	srand(time(0));
 	for (i = 0; i < 1000000; i++)
 	{
@@ -215,4 +210,3 @@ void init_fpu_test()
 	big_2.exponent = 254;
 	big_2.fraction = 1;
 }
-*///zhihouyao
