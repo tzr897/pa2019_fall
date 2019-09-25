@@ -90,10 +90,6 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		{
 			// denormal
 			/* TODO: shift right, pay attention to sticky bit*/
-
-			//sig_grs=sig_grs>>1;
-			//sticky bit
-			//uint32_t sticky = 0;
 			sticky=0;
 			sticky = sticky | (sig_grs & 0x1);
 			sig_grs = sig_grs >> 1;
@@ -356,7 +352,7 @@ uint32_t internal_float_mul(uint32_t b, uint32_t a)
 	uint32_t exp_res = 0;
 
 	/* TODO: exp_res = ? leave space for GRS bits. */
-	exp_res=fa.exponent+fb.exponent-20;
+	exp_res=fa.exponent+fb.exponent-21;
 
 
 
