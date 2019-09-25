@@ -114,12 +114,12 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		//zijixiede
 		uint32_t grs=0;
 		grs=sig_grs & 0x7;
-		if(grs>0x4)
+		if(grs>0x3)
 		{
 			sig_grs=(sig_grs>>3);
 			sig_grs+=0x1;
 		}
-		else if(grs<0x4)
+		else if(grs<0x3)
 		{
 			sig_grs=(sig_grs>>3);
 		}
