@@ -14,6 +14,7 @@ void fpu_test_add()
 	FLOAT a, b, res, res_fpu;
 	int i, j;
 	// int count = 0;
+	/*
 	for (i = 0; i < sizeof(input) / sizeof(float); i++)
 	{
 		for (j = 0; j < sizeof(input) / sizeof(float); j++)
@@ -27,6 +28,13 @@ void fpu_test_add()
 			assert(res_fpu.val == res.val);
 		}
 	}
+	*/
+	a.fval=1;
+	b.fval=800000;
+	res.fval=a.val+b.fval;
+	res_fpu.val=internal_float_add(b.val,a.val);
+	printf("a=%f,b=%f,ua=%x,ub=%x,res=%x,res_fpu=%x,res=%f,res_fpu=%f\n",a.fval,b.fval,a.val,b.val,res.val,res_fpu.val,res.fval,res_fpu.fval);
+	assert(res_fpu.val==res.val);
 
 	srand(time(0));
 	for (i = 0; i < 1000000; i++)
