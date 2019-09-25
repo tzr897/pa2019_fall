@@ -30,7 +30,6 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			//uint32_t sticky = 0;
 			sticky = sticky | (sig_grs & 0x1);
 			sig_grs = sig_grs >> 1;
-			
 			sig_grs |= sticky;
 		}
 		
@@ -50,6 +49,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			
 			overflow = true;
 		}
+
 		if (exp == 0)
 		{
 			// we have a denormal here, the exponent is 0, but means 2^-126,
@@ -101,7 +101,6 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			sticky=0;
 			sticky = sticky | (sig_grs & 0x1);
 			sig_grs = sig_grs >> 1;
-			
 			sig_grs |= sticky;
 			exp++;
 		}
