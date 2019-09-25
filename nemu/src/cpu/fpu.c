@@ -109,7 +109,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 	else if (exp == 0 && sig_grs >> (23 + 3) == 1)//feiguigehuashu dedao guigehuashu
 	{
 		// two denormals result in a normal
-		exp++;
+		//exp++;
 	}
 
 	if (!overflow)
@@ -133,9 +133,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			if((sig_grs&0x1)==0x1)
 			{
 				sig_grs+=1;
-			}
-
-			
+			}	
 		}
 
 		
