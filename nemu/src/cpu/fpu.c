@@ -58,7 +58,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			
 			//sig_grs=sig_grs>>1;
 			//sticky bit
-			//sticky = 0;
+			sticky = 0;
 			sticky = sticky | (sig_grs & 0x1);
 			sig_grs = (sig_grs >> 1);
 			
@@ -98,7 +98,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			//sig_grs=sig_grs>>1;
 			//sticky bit
 			//uint32_t sticky = 0;
-			//sticky=0;
+			sticky=0;
 			sticky = sticky | (sig_grs & 0x1);
 			sig_grs = sig_grs >> 1;
 			sig_grs |= sticky;
@@ -154,7 +154,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			}
 
 		}
-		else if((sig_grs>>23)==1)
+		else if(((sig_grs>>23)==1)&&(sig_grs==0));
 		{
 			exp++;
 			if(exp>=0xff)
