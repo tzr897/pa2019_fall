@@ -353,7 +353,7 @@ uint32_t internal_float_mul(uint32_t b, uint32_t a)
 
 	/* TODO: exp_res = ? leave space for GRS bits. */
 	//sig_res
-	exp_res=fa.exponent+fb.exponent-146;
+	exp_res=fa.exponent+fb.exponent-147;
 
 
 
