@@ -61,9 +61,8 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			sticky = 0;
 			sticky = sticky | (sig_grs & 0x1);
 			sig_grs = (sig_grs >> 1);
-			
 			sig_grs |= sticky;
-			exp++;
+			//exp++;
 		}
 		if (exp < 0)
 		{
@@ -102,7 +101,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			sticky = sticky | (sig_grs & 0x1);
 			sig_grs = sig_grs >> 1;
 			sig_grs |= sticky;
-			//exp++;
+
 		}
 	}
 	else if (exp == 0 && sig_grs >> (23 + 3) == 1)//feiguigehuashu dedao guigehuashu
