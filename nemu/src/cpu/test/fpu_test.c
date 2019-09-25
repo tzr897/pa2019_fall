@@ -35,7 +35,7 @@ void fpu_test_add()
 	res_fpu.val=internal_float_add(b.val,a.val);
 	printf("a=%f,b=%f,ua=%x,ub=%x,res=%x,res_fpu=%x,res=%f,res_fpu=%f\n",a.fval,b.fval,a.val,b.val,res.val,res_fpu.val,res.fval,res_fpu.fval);
 	assert(res_fpu.val==res.val);
-
+	/* zhihouyao
 	srand(time(0));
 	for (i = 0; i < 1000000; i++)
 	{
@@ -215,3 +215,4 @@ void init_fpu_test()
 	big_2.exponent = 254;
 	big_2.fraction = 1;
 }
+*///zhihouyao
