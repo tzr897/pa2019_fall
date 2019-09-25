@@ -131,20 +131,20 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		{
 			sig_grs=(sig_grs>>1);
 			exp++;
-			if(exp>=0xff)
-			{
-				if(sign==1)
-				{
-					return N_INF_F;
-				}
-				else
-				{
-					return P_INF_F;
-				}			
-				overflow = true;
-			}
-
+			
 		}
+		if(exp>=0xff)
+		{
+			if(sign==1)
+			{
+				return N_INF_F;
+			}
+			else
+			{
+				return P_INF_F;
+			}			
+			overflow = true;
+		}	
 	
 		
 	}
