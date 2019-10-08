@@ -113,7 +113,7 @@ int64_t alu_imul(int32_t src, int32_t dest, size_t data_size)
 	int64_t res;
 	int64_t src64=src;
 	int64_t dest64=dest;
-	res=src*dest;
+	res=src64*dest64;
 	return res;
 #endif
 }
