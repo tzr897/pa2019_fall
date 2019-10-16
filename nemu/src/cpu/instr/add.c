@@ -1,10 +1,10 @@
-#include "cpu/instr.h"
+// #include "cpu/instr.h"
 
-static void instr_execute_2op() 
-{
-	operand_read(&opr_src);
+// static void instr_execute_2op() 
+// {
+// 	operand_read(&opr_src);
 	
-	operand_write(&opr_dest);
-}
+// 	operand_write(&opr_dest);
+// }
 
-make_instr_func(add_rm2r_v)
+// make_instr_func(add_rm2r_v)
