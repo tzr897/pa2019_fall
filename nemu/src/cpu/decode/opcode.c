@@ -1,7 +1,7 @@
 #include "cpu/instr.h"
 
 instr_func opcode_entry[256] = {
-    /* 0x00 - 0x03*/ mov_zrm162r_w, mov_zrm162r_l, inv, inv,//10.16gai?
+    /* 0x00 - 0x03*/ mov_zrm162r_l, mov_zrm162r_l, inv, inv,//10.16gai?
     /* 0x04 - 0x07*/ inv, mov_zrm162r_l, inv, inv,//10.16gai?
     /* 0x08 - 0x0b*/ inv, inv, inv, inv,
     /* 0x0c - 0x0f*/ inv, inv, inv, opcode_2_byte,
@@ -64,7 +64,7 @@ instr_func opcode_entry[256] = {
     /* 0xf0 - 0xf3*/ inv, break_point, inv, rep_repe,
     /* 0xf4 - 0xf7*/ hlt, inv, group_3_b, group_3_v,
     /* 0xf8 - 0xfb*/ clc, inv, inv, inv,
-    /* 0xfc - 0xff*/ cld, inv, inv, inv,//group_5_indirect,//10.16gai?
+    /* 0xfc - 0xff*/ cld, inv, inv, mov_zrm162r_w,//group_5_indirect,//10.16gai?
 };
 
 /* 0x80 */
