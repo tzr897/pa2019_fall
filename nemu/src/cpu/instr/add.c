@@ -7,4 +7,4 @@ static void instr_execute_2op()
 	operand_write(&opr_dest);
 }
 
-make_instr_func()
+make_instr_func(add_rm2r_v)
