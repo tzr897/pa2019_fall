@@ -53,7 +53,7 @@ make_instr_func(mov_zrm162r_w) {
         int len = 1;
         OPERAND r, rm;
         r.data_size = 32;
-        rm.data_size = 32;
+        rm.data_size = 16;
         len += modrm_r_rm(eip + 1, &r, &rm);
 
         operand_read(&rm);
@@ -68,7 +68,7 @@ make_instr_func(mov_zrm162r_b) {
         int len = 1;
         OPERAND r, rm;
         r.data_size = 32;
-        rm.data_size = 32;
+        rm.data_size = 16;
         len += modrm_r_rm(eip + 1, &r, &rm);
 
         operand_read(&rm);
