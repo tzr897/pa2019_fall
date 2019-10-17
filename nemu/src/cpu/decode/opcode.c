@@ -3,7 +3,7 @@
 instr_func opcode_entry[256] = {
     /* 0x00 - 0x03*/ inv, cmps_v, cmps_v, cmps_v,//10.1701cmps_v,02cmps_v,03cmps_v
     /* 0x04 - 0x07*/ cmps_v, cmps_v, cmps_v, cmps_v,//10.1704cmps_v,05cmps_v,06cmps_v,07cmps_v
-    /* 0x08 - 0x0b*/ cmps_v, inv, inv, inv,//10.1708cmps_v
+    /* 0x08 - 0x0b*/ cmps_v, cmps_v, inv, inv,//10.1708cmps_v,09cmps_v
     /* 0x0c - 0x0f*/ inv, inv, inv, opcode_2_byte,
     /* 0x10 - 0x13*/ inv, inv, inv, inv,
     /* 0x14 - 0x17*/ inv, inv, inv, inv,
