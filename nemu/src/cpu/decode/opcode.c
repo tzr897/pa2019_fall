@@ -1,8 +1,8 @@
 #include "cpu/instr.h"
 
 instr_func opcode_entry[256] = {
-    /* 0x00 - 0x03*/ mov_zrm162r_l, mov_zrm162r_l, inv, inv,//10.16?//10.17?
-    /* 0x04 - 0x07*/ mov_zrm162r_b, mov_zrm162r_l, inv, inv,//10.16?
+    /* 0x00 - 0x03*/ inv, inv, inv, inv,//10.16?//10.17?
+    /* 0x04 - 0x07*/ inv, inv, inv, inv,//10.16?
     /* 0x08 - 0x0b*/ inv, inv, inv, inv,
     /* 0x0c - 0x0f*/ inv, inv, inv, opcode_2_byte,
     /* 0x10 - 0x13*/ inv, inv, inv, inv,
@@ -17,7 +17,7 @@ instr_func opcode_entry[256] = {
     /* 0x34 - 0x37*/ inv, inv, inv, inv,
     /* 0x38 - 0x3b*/ inv, inv, inv, inv,
     /* 0x3c - 0x3f*/ inv, inv, inv, inv,
-    /* 0x40 - 0x43*/ inv, mov_zrm162r_w, inv, inv,//10.17?
+    /* 0x40 - 0x43*/ inv, inv inv, inv,//10.17?
     /* 0x44 - 0x47*/ inv, inv, inv, inv,
     /* 0x48 - 0x4b*/ inv, inv, inv, inv,
     /* 0x4c - 0x4f*/ inv, inv, inv, inv,
@@ -33,7 +33,7 @@ instr_func opcode_entry[256] = {
     /* 0x74 - 0x77*/ inv, inv, inv, inv,
     /* 0x78 - 0x7b*/ inv, inv, inv, inv,
     /* 0x7c - 0x7f*/ inv, inv, inv, inv,
-    /* 0x80 - 0x83*/ cmps_v, group_1_v, nemu_trap, inv,//10.16?//10.17?
+    /* 0x80 - 0x83*/ inv, group_1_v, nemu_trap, inv,//10.16?//10.17?
     /* 0x84 - 0x87*/ inv, inv, inv, inv,
     /* 0x88 - 0x8b*/ mov_r2rm_b, mov_r2rm_v, mov_rm2r_b, mov_rm2r_v,
     /* 0x8c - 0x8f*/ inv, inv, inv, inv,
@@ -64,7 +64,7 @@ instr_func opcode_entry[256] = {
     /* 0xf0 - 0xf3*/ inv, break_point, inv, rep_repe,
     /* 0xf4 - 0xf7*/ hlt, inv, group_3_b, group_3_v,
     /* 0xf8 - 0xfb*/ clc, inv, inv, inv,
-    /* 0xfc - 0xff*/ cld, mov_zrm162r_b, cmps_v, mov_zrm162r_w,//group_5_indirect,//10.16?//10.17?
+    /* 0xfc - 0xff*/ cld, inv, inv, inv,//group_5_indirect,//10.16?//10.17?
 };
 
 /* 0x80 */
