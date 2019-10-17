@@ -64,7 +64,7 @@ instr_func opcode_entry[256] = {
     /* 0xf0 - 0xf3*/ inv, break_point, inv, rep_repe,
     /* 0xf4 - 0xf7*/ hlt, inv, group_3_b, group_3_v,
     /* 0xf8 - 0xfb*/ clc, inv, inv, inv,
-    /* 0xfc - 0xff*/ cld, inv, inv, inv,//group_5_indirect,//10.16?//10.17?
+    /* 0xfc - 0xff*/ cld, inv, inv, group_5_indirect,//10.16?//10.17?
 };
 
 /* 0x80 */
