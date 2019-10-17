@@ -26,7 +26,7 @@ extern uint8_t data_size;
 make_instr_func(cmps_v);
 make_instr_func(cmps_b);
 make_instr_func(mov_zrm162r_w);
-
+make_instr_func(mov_zrm162r_b);
 
 
 #endif
