@@ -9,3 +9,15 @@ static void instr_execute_2op()
 	alu_sub(opr_src.val,opr_dest.val,data_size);
 }
 
+make_instr_impl_2op(cmp, r, rm, b)
+make_instr_impl_2op(cmp, r, rm, v)
+make_instr_impl_2op(, rm, r, b)
+make_instr_impl_2op(mov, rm, r, v)
+make_instr_impl_2op(mov, i, rm, b)
+make_instr_impl_2op(mov, i, rm, v)
+make_instr_impl_2op(mov, i, r, b)
+make_instr_impl_2op(mov, i, r, v)
+make_instr_impl_2op(mov, a, o, b)
+make_instr_impl_2op(mov, a, o, v)
+make_instr_impl_2op(mov, o, a, b)
+make_instr_impl_2op(mov, o, a, v)
