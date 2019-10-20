@@ -24,9 +24,9 @@ extern uint8_t data_size;
 #include "cpu/instr/cmp.h"
 
 /* TODO: add more instructions here */
-make_instr_func(cmps_v);
-make_instr_func(cmps_b);
-make_instr_func(mov_zrm162r_w);
-make_instr_func(mov_zrm162r_b);
+// make_instr_func(cmps_v);
+// make_instr_func(cmps_b);
+// make_instr_func(mov_zrm162r_w);
+// make_instr_func(mov_zrm162r_b);
 
 #endif
