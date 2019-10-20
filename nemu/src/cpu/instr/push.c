@@ -1,4 +1,4 @@
-#include "cpuid.h/instr.h"
+#include "cpu.h/instr.h"
 
 static void instr_execute_1op()
 {
