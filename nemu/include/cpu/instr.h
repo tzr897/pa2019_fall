@@ -28,6 +28,6 @@ make_instr_func(cmps_v);
 make_instr_func(cmps_b);
 make_instr_func(mov_zrm162r_w);
 make_instr_func(mov_zrm162r_b);
-
+make_instr_impl_2op(cmp_i2rm_bv);
 
 #endif
