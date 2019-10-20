@@ -21,13 +21,12 @@ extern uint8_t data_size;
 #include "cpu/instr/group.h"
 #include "cpu/instr/special.h"
 #include "cpu/instr/x87.h"
-//#include "cpu/instr/cmp.h"
+#include "cpu/instr/cmp.h"
 
 /* TODO: add more instructions here */
 make_instr_func(cmps_v);
 make_instr_func(cmps_b);
 make_instr_func(mov_zrm162r_w);
 make_instr_func(mov_zrm162r_b);
-make_instr_impl_2op(cmp_i2rm_bv);
 
 #endif
