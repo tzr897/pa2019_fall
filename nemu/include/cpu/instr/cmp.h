@@ -1,5 +1,5 @@
-#ifndef __INSTR_MOV_H__
-#define __INSTR_MOV_H__
+#ifndef __INSTR_CMP_H__
+#define __INSTR_CMP_H__
 
 
 make_instr_func(cmp_r2rm_b);
