@@ -64,7 +64,7 @@ uint32_t alu_sub(uint32_t src, uint32_t dest, size_t data_size)
 #else
 	uint32_t res =0;
 	res=dest-src;
-	set_CF_sub(dest,src,data_size);
+	set_CF_sub(src,src,data_size);
 	set_PF(res);
 	set_ZF(res,data_size);
 	set_SF(res,data_size);
