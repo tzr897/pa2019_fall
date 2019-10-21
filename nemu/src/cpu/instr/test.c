@@ -4,7 +4,7 @@ static void instr_execute_2op()
 {
     operand_read(&opr_src);
     operand_read(&opr_dest);
-    alu_and(opr_src,opr_dest,data_size);
+    opr_dest.val=alu_and(opr_src,opr_dest,data_size);
     return 0;
 
 }
