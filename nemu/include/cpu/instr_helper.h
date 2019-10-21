@@ -170,52 +170,52 @@ static inline bool inv_cc();
 	cpu.eflags.ZF==1//==
 
 #define condition_a \
-	inv_cc()
+	//inv_cc()
 
 #define condition_ae \
-	inv_cc()
+	//inv_cc()
 
 #define condition_b \
-	inv_cc()
+	//inv_cc()
 
 #define condition_be \
-	inv_cc()
+	//inv_cc()
 
 #define condition_o \
-	inv_cc()
+	//inv_cc()
 
 #define condition_p \
-	inv_cc()
+	//inv_cc()
 
 #define condition_s \
-	inv_cc()
+	//inv_cc()
 
 #define condition_ne \
 	cpu.eflags.ZF==0
 
 #define condition_na \
-	inv_cc()
+	//inv_cc()
 
 #define condition_no \
-	inv_cc()
+	//inv_cc()
 
 #define condition_np \
-	inv_cc()
+	//inv_cc()
 
 #define condition_ns \
-	inv_cc()
+	//inv_cc()
 
 #define condition_g \
-	inv_cc()
+	//inv_cc()
 
 #define condition_ge \
-	inv_cc()
+	//inv_cc()
 
 #define condition_l \
-	inv_cc()
+	//inv_cc()
 
 #define condition_le \
-	inv_cc()
+	//inv_cc()
 
 #define condition_ecxz \
 	cpu.ecx == 0
