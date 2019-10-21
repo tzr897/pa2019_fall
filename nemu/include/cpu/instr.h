@@ -26,7 +26,7 @@ extern uint8_t data_size;
 #include "cpu/instr/call.h"
 #include "cpu/instr/ret.h"
 #include "cpu/instr/add.h"
-
+#include "cpu/instr/test.h"
 
 /* TODO: add more instructions here */
 // make_instr_func(cmps_v);
