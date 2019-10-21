@@ -9,7 +9,7 @@ make_instr_func(ret_near)
     i.sreg=SREG_DS;
     operand_read(&i);
     cpu.esp+=data_size/8;
-    cpu.eip+=i.val;
+    cpu.eip=i.val;
 
     return 0;
 }
