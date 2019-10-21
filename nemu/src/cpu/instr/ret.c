@@ -10,5 +10,7 @@ make_instr_func(ret_near)
     operand_read(&i);
     cpu.esp+=data_size/8;
     cpu.eip+=i.val;
+
+    return 0;
 }
 
