@@ -229,9 +229,9 @@ static inline bool inv_cc()
 
 
 
-	
 
-	// assert(0);
+
+	assert(0);
 	return true;//concat(condition_, cc);
 }
 
