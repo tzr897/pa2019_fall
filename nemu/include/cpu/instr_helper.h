@@ -179,7 +179,7 @@ static inline bool inv_cc();
 	cpu.eflags.CF==1
 
 #define condition_be \
-	1==cpu.eflags.CF|1==cpu.eflags.ZF
+	1==cpu.eflags.CF||1==cpu.eflags.ZF
 
 #define condition_o \
 	1==cpu.eflags.OF
@@ -194,7 +194,7 @@ static inline bool inv_cc();
 	0==cpu.eflags.ZF
 
 #define condition_na \
-	1==cpu.eflags.CF|1==cpu.eflags.ZF
+	1==cpu.eflags.CF||1==cpu.eflags.ZF
 
 #define condition_no \
 	0==cpu.eflags.OF
@@ -206,7 +206,7 @@ static inline bool inv_cc();
 	0==cpu.eflags.SF
 
 #define condition_g \
-	0==cpu.eflags.ZF|0==(cpu.eflags.SF^cpu.eflags.OF)
+	0==cpu.eflags.ZF||0==(cpu.eflags.SF^cpu.eflags.OF)
 
 #define condition_ge \
 	0==cpu.eflags.SF^cpu.eflags.OF
@@ -215,7 +215,7 @@ static inline bool inv_cc();
 	1==cpu.eflags.SF^cpu.eflags.OF
 
 #define condition_le \
-	0==cpu.eflags.ZF|(cpu.eflags.SF^cpu.eflags.OF)
+	1==cpu.eflags.ZF||1==(cpu.eflags.SF^cpu.eflags.OF)
 
 #define condition_ecxz \
 	cpu.ecx == 0
