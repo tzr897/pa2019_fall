@@ -167,55 +167,55 @@ void print_asm_3(char *instr, char *suffix, uint8_t len, OPERAND *opr_1, OPERAND
 static inline bool inv_cc();
 
 #define condition_e \
-	cpu.eflags.ZF==1
+	(cpu.eflags.ZF==1)
 
 #define condition_a \
-	cpu.eflags.CF==0&&cpu.eflags.ZF==0
+	((cpu.eflags.CF==0)&&(cpu.eflags.ZF==0))
 
 #define condition_ae \
-	cpu.eflags.CF==0||cpu.eflags.ZF==1
+	((cpu.eflags.CF==0)||(cpu.eflags.ZF==1))
 
 #define condition_b \
-	cpu.eflags.CF==1||cpu.eflags.ZF==0
+	((cpu.eflags.CF==1)||(cpu.eflags.ZF==0))
 
 #define condition_be \
-	1==cpu.eflags.CF||1==cpu.eflags.ZF
+	((1==cpu.eflags.CF)||(1==cpu.eflags.ZF))
 
 #define condition_o \
-	1==cpu.eflags.OF
+	(1==cpu.eflags.OF)
 
 #define condition_p \
-	1==cpu.eflags.PF
+	(1==cpu.eflags.PF)
 
 #define condition_s \
-	1==cpu.eflags.SF
+	(1==cpu.eflags.SF)
 
 #define condition_ne \
-	0==cpu.eflags.ZF
+	(0==cpu.eflags.ZF)
 
 #define condition_na \
-	1==cpu.eflags.CF||1==cpu.eflags.ZF
+	((1==cpu.eflags.CF)||(1==cpu.eflags.ZF))
 
 #define condition_no \
-	0==cpu.eflags.OF
+	(0==cpu.eflags.OF)
 
 #define condition_np \
-	0==cpu.eflags.PF
+	(0==cpu.eflags.PF)
 
 #define condition_ns \
-	0==cpu.eflags.SF
+	(0==cpu.eflags.SF)
 
 #define condition_g \
-	0==cpu.eflags.ZF&&0==(cpu.eflags.SF^cpu.eflags.OF)
+	((0==cpu.eflags.ZF)&&(0==(cpu.eflags.SF^cpu.eflags.OF)))
 
 #define condition_ge \
-	0==cpu.eflags.SF^cpu.eflags.OF||cpu.eflags.ZF==1
+	((0==(cpu.eflags.SF^cpu.eflags.OF))||(cpu.eflags.ZF==1))
 
 #define condition_l \
-	1==cpu.eflags.SF^cpu.eflags.OF&&cpu.eflags.ZF==0
+	((1==(cpu.eflags.SF^cpu.eflags.OF))&&(cpu.eflags.ZF==0))
 
 #define condition_le \
-	1==cpu.eflags.ZF||1==(cpu.eflags.SF^cpu.eflags.OF)
+	((1==cpu.eflags.ZF)||(1==(cpu.eflags.SF^cpu.eflags.OF)))
 
 #define condition_ecxz \
 	cpu.ecx == 0
