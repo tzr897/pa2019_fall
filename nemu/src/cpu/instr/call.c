@@ -2,6 +2,7 @@
 
 make_instr_func(call_near)
 {
+    int offset;
     OPERAND rel,i;
     rel.data_size=data_size;
     rel.type=OPR_IMM;
@@ -16,8 +17,8 @@ make_instr_func(call_near)
     i.sreg=SREG_SS;
     i.val=(eip+1)+data_size/8;
     operand_write(&i);
-
-    cpu.eip+=sign_ext(rel.val,data_size)+1+data_size/8;
+    offset=sign_ext(rel.val,data_size);
+    cpu.eip+=offset+1+data_size/8;
     return 0;
 
 }
