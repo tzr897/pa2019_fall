@@ -29,7 +29,7 @@ instr_func opcode_entry[256] = {
     /* 0x64 - 0x67*/ inv, inv, data_size_16, inv,
     /* 0x68 - 0x6b*/ inv, inv, inv, inv,
     /* 0x6c - 0x6f*/ inv, inv, inv, inv,
-    /* 0x70 - 0x73*/ inv, inv, inv, inv,
+    /* 0x70 - 0x73*/ inv, inv, jne_short_, inv,//75:jne_short_
     /* 0x74 - 0x77*/ je_short_, inv, inv, inv,//74je_short_
     /* 0x78 - 0x7b*/ inv, inv, inv, inv,
     /* 0x7c - 0x7f*/ inv, inv, jle_short_, jg_short_,//7f:jg_short_,7e:jle_short_
