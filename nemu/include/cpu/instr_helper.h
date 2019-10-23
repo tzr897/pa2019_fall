@@ -167,25 +167,25 @@ void print_asm_3(char *instr, char *suffix, uint8_t len, OPERAND *opr_1, OPERAND
 static inline bool inv_cc();
 
 #define condition_e \
-	cpu.eflags.ZF==1//==
+	cpu.eflags.ZF==1
 
 #define condition_a \
-	//inv_cc()
+	(cpu.flags.CF==0)&&(!(cpu.eflags.ZF==1))
 
 #define condition_ae \
-	//inv_cc()
+	cpu.flags.CF==0
 
 #define condition_b \
-	//inv_cc()
+	cpu.eflags.CF==1
 
 #define condition_be \
-	//inv_cc()
+	(cpu.eflags.CF==1)||(cpu.eflags.ZF==1)
 
 #define condition_o \
-	//inv_cc()
+	cpu.eflags.OF==1
 
 #define condition_p \
-	//inv_cc()
+	cpu.eflags.PF==1
 
 #define condition_s \
 	//inv_cc()
