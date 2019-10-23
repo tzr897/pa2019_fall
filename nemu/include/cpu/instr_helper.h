@@ -223,16 +223,16 @@ static inline bool inv_cc();
 #define condition_c \
 	cpu.eflags.CF
 
-static inline bool inv_cc()
-{
-	printf("????Please implement cc condition in instr_helper.h\n");
+// static inline bool inv_cc()
+// {
+// 	// printf("????Please implement cc condition in instr_helper.h\n");
 
 
 
 
 
-	assert(0);
-	return false;//true;//concat(condition_, cc);
-}
+// 	// assert(0);
+// 	return f;//true;//concat(condition_, cc);
+// }
 
 #endif
