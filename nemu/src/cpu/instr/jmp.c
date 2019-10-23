@@ -32,9 +32,9 @@ make_instr_func(jmp_short)
 
         int offset = sign_ext(rel.val, new_data_size);
         // thank Ting Xu from CS'17 for finding this bug
-        print_asm_1("jmp", "", 1 + data_size / 8, &rel);
+        print_asm_1("jmp", "", 1 + new_data_size / 8, &rel);
 
         cpu.eip += offset;
 
-        return 1 + data_size / 8;
+        return 1 + new_data_size / 8;
 }
