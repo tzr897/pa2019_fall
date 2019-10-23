@@ -226,9 +226,9 @@ static inline bool inv_cc();
 static inline bool inv_cc()
 {
 	// printf("Please implement cc condition in instr_helper.h\n");
-	
+
 	// assert(0);
-	return concat(condition_, cc);
+	return true;//concat(condition_, cc);
 }
 
 #endif
