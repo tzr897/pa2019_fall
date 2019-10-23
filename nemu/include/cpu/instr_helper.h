@@ -167,19 +167,19 @@ void print_asm_3(char *instr, char *suffix, uint8_t len, OPERAND *opr_1, OPERAND
 static inline bool inv_cc();
 
 #define condition_e \
-	1==cpu.eflags.ZF
+	cpu.eflags.ZF==1
 
 #define condition_a \
-	!(cpu.eflags.CF|cpu.eflags.ZF)
+	cpu.eflags.CF==0&&cpu.eflags.ZF==0
 
 #define condition_ae \
-	0==cpu.eflags.CF
+	cpu.eflags.CF==0
 
 #define condition_b \
-	1==cpu.eflags.CF
+	cpu.eflags.CF==1
 
 #define condition_be \
-	1==cpu.eflags.CF|cpu.eflags.ZF
+	1==cpu.eflags.CF|1==cpu.eflags.ZF
 
 #define condition_o \
 	1==cpu.eflags.OF
@@ -194,7 +194,7 @@ static inline bool inv_cc();
 	0==cpu.eflags.ZF
 
 #define condition_na \
-	1==cpu.eflags.CF|cpu.eflags.ZF
+	1==cpu.eflags.CF|1==cpu.eflags.ZF
 
 #define condition_no \
 	0==cpu.eflags.OF
@@ -206,7 +206,7 @@ static inline bool inv_cc();
 	0==cpu.eflags.SF
 
 #define condition_g \
-	0==cpu.eflags.ZF|(cpu.eflags.SF^cpu.eflags.OF)
+	0==cpu.eflags.ZF|0==(cpu.eflags.SF^cpu.eflags.OF)
 
 #define condition_ge \
 	0==cpu.eflags.SF^cpu.eflags.OF
@@ -225,14 +225,9 @@ static inline bool inv_cc();
 
 static inline bool inv_cc()
 {
-	// printf("????Please implement cc condition in instr_helper.h\n");
-
-
-
-
-
-	// assert(0);
-	return true;//true;//concat(condition_, cc);
+	printf("Please implement cc condition in instr_helper.h\n");
+	assert(0);
+	return false;
 }
 
 #endif
