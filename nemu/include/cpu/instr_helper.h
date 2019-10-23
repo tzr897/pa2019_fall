@@ -173,7 +173,7 @@ static inline bool inv_cc();
 	!(cpu.eflags.CF|cpu.eflags.ZF)
 
 #define condition_ae \
-	0==cpu.flags.CF
+	0==cpu.eflags.CF
 
 #define condition_b \
 	1==cpu.eflags.CF
