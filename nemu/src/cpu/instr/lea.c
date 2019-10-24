@@ -10,6 +10,7 @@ make_instr_func(lea)
 	len += modrm_r_rm(cpu.eip + 1, &opr_dest, &opr_src);
 
 	opr_dest.val = opr_src.addr;
+	
 	operand_write(&opr_dest);
 
 	return len;
