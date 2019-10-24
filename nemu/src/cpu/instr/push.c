@@ -7,7 +7,7 @@ static void instr_execute_1op()
     //opr_dest.data_size=data_size/8;
     //opr_src.data_size=data_size/8;
     opr_dest.type=OPR_MEM;
-    opr_dest.addr=cpu.esp;
+    opr_dest.addr=cpu.eip;
     opr_dest.sreg=SREG_DS;//
     opr_dest.val=opr_src.val;
     operand_write(&opr_dest);
