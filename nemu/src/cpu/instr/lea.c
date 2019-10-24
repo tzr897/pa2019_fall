@@ -3,14 +3,13 @@
 make_instr_func(lea)
 {
     int len = 1;
-	OPERAND r, rm;
-	r.data_size = data_size;
-	rm.data_size = data_size;
+	opr_src.data_size=data_size;
+	opr_dest.data_size=data_size;
+
 	len += modrm_r_rm(eip + 1, &r, &rm);
-	
-	operand_read(&rm);
-	r.val = rm.addr;
-	operand_write(&r);
+
+	opr_dest.val = opr_src.addr;
+	operand_write(&opr_dest);
 
 	return len;
 
