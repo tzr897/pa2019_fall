@@ -12,10 +12,10 @@ make_instr_func(call_near)
 
     i.data_size=data_size;
     i.type=OPR_MEM;
-    cpu.esp-=4;
+    cpu.esp-=data_size/8;
     i.addr=cpu.esp;
     i.sreg=SREG_DS;
-    i.val=(cpu.eip+1)+data_size/8;
+    i.val=cpu.eip+1+data_size/8;
     operand_write(&i);
     
     offset=sign_ext(rel.val,data_size);
