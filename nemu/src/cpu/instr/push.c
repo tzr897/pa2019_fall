@@ -7,7 +7,7 @@ static void instr_execute_1op()
     opr_dest.type=OPR_MEM;
     opr_dest.addr=cpu.esp;
     opr_dest.sreg=SREG_DS;
-    opr_dest.val=opr_src.val;
+    opr_dest.val=opr_src.addr;
     operand_write(&opr_dest);
 }
 
