@@ -9,10 +9,10 @@ static void instr_execute_2op()
 
 }
 
-make_instr_impl_2op(inc, rm, b)
-make_instr_impl_2op(inc, rm, v)
-make_instr_impl_2op(inc, rm, bv)
-make_instr_impl_2op(inc, r, b)
-make_instr_impl_2op(inc, r, v)
-make_instr_impl_2op(inc, r, bv)
+make_instr_impl_1op(inc, rm, b)
+make_instr_impl_1op(inc, rm, v)
+make_instr_impl_1op(inc, rm, bv)
+make_instr_impl_1op(inc, r, b)
+make_instr_impl_1op(inc, r, v)
+make_instr_impl_1op(inc, r, bv)
 
