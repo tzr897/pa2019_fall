@@ -8,7 +8,7 @@ static void instr_execute_1op()
     opr_dest.addr=cpu.esp;
     opr_dest.sreg=SREG_DS;//
     opr_dest.val=opr_src.val;
-    cpu.eip+=1;//opr_dest.val;
+    //cpu.eip+=1;//opr_dest.val;
     operand_write(&opr_dest);
 }
 
