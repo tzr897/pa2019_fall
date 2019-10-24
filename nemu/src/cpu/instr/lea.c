@@ -3,11 +3,11 @@
 make_instr_func(lea)
 {
     int len = 1;
-	//operand_read(&opr_src);
+	operand_read(&opr_src);
 	opr_src.data_size=data_size;
 	opr_dest.data_size=data_size;
 
-	len += modrm_r_rm(cpu.eip + 1, &opr_dest, &opr_src);
+	len += modrm_r_rm(eip + 1, &opr_dest, &opr_src);
 
 	opr_dest.val = opr_src.addr;
 	
