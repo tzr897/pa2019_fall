@@ -19,12 +19,13 @@ make_instr_func(push_i_b)
     int new_data_size=8;
 
     //operand_read(&opr_dest);
-    operand_read(&opr_src);
+    
 
     opr_src.data_size=new_data_size;
     opr_src.type=OPR_IMM;
     opr_src.addr=cpu.eip+1;
     opr_src.sreg=SREG_CS;//
+    operand_read(&opr_src);
     opr_src.val=sign_ext(opr_src.val,new_data_size);
 
     cpu.esp-=new_data_size/8;
