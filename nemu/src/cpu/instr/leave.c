@@ -11,7 +11,7 @@ make_instr_func(leave)
     i.addr=cpu.esp;
     i.sreg=SREG_DS;//
     operand_read(&i);
-    cpu.ebp=opr_dest.val;
+    cpu.ebp=i.val;
     cpu.esp+=data_size/8;
 
     return 1;
