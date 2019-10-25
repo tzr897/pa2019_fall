@@ -28,7 +28,7 @@ make_instr_func(push_i_b)
     opr_dest.val=opr_src.val;
     operand_write(&opr_dest);
 
-
+    return 1;
 }
 
 
