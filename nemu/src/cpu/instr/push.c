@@ -18,7 +18,13 @@ make_instr_func(push_i_b)
 {
     int new_data_size=8;
 
+    operand_read(&opr_dest);
     operand_read(&opr_src);
+
+    opr_src.type=OPR_IMM;
+    opr_src.addr=cpu.eip+1;
+    opr_src.sreg=SREG_CS;//
+    //opr_src.val=opr_src.val;
 
     cpu.esp-=new_data_size/8;
 
@@ -30,9 +36,27 @@ make_instr_func(push_i_b)
 
     return 1+new_data_size/8;
 }
-
-
 make_instr_impl_1op(push, rm, v)
 make_instr_impl_1op(push, r, v)
 make_instr_impl_1op(push, i, v)
+/* 
+int offset;
+    OPERAND rel,i;
+    rel.data_size=data_size;
+    rel.type=OPR_IMM;
+    rel.addr=cpu.eip+1;
+    rel.sreg=SREG_CS;
+    operand_read(&rel);
 
+    i.data_size=data_size;
+    i.type=OPR_MEM;
+    cpu.esp-=data_size/8;
+    i.addr=cpu.esp;
+    i.sreg=SREG_DS;
+    i.val=cpu.eip+1+data_size/8;
+    operand_write(&i);
+    
+    offset=sign_ext(rel.val,data_size);
+    cpu.eip+=offset+1+data_size/8;
+    return 0;
+*/
