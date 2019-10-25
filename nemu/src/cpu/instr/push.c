@@ -34,7 +34,7 @@ make_instr_func(push_i_b)
     opr_dest.addr=cpu.esp;
     opr_dest.sreg=SREG_DS;//
     opr_dest.val=opr_src.val;
-    opr_dest.val=sign_ext(opr_dest.val,new_data_size);
+    //opr_dest.val=sign_ext(opr_dest.val,new_data_size);
     operand_write(&opr_dest);
 
     return 1+new_data_size/8;
