@@ -3,10 +3,6 @@
 make_instr_func(lea)
 {
     int len = 1;
-	//OPERAND opr_dest;
-	//operand_read(&opr_src);
-	//operand_read(&opr_dest);
-
 	opr_src.data_size=data_size;
 	opr_dest.data_size=data_size;
 
