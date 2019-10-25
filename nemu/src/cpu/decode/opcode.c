@@ -34,7 +34,7 @@ instr_func opcode_entry[256] = {
     /* 0x78 - 0x7b*/ inv, inv, inv, inv,
     /* 0x7c - 0x7f*/ inv, inv, jle_short_, jg_short_,//7f:jg_short_,7e:jle_short_
     /* 0x80 - 0x83*/ inv, group_1_v, nemu_trap, group_1_bv,//10.1783group_1_bv
-    /* 0x84 - 0x87*/ inv, test_r2rm_v, jna_near, inv,//85:test_r2rm_v
+    /* 0x84 - 0x87*/ inv, test_r2rm_v, inv, inv,//85:test_r2rm_v
     /* 0x88 - 0x8b*/ mov_r2rm_b, mov_r2rm_v, mov_rm2r_b, mov_rm2r_v,
     /* 0x8c - 0x8f*/ inv, lea, inv, inv,//8d:lea
     /* 0x90 - 0x93*/ nop, inv, inv, inv,
@@ -184,7 +184,7 @@ instr_func opcode_2_byte_entry[256] = {
     /* 0x78 - 0x7b*/ inv, inv, inv, inv,
     /* 0x7c - 0x7f*/ inv, inv, inv, inv,
     /* 0x80 - 0x83*/ inv, inv, inv, inv,
-    /* 0x84 - 0x87*/ inv, inv, inv, inv,
+    /* 0x84 - 0x87*/ inv, inv, jna_near, inv,//86:jna_near
     /* 0x88 - 0x8b*/ inv, inv, inv, inv,
     /* 0x8c - 0x8f*/ inv, inv, inv, inv,
     /* 0x90 - 0x93*/ inv, inv, inv, inv,
