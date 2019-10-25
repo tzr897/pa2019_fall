@@ -17,18 +17,19 @@ static void instr_execute_1op()
 make_instr_func(push_i_b)
 {
     int new_data_size=8;
+
     operand_read(&opr_src);
 
     cpu.esp-=new_data_size/8;
 
     opr_dest.type=OPR_MEM;
     opr_dest.addr=cpu.esp;
-    
+
     opr_dest.sreg=SREG_DS;//
     opr_dest.val=opr_src.val;
     operand_write(&opr_dest);
 
-    return 1+new_data_size/8;
+    return 2+new_data_size/8;
 }
 
 
