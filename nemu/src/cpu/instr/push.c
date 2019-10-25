@@ -29,7 +29,7 @@ make_instr_func(push_i_b)
     opr_dest.val=opr_src.val;
     operand_write(&opr_dest);
 
-    return new_data_size/8;
+    return 1+new_data_size/8;
 }
 
 
