@@ -11,8 +11,9 @@ static void instr_execute_1op()
     opr_src.addr=cpu.esp;
      
     opr_src.sreg=SREG_DS;//
-    operand_read(&opr_dest);  
+     
     opr_src.val=opr_dest.val;
+    operand_read(&opr_dest); 
     //////////////////////
     operand_write(&opr_src);
     cpu.esp+=data_size/8;
