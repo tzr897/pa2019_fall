@@ -6,10 +6,10 @@ static void instr_execute_1op()
     /////////////////////////
     operand_read(&opr_dest);
     opr_src.type=OPR_MEM;
-    cpu.esp+=data_size/8;
+
     //////////////////
     opr_src.addr=cpu.esp;
-    
+        cpu.esp+=data_size/8;
     opr_src.sreg=SREG_DS;//
     opr_src.val=opr_dest.val;
     //////////////////////
