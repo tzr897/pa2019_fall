@@ -15,7 +15,7 @@ instr_func opcode_entry[256] = {
     /* 0x2c - 0x2f*/ inv, inv, inv, inv,
     /* 0x30 - 0x33*/ inv, xor_r2rm_v, inv, inv,//31:xor_r2rm_v
     /* 0x34 - 0x37*/ inv, inv, inv, inv,
-    /* 0x38 - 0x3b*/ inv, __ref_cmp_r2rm_v, inv, inv,//39:cmp_r2rm_v
+    /* 0x38 - 0x3b*/ inv, cmp_r2rm_v, inv, inv,//39:cmp_r2rm_v
     /* 0x3c - 0x3f*/ inv, inv, inv, inv,
     /* 0x40 - 0x43*/ inv, inv, inv, inv,//10.17?
     /* 0x44 - 0x47*/ inv, inv, inv, inv,
@@ -77,7 +77,7 @@ instr_func group_1_v_entry[8] =
 
 /* 0x83 */
 instr_func group_1_bv_entry[8] =
-    {add_i2rm_bv, inv, inv, inv, and_i2rm_bv, sub_i2rm_bv, inv, __ref_cmp_i2rm_bv};//111:cmp_i2rm_bv,101:sub_i2rm_v,100:and_i2rm_bv,000:add_i2rm_bv
+    {add_i2rm_bv, inv, inv, inv, and_i2rm_bv, sub_i2rm_bv, inv, cmp_i2rm_bv};//111:cmp_i2rm_bv,101:sub_i2rm_v,100:and_i2rm_bv,000:add_i2rm_bv
 
 /* 0xc0 */
 instr_func group_2_b_entry[8] =
