@@ -3,7 +3,6 @@
 make_instr_func(leave)
 {
     cpu.esp=cpu.ebp;
-
     OPERAND i;
     i.type=OPR_MEM;
     i.addr=cpu.esp;
