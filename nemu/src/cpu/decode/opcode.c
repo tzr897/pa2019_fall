@@ -16,7 +16,7 @@ instr_func opcode_entry[256] = {
     /* 0x30 - 0x33*/ inv, xor_r2rm_v, inv, inv,//31:xor_r2rm_v
     /* 0x34 - 0x37*/ inv, inv, inv, inv,
     /* 0x38 - 0x3b*/ inv, cmp_r2rm_v, inv, cmp_rm2r_v,//39:cmp_r2rm_v
-    /* 0x3c - 0x3f*/ __ref_cmp_i2a_b, inv, inv, inv,//3c:cmp_i2a_b
+    /* 0x3c - 0x3f*/ cmp_i2a_b, inv, inv, inv,//3c:cmp_i2a_b
     /* 0x40 - 0x43*/ inc_r_v, inv, inc_r_v, inv,//42:inc_r_v,40:inc_r_v
     /* 0x44 - 0x47*/ inv, inv, inv, inv,
     /* 0x48 - 0x4b*/ dec_r_v, inv, inv, inv,
@@ -27,7 +27,7 @@ instr_func opcode_entry[256] = {
     /* 0x5c - 0x5f*/ inv, pop_r_v, inv, inv,//5d:pop_r_v
     /* 0x60 - 0x63*/ inv, inv, inv, inv,
     /* 0x64 - 0x67*/ inv, inv, data_size_16, inv,
-    /* 0x68 - 0x6b*/ inv, inv, __ref_push_i_b, inv,
+    /* 0x68 - 0x6b*/ inv, inv, push_i_b, inv,
     /* 0x6c - 0x6f*/ inv, inv, inv, inv,
     /* 0x70 - 0x73*/ inv, inv, inv, inv,//
     /* 0x74 - 0x77*/ je_short_, jne_short_, jna_short_, inv,//74je_short_,75:jne_short_,76:jna_short_
