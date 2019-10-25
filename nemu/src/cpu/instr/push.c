@@ -23,7 +23,7 @@ make_instr_func(push_i_b)
 
     opr_src.data_size=new_data_size;
     opr_src.type=OPR_IMM;
-    opr_src.addr=cpu.eip+1;
+    opr_src.addr=cpu.esp;
     opr_src.sreg=SREG_CS;//
     //opr_src.val=opr_src.val;
 
