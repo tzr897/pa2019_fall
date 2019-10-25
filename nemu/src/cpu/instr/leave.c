@@ -14,6 +14,7 @@ make_instr_func(lea)
     cpu.esp=cpu.ebp;
     pop_r_v(cpu.ebp);
 
-	return len;
+	//return len;
 
 }
+
