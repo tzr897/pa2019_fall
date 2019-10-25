@@ -10,7 +10,7 @@ make_instr_func(leave)
     i.sreg=SREG_DS;//
     operand_read(&i);
     cpu.ebp=i.val;
-    cpu.ebp+=data_size/8;
+    cpu.esp+=data_size/8;
 
     return 1;
 }
