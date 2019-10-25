@@ -16,7 +16,7 @@ static void instr_execute_1op()
 
 make_instr_func(push_i_b)
 {
-    int new_data_size;
+    int new_data_size=1;
     operand_read(&opr_src);
 
     cpu.esp-=new_data_size/8;
