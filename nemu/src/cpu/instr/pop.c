@@ -2,10 +2,11 @@
 
 static void instr_execute_1op()
 {
-    cpu.esp+=data_size/8;
+    
     /////////////////////////
     operand_read(&opr_dest);
     opr_src.type=OPR_MEM;
+    cpu.esp+=data_size/8;
     //////////////////
     opr_src.addr=cpu.esp;
     
