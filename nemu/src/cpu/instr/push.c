@@ -18,7 +18,7 @@ make_instr_func(push_i_b)
 {
     int new_data_size=8;
 
-    operand_read(&opr_dest);
+    //operand_read(&opr_dest);
     operand_read(&opr_src);
 
     opr_src.data_size=new_data_size;
