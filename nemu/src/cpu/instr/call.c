@@ -9,7 +9,7 @@ make_instr_func(call_near)
     rel.addr=cpu.eip+1;
     rel.sreg=SREG_CS;
     operand_read(&rel);
-    //print_asm_1("call","",1+data_size/8,&rel);
+
     i.data_size=data_size;
     i.type=OPR_MEM;
     cpu.esp-=data_size/8;
