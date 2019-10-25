@@ -25,11 +25,12 @@ make_instr_func(push_i_b)
 
     opr_src.val=sign_ext(opr_src.val,new_data_size);
 
-    cpu.esp-=new_data_size/8;
+    
 
     opr_dest.data_size=data_size;
     opr_dest.type=OPR_MEM;
     opr_dest.addr=cpu.esp;
+    cpu.esp-=new_data_size/8;
     opr_dest.sreg=SREG_DS;//
     opr_dest.val=opr_src.val;//opr_src.val;
     operand_write(&opr_dest);
