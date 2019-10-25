@@ -26,6 +26,7 @@ make_instr_func(push_i_b)
     opr_src.addr=cpu.eip+1;
     opr_src.sreg=SREG_CS;//
     operand_read(&opr_src);
+    
     opr_src.val=sign_ext(opr_src.val,new_data_size);
 
     cpu.esp-=new_data_size/8;
