@@ -22,6 +22,6 @@ make_instr_func(lea)
     
     operand_write(&opr_dest);
     cpu.esp+=data_size/8;
-    
+    return 1;
 }
 
