@@ -9,8 +9,9 @@ static void instr_execute_1op()
 
     //////////////////
     opr_src.addr=cpu.esp;
-    operand_read(&opr_dest);   
+     
     opr_src.sreg=SREG_DS;//
+    operand_read(&opr_dest);  
     opr_src.val=opr_dest.val;
     //////////////////////
     operand_write(&opr_src);
