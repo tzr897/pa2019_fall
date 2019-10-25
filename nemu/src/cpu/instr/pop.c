@@ -3,13 +3,15 @@
 static void instr_execute_1op()
 {
     cpu.esp+=data_size/8;
+    /////////////////////////
     operand_read(&opr_dest);
-    
     opr_src.type=OPR_MEM;
+    //////////////////
     opr_src.addr=cpu.esp;
     
     opr_src.sreg=SREG_DS;//
     opr_src.val=opr_dest.val;
+    //////////////////////
     operand_write(&opr_src);
     
 
