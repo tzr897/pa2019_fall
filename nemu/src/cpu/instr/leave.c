@@ -12,9 +12,16 @@ make_instr_func(lea)
 	
 	// operand_write(&opr_dest);
     cpu.esp=cpu.ebp;
-    pop_r_v(cpu.ebp);
+    OPERAND i;
+    i.type=OPR_MEM;
+    i.addr=cpu.ebp;
+    i.sreg=SREG_DS;//
+    operand_read(&i);
 
-	//return len;
-
+    opr_dest.val=i.val;
+    
+    operand_write(&opr_dest);
+    cpu.esp+=data_size/8;
+    
 }
 
