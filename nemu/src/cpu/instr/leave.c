@@ -3,12 +3,14 @@
 make_instr_func(leave)
 {
     cpu.esp=cpu.ebp;
-    OPERAND i;
-    i.type=OPR_MEM;
-    i.addr=cpu.esp;
-    i.sreg=SREG_DS;//
-    operand_read(&i);
-    cpu.ebp=i.val;
+    operand_read(&opr_dest);
+    
+    // OPERAND i;
+    // i.type=OPR_MEM;
+    // i.addr=cpu.esp;
+    // i.sreg=SREG_DS;//
+    // operand_read(&i);
+    cpu.ebp=opr_dest.val;
     cpu.esp+=data_size/8;
 
     return 1;
