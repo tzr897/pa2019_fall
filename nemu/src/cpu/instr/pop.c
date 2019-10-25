@@ -2,7 +2,7 @@
 
 static void instr_execute_1op()
 {
-    operand_read(&opr_dest);
+    operand_read(&opr_src);
     cpu.esp+=data_size/8;
 
     opr_dest.type=OPR_MEM;
@@ -10,7 +10,7 @@ static void instr_execute_1op()
     
     opr_dest.sreg=SREG_DS;//
     opr_dest.val=opr_src.val;
-    operand_write(&opr_src);
+    operand_write(&opr_dest);
     
 }
 
