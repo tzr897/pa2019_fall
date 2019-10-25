@@ -27,7 +27,7 @@ make_instr_func(push_i_b)
     opr_src.val=sign_ext(opr_src.val,new_data_size);
     cpu.esp-=data_size/8;
 
-    opr_dest.data_size=data_size;
+    opr_dest.data_size=new_data_size;
     opr_dest.type=OPR_MEM;
     opr_dest.addr=cpu.esp;
     
@@ -37,6 +37,8 @@ make_instr_func(push_i_b)
 
     return 1+new_data_size/8;
 }
+
+
 make_instr_impl_1op(push, rm, v)
 make_instr_impl_1op(push, r, v)
 make_instr_impl_1op(push, i, v)
