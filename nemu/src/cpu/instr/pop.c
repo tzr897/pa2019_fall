@@ -9,12 +9,12 @@ static void instr_execute_1op()
 
     //////////////////
     opr_src.addr=cpu.esp;
-        cpu.esp+=data_size/8;
+        
     opr_src.sreg=SREG_DS;//
     opr_src.val=opr_dest.val;
     //////////////////////
     operand_write(&opr_src);
-    
+    cpu.esp+=data_size/8;
 
 }
 
