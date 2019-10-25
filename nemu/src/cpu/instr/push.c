@@ -32,7 +32,7 @@ make_instr_func(push_i_b)
     opr_dest.addr=cpu.esp;
     
     opr_dest.sreg=SREG_DS;//
-    opr_dest.val=opr_src.val;//opr_src.val;
+    opr_dest.val=opr_src.val;//
     operand_write(&opr_dest);
 
     return 1+new_data_size/8;
@@ -41,7 +41,11 @@ make_instr_impl_1op(push, rm, v)
 make_instr_impl_1op(push, r, v)
 make_instr_impl_1op(push, i, v)
 /* 
-int offset;
+#include "cpu/instr.h"
+
+make_instr_func(call_near)
+{
+    int offset;
     OPERAND rel,i;
     rel.data_size=data_size;
     rel.type=OPR_IMM;
@@ -60,4 +64,6 @@ int offset;
     offset=sign_ext(rel.val,data_size);
     cpu.eip+=offset+1+data_size/8;
     return 0;
+
+}
 */
