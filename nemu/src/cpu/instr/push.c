@@ -24,7 +24,6 @@ make_instr_func(push_i_b)
 
     opr_dest.type=OPR_MEM;
     opr_dest.addr=cpu.esp;
-
     opr_dest.sreg=SREG_DS;//
     opr_dest.val=opr_src.val;
     operand_write(&opr_dest);
