@@ -1,6 +1,6 @@
 #include "cpu/instr.h"
 
-make_instr_func(lea)
+make_instr_func(leave)
 {
     // int len = 1;
 	// opr_src.data_size=data_size;
