@@ -30,9 +30,9 @@ instr_func opcode_entry[256] = {
     /* 0x68 - 0x6b*/ inv, inv, push_i_b, inv,
     /* 0x6c - 0x6f*/ inv, inv, inv, inv,
     /* 0x70 - 0x73*/ inv, inv, inv, inv,//
-    /* 0x74 - 0x77*/ je_short_, jne_short_, jna_short_, inv,//74je_short_,75:jne_short_,76:jna_short_
+    /* 0x74 - 0x77*/ __ref_je_short_, __ref_jne_short_, __ref_jna_short_, inv,//74je_short_,75:jne_short_,76:jna_short_
     /* 0x78 - 0x7b*/ inv, inv, inv, inv,
-    /* 0x7c - 0x7f*/ jl_short_, jge_short_, jle_short_, jg_short_,//7f:jg_short_,7e:jle_short_,7c:jl_short_,7d:jge_short_
+    /* 0x7c - 0x7f*/ __ref_jl_short_, __ref_jge_short_, __ref_jle_short_, __ref_jg_short_,//7f:jg_short_,7e:jle_short_,7c:jl_short_,7d:jge_short_
     /* 0x80 - 0x83*/ group_1_b, group_1_v, nemu_trap, group_1_bv,//10.1783group_1_bv
     /* 0x84 - 0x87*/ test_r2rm_b, test_r2rm_v, inv, inv,//85:test_r2rm_v,84:test_r2rm_b
     /* 0x88 - 0x8b*/ mov_r2rm_b, mov_r2rm_v, mov_rm2r_b, mov_rm2r_v,
