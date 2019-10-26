@@ -109,3 +109,11 @@ make_instr_func(imul_i8rm2r_v)
 	print_asm_3("imul", data_size == 16 ? "w" : "l", len + 1, &imm, &rm, &r);
 	return len + 1;
 }
+
+
+
+make_instr_func(imul_rm_v)
+{
+
+}
+
