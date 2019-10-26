@@ -64,17 +64,16 @@ make_instr_func(jmp_near_indirect)
 
         rel.val = sign_ext(rel.val, data_size);
         // thank Ting Xu from CS'17 for finding this bug
-        print_asm_1("jmp", "", 1 + data_size / 8, &rel);
+        //print_asm_1("jmp", "", 1 + data_size / 8, &rel);
         if(data_size==16)
         {
                 cpu.eip+=rel.val&0xffff;
         }
-        else
+        else if(data_size==32)
         {
                 cpu.eip=rel.val;
 
         }
-        //cpu.eip += offset;
 
         return 0;
 }
