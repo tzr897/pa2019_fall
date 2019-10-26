@@ -112,9 +112,9 @@ make_instr_func(imul_i8rm2r_v)
 
 
 
-make_instr_func(imul_rm_v)
-{
-	
+// make_instr_func(imul_rm_v)
+// {
+// 	int
 
-}
+// }
 
