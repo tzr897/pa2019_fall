@@ -71,8 +71,7 @@ make_instr_func(jmp_near_indirect)
         }
         else if(data_size==32)
         {
-                
-                
+                  
                 cpu.eip=rel.val;
 
         }
