@@ -18,7 +18,7 @@ instr_func opcode_entry[256] = {
     /* 0x38 - 0x3b*/ inv, cmp_r2rm_v, cmp_rm2r_b, cmp_rm2r_v,//39:cmp_r2rm_v,3a:cmp_rm2r_b
     /* 0x3c - 0x3f*/ cmp_i2a_b, inv, inv, inv,//3c:cmp_i2a_b
     /* 0x40 - 0x43*/ inc_r_v, inv, inc_r_v, inv,//42:inc_r_v,40:inc_r_v
-    /* 0x44 - 0x47*/ inv, inv, inv, inv,
+    /* 0x44 - 0x47*/ inv, inv, inv, inc_r_v,//47:inc_r_v
     /* 0x48 - 0x4b*/ dec_r_v, inv, inv, inv,
     /* 0x4c - 0x4f*/ inv, inv, inv, inv,
     /* 0x50 - 0x53*/ push_r_v, push_r_v, push_r_v, push_r_v,//53 :push_r_v,51:push_r_v,52:push_r_v,50:push_r_v
