@@ -32,7 +32,7 @@ instr_func opcode_entry[256] = {
     /* 0x70 - 0x73*/ inv, inv, inv, inv,//
     /* 0x74 - 0x77*/ je_short_, jne_short_, jna_short_, inv,//74je_short_,75:jne_short_,76:jna_short_
     /* 0x78 - 0x7b*/ inv, inv, inv, inv,
-    /* 0x7c - 0x7f*/ jl_short_, jge_short_, jle_short_, __ref_jg_short_,//7f:jg_short_,7e:jle_short_,7c:jl_short_,7d:jge_short_
+    /* 0x7c - 0x7f*/ jl_short_, jge_short_, jle_short_, jg_short_,//7f:jg_short_,7e:jle_short_,7c:jl_short_,7d:jge_short_
     /* 0x80 - 0x83*/ group_1_b, group_1_v, nemu_trap, group_1_bv,//10.1783group_1_bv
     /* 0x84 - 0x87*/ test_r2rm_b, test_r2rm_v, inv, inv,//85:test_r2rm_v,84:test_r2rm_b
     /* 0x88 - 0x8b*/ mov_r2rm_b, mov_r2rm_v, mov_rm2r_b, mov_rm2r_v,
@@ -113,7 +113,7 @@ instr_func group_3_v_entry[8] =
 
 /* 0xff */
 instr_func group_5_indirect_entry[8] =
-    {inc_rm_v, dec_rm_v, inv, inv, jmp_near_indirect, inv, __ref_push_rm_v, inv};//000:inc_rm_v,110:push,001:dec_rm_v,100:jmp_near_ind
+    {inc_rm_v, dec_rm_v, inv, inv, __ref_jmp_near_indirect, inv, __ref_push_rm_v, inv};//000:inc_rm_v,110:push,001:dec_rm_v,100:jmp_near_ind
 
 instr_func group_7_entry[8] =
     {inv, inv, inv, inv, inv, inv, inv, inv};
