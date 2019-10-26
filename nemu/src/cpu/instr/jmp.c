@@ -58,6 +58,7 @@ make_instr_func(jmp_near_indirect)
         rel.type = OPR_IMM;
         rel.sreg = SREG_CS;
         //rel.data_size = data_size;
+
         rel.addr = eip + 1;
 
         operand_read(&rel);
@@ -66,11 +67,12 @@ make_instr_func(jmp_near_indirect)
         if(data_size==16)
         {
                 
-                rel.val = sign_ext(rel.val, data_size);
+                
                 cpu.eip=rel.val&0xffff;
         }
         else if(data_size==32)
         {
+                rel.val = sign_ext(rel.val, data_size);
                 
                 cpu.eip=rel.val;
 
