@@ -71,7 +71,7 @@ make_instr_func(jmp_near_indirect)
         }
         else
         {
-                cpu.eip+=rel.val;
+                cpu.eip=rel.val;
 
         }
         //cpu.eip += offset;
