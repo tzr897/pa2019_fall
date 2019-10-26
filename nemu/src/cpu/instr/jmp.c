@@ -67,7 +67,7 @@ make_instr_func(jmp_near_indirect)
         //print_asm_1("jmp", "", 1 + data_size / 8, &rel);
         if(data_size==16)
         {
-                cpu.eip+=rel.val&0xffff;
+                cpu.eip=rel.val&0xffff;
         }
         else if(data_size==32)
         {
