@@ -65,7 +65,7 @@ test_pa-1: nemu
 	./nemu/nemu --test-fpu mul
 	./nemu/nemu --test-fpu div
 
-test_pa-2-1: nemu bit 
+test_pa-2-1: nemu 
 	$(call git_commit, "test_pa-2-1")
 	./nemu/nemu --autorun --testcase mov
 	./nemu/nemu --autorun --testcase mov-cmp
