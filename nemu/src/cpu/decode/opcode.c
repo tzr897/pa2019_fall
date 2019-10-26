@@ -113,7 +113,7 @@ instr_func group_3_v_entry[8] =
 
 /* 0xff */
 instr_func group_5_indirect_entry[8] =
-    {inc_rm_v, dec_rm_v, inv, inv, __ref_jmp_near, inv, push_rm_v, inv};//000:inc_rm_v,110:push,001:dec_rm_v,100:jmp_near,111:
+    {inc_rm_v, dec_rm_v, inv, inv, jmp_near_ind, inv, push_rm_v, inv};//000:inc_rm_v,110:push,001:dec_rm_v,100:jmp_near,111:
 
 instr_func group_7_entry[8] =
     {inv, inv, inv, inv, inv, inv, inv, inv};
