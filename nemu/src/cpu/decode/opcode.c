@@ -187,10 +187,10 @@ instr_func opcode_2_byte_entry[256] = {
     /* 0x84 - 0x87*/ __ref_je_near, __ref_jne_near, __ref_jna_near, __ref_ja_near,//86:jna_near,84:je_near,87:ja_near
     /* 0x88 - 0x8b*/ __ref_js_near, __ref_jns_near, __ref_jp_near, __ref_jnp_near,
     /* 0x8c - 0x8f*/ __ref_jl_near, __ref_jge_near, __ref_jle_near, __ref_jg_near,//8c:jl_near,8e:jle_near
-    /* 0x90 - 0x93*/ inv, inv, inv, inv,
-    /* 0x94 - 0x97*/ inv, setne_b, inv, inv,//95:setne_b
-    /* 0x98 - 0x9b*/ inv, inv, inv, inv,
-    /* 0x9c - 0x9f*/ inv, inv, inv, inv,
+    /* 0x90 - 0x93*/ __ref_seto_b, __ref_setno_b, __ref_setc_b, __ref_setae_b,
+    /* 0x94 - 0x97*/ __ref_sete_b, __ref_setne_b, __ref_setbe_b, __ref_seta_b,
+    /* 0x98 - 0x9b*/ __ref_sets_b, __ref_setns_b, __ref_setp_b, __ref_setnp_b,
+    /* 0x9c - 0x9f*/ __ref_setl_b, __ref_setge_b, __ref_setle_b, __ref_setg_b,
     /* 0xa0 - 0xa3*/ inv, inv, inv, bt_r2rm_v,
     /* 0xa4 - 0xa7*/ inv, inv, inv, inv,
     /* 0xa8 - 0xab*/ inv, inv, inv, inv,
