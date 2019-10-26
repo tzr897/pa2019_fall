@@ -39,7 +39,7 @@ make_instr_func(jmp_short)
         return 1 + new_data_size / 8;
 }
 
-make_instr_func(jmp_near_ind)
+make_instr_func(jmp_near_indirect)
 {
 /*
         OPERAND rel;
