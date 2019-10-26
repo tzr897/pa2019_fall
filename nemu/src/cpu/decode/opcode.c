@@ -23,9 +23,9 @@ instr_func opcode_entry[256] = {
     /* 0x4c - 0x4f*/ inv, inv, inv, inv,
     /* 0x50 - 0x53*/ __ref_push_r_v, __ref_push_r_v, __ref_push_r_v, __ref_push_r_v,//53 :push_r_v,51:push_r_v,52:push_r_v,50:push_r_v
     /* 0x54 - 0x57*/ __ref_push_r_v, __ref_push_r_v, __ref_push_r_v, __ref_push_r_v,//55push_r_v,57:push_r_v,56:push_r_v
-    /* 0x58 - 0x5b*/ inv, inv, inv, __ref_pop_r_v,//5b:pop_r_v
-    /* 0x5c - 0x5f*/ inv, __ref_pop_r_v, __ref_pop_r_v, __ref_pop_r_v,//5d:pop_r_v,5e:pop_r_v,5f:pop_r_v
-    /* 0x60 - 0x63*/ inv, inv, inv, inv,
+    /* 0x58 - 0x5b*/ __ref_pop_r_v, __ref_pop_r_v, __ref_pop_r_v, __ref_pop_r_v,//5b:pop_r_v
+    /* 0x5c - 0x5f*/ __ref_pop_r_v, __ref_pop_r_v, __ref_pop_r_v, __ref_pop_r_v,//5d:pop_r_v,5e:pop_r_v,5f:pop_r_v
+    /* 0x60 - 0x63*/ __ref_pusha, __ref_popa, inv, inv,
     /* 0x64 - 0x67*/ inv, inv, data_size_16, inv,
     /* 0x68 - 0x6b*/ inv, inv, push_i_b, inv,
     /* 0x6c - 0x6f*/ inv, inv, inv, inv,
