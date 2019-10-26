@@ -67,11 +67,13 @@ make_instr_func(jmp_near_indirect)
         //print_asm_1("jmp", "", 1 + data_size / 8, &rel);
         if(data_size==16)
         {
+                rel.data_size = data_size;
                 rel.val = sign_ext(rel.val, data_size);
                 cpu.eip=rel.val&0xffff;
         }
         else if(data_size==32)
         {
+                rel.data_size = data_size;
                 cpu.eip=rel.val;
 
         }
