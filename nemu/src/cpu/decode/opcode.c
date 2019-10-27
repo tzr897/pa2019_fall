@@ -17,8 +17,8 @@ instr_func opcode_entry[256] = {
     /* 0x34 - 0x37*/ inv, inv, inv, inv,
     /* 0x38 - 0x3b*/ __ref_cmp_r2rm_b, __ref_cmp_r2rm_v, __ref_cmp_rm2r_b, __ref_cmp_rm2r_v,//39:cmp_r2rm_v,3a:cmp_rm2r_b
     /* 0x3c - 0x3f*/ __ref_cmp_i2a_b, __ref_cmp_i2a_v, inv, inv,//3c:cmp_i2a_b
-    /* 0x40 - 0x43*/ inc_r_v, inv, inc_r_v, inv,//42:inc_r_v,40:inc_r_v
-    /* 0x44 - 0x47*/ inv, inv, inv, inc_r_v,//47:inc_r_v
+    /* 0x40 - 0x43*/ __ref_inc_r_v, inv, __ref_inc_r_v, inv,//42:inc_r_v,40:inc_r_v
+    /* 0x44 - 0x47*/ inv, inv, inv, __ref_inc_r_v,//47:inc_r_v
     /* 0x48 - 0x4b*/ __ref_dec_r_v, inv, inv, inv,
     /* 0x4c - 0x4f*/ inv, inv, inv, inv,
     /* 0x50 - 0x53*/ __ref_push_r_v, __ref_push_r_v, __ref_push_r_v, __ref_push_r_v,//53 :push_r_v,51:push_r_v,52:push_r_v,50:push_r_v
@@ -113,7 +113,7 @@ instr_func group_3_v_entry[8] =
 
 /* 0xff */
 instr_func group_5_indirect_entry[8] =
-    {inc_rm_v, __ref_dec_rm_v, __ref_call_near_indirect, inv, __ref_jmp_near_indirect, inv, __ref_push_rm_v, inv};//000:inc_rm_v,110:push,001:dec_rm_v,100:jmp_near_ind
+    {__ref_inc_rm_v, __ref_dec_rm_v, __ref_call_near_indirect, inv, __ref_jmp_near_indirect, inv, __ref_push_rm_v, inv};//000:inc_rm_v,110:push,001:dec_rm_v,100:jmp_near_ind
 
 instr_func group_7_entry[8] =
     {inv, inv, inv, inv, inv, inv, inv, inv};
