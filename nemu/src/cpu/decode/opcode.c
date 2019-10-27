@@ -49,7 +49,7 @@ instr_func opcode_entry[256] = {
     /* 0xb4 - 0xb7*/ mov_i2r_b, mov_i2r_b, mov_i2r_b, mov_i2r_b,
     /* 0xb8 - 0xbb*/ __ref_mov_i2r_v, mov_i2r_v, mov_i2r_v, mov_i2r_v,
     /* 0xbc - 0xbf*/ mov_i2r_v, mov_i2r_v, mov_i2r_v, mov_i2r_v,
-    /* 0xc0 - 0xc3*/ group_2_b, group_2_v, __ref_ret_near_imm16, ret_near,//c2:ret_near
+    /* 0xc0 - 0xc3*/ group_2_b, group_2_v, __ref_ret_near_imm16, __ref_ret_near,//c2:ret_near
     /* 0xc4 - 0xc7*/ inv, inv, mov_i2rm_b, mov_i2rm_v,
     /* 0xc8 - 0xcb*/ inv, __ref_leave, inv, inv,//c9:leave
     /* 0xcc - 0xcf*/ inv, inv, inv, __ref_iret,
@@ -109,7 +109,7 @@ instr_func group_3_b_entry[8] =
 
 /* 0xf7 */
 instr_func group_3_v_entry[8] =
-    {__ref_test_i2rm_v, inv, not_rm_v, inv, mul_rm2a_v, imul_rm2a_v, inv, idiv_rm2a_v};//111:idiv_rm2a_v,100:mul_rm2a_v,101:imul_rm2a_v,000:test_i2rm_v
+    {__ref_test_i2rm_v, inv, __ref_not_rm_v, inv, __ref_mul_rm2a_v, __ref_imul_rm2a_v, inv, __ref_idiv_rm2a_v};//111:idiv_rm2a_v,100:mul_rm2a_v,101:imul_rm2a_v,000:test_i2rm_v
 
 /* 0xff */
 instr_func group_5_indirect_entry[8] =
@@ -194,7 +194,7 @@ instr_func opcode_2_byte_entry[256] = {
     /* 0xa0 - 0xa3*/ inv, inv, inv, bt_r2rm_v,
     /* 0xa4 - 0xa7*/ inv, inv, inv, inv,
     /* 0xa8 - 0xab*/ inv, inv, inv, inv,
-    /* 0xac - 0xaf*/ inv, inv, inv, imul_rm2r_v,//af:imul_rm2r_v
+    /* 0xac - 0xaf*/ inv, inv, inv, __ref_imul_rm2r_v,//af:imul_rm2r_v
     /* 0xb0 - 0xb3*/ inv, inv, inv, inv,
     /* 0xb4 - 0xb7*/ inv, inv, mov_zrm82r_v, mov_zrm162r_l,
     /* 0xb8 - 0xbb*/ inv, inv, inv, inv,
