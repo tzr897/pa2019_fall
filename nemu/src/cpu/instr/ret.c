@@ -35,7 +35,7 @@ make_instr_func(ret_near_imm16)
     i2.addr=cpu.eip+1;
     i2.sreg=SREG_CS;
     operand_read(&i2);
-    
+    cpu.eip+=i2.val;
 
 
     // int offset;
