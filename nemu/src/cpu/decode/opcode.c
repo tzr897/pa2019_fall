@@ -35,7 +35,7 @@ instr_func opcode_entry[256] = {
     /* 0x7c - 0x7f*/ jl_short_, jge_short_, jle_short_, jg_short_,//7f:jg_short_,7e:jle_short_,7c:jl_short_,7d:jge_short_
     /* 0x80 - 0x83*/ group_1_b, group_1_v, nemu_trap, group_1_bv,//10.1783group_1_bv
     /* 0x84 - 0x87*/ test_r2rm_b, test_r2rm_v, inv, inv,//85:test_r2rm_v,84:test_r2rm_b
-    /* 0x88 - 0x8b*/ __ref_mov_r2rm_b, mov_r2rm_v, mov_rm2r_b, mov_rm2r_v,
+    /* 0x88 - 0x8b*/ mov_r2rm_b, mov_r2rm_v, mov_rm2r_b, mov_rm2r_v,
     /* 0x8c - 0x8f*/ inv, lea, inv, inv,//8d:lea
     /* 0x90 - 0x93*/ nop, inv, inv, inv,
     /* 0x94 - 0x97*/ inv, inv, inv, inv,
@@ -186,7 +186,7 @@ instr_func opcode_2_byte_entry[256] = {
     /* 0x7c - 0x7f*/ inv, inv, inv, inv,
     /* 0x80 - 0x83*/ inv, inv,inv, inv,//__ref_jo_near, __ref_jno_near, __ref_jb_near, __ref_jae_near,
     /* 0x84 - 0x87*/ je_near, inv, jna_near, ja_near,//86:jna_near,84:je_near,87:ja_near
-    /* 0x88 - 0x8b*/ inv, inv,inv, inv,//__ref_js_near, __ref_jns_near, __ref_jp_near, __ref_jnp_near,
+    /* 0x88 - 0x8b*/ js_near, inv,inv, inv,//__ref_js_near, __ref_jns_near, __ref_jp_near, __ref_jnp_near,
     /* 0x8c - 0x8f*/ jl_near, inv, jle_near, inv,//8c:jl_near,8e:jle_near
     /* 0x90 - 0x93*/ inv, inv, inv, inv,//__ref_seto_b, __ref_setno_b, __ref_setc_b, __ref_setae_b,
     /* 0x94 - 0x97*/ inv, setne_b, inv, inv,//__ref_sete_b, __ref_setne_b, __ref_setbe_b, __ref_seta_b,
