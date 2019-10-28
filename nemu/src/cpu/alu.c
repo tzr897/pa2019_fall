@@ -240,7 +240,7 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 		res=dest<<(src-1);
 	}
 	sign=res>>(data_size-1);
-	res<<=1;
+	res=res<<1;
 	res=res&(0xFFFFFFFF>>(32-data_size));
 	set_PF(res);
 	set_ZF(res,data_size);
