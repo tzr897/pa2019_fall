@@ -18,14 +18,22 @@ make_instr_func(ret_near)
 make_instr_func(ret_near_imm16)
 {
     
-    OPERAND i;
-    i.data_size=data_size;
-    i.type=OPR_MEM;
-    i.addr=cpu.esp;
-    i.sreg=SREG_DS;
-    operand_read(&i);
+    OPERAND i1,i2;
+    i1.data_size=data_size;
+    i1.type=OPR_MEM;
+    i1.addr=cpu.esp;
+    i1.sreg=SREG_DS;
+    operand_read(&i1);
     cpu.esp+=data_size/8;
-    cpu.eip=i.val;
+    cpu.eip=i1.val;
+
+    i2.data_size=data_size;
+    i2.type=OPR_IMM;
+    i2.addr=cpu.esp;
+    i2.sreg=SREG_DS;
+    operand_read(&i2);
+    cpu.esp+=data_size/8;
+    cpu.eip=i2.val;
 
     return 0;
 }
