@@ -42,15 +42,15 @@ instr_func opcode_entry[256] = {
     /* 0x98 - 0x9b*/ cbw_a_v, cltd, inv, inv,
     /* 0x9c - 0x9f*/ inv, inv, sahf, inv,
     /* 0xa0 - 0xa3*/ mov_o2a_b, mov_o2a_v, mov_a2o_b, mov_a2o_v,
-    /* 0xa4 - 0xa7*/ movs_b, movs_v, __ref_cmps_b, __ref_cmps_v,//a7:cmps_v,a6:cmps_b
+    /* 0xa4 - 0xa7*/ __ref_movs_b, __ref_movs_v, __ref_cmps_b, __ref_cmps_v,//a7:cmps_v,a6:cmps_b
     /* 0xa8 - 0xab*/ __ref_test_i2a_b, __ref_test_i2a_v, __ref_stos_b, __ref_stos_v,//a8:test_i2a_b,a9:test_i2a_v,aa:rep
     /* 0xac - 0xaf*/ inv, inv, inv, inv,//
-    /* 0xb0 - 0xb3*/ mov_i2r_b, mov_i2r_b, mov_i2r_b, mov_i2r_b,
-    /* 0xb4 - 0xb7*/ mov_i2r_b, mov_i2r_b, mov_i2r_b, mov_i2r_b,
-    /* 0xb8 - 0xbb*/ __ref_mov_i2r_v, mov_i2r_v, mov_i2r_v, mov_i2r_v,
-    /* 0xbc - 0xbf*/ mov_i2r_v, mov_i2r_v, mov_i2r_v, mov_i2r_v,
+    /* 0xb0 - 0xb3*/ __ref_mov_i2r_b, __ref_mov_i2r_b, __ref_mov_i2r_b, __ref_mov_i2r_b,
+    /* 0xb4 - 0xb7*/ __ref_mov_i2r_b, __ref_mov_i2r_b, __ref_mov_i2r_b, __ref_mov_i2r_b,
+    /* 0xb8 - 0xbb*/ __ref_mov_i2r_v, __ref_mov_i2r_v, __ref_mov_i2r_v, __ref_mov_i2r_v,
+    /* 0xbc - 0xbf*/ __ref_mov_i2r_v, __ref_mov_i2r_v, __ref_mov_i2r_v, __ref_mov_i2r_v,
     /* 0xc0 - 0xc3*/ group_2_b, group_2_v, __ref_ret_near_imm16, __ref_ret_near,//c2:ret_near
-    /* 0xc4 - 0xc7*/ inv, inv, mov_i2rm_b, mov_i2rm_v,
+    /* 0xc4 - 0xc7*/ inv, inv, __ref_mov_i2rm_b, __ref_mov_i2rm_v,
     /* 0xc8 - 0xcb*/ inv, __ref_leave, inv, inv,//c9:leave
     /* 0xcc - 0xcf*/ inv, inv, inv, __ref_iret,
     /* 0xd0 - 0xd3*/ group_2_1b, group_2_1v, group_2_cb, group_2_cv,
@@ -196,9 +196,9 @@ instr_func opcode_2_byte_entry[256] = {
     /* 0xa8 - 0xab*/ inv, inv, inv, inv,
     /* 0xac - 0xaf*/ inv, inv, inv, __ref_imul_rm2r_v,//af:imul_rm2r_v
     /* 0xb0 - 0xb3*/ inv, inv, inv, inv,
-    /* 0xb4 - 0xb7*/ inv, inv, mov_zrm82r_v, mov_zrm162r_l,
+    /* 0xb4 - 0xb7*/ inv, inv, __ref_mov_zrm82r_v, __ref_mov_zrm162r_l,
     /* 0xb8 - 0xbb*/ inv, inv, inv, inv,
-    /* 0xbc - 0xbf*/ inv, inv, mov_srm82r_v, mov_srm162r_l,
+    /* 0xbc - 0xbf*/ inv, inv, __ref_mov_srm82r_v, __ref_mov_srm162r_l,
     /* 0xc0 - 0xc3*/ inv, inv, inv, inv,
     /* 0xc4 - 0xc7*/ inv, inv, inv, inv,
     /* 0xc8 - 0xcb*/ inv, inv, inv, inv,
