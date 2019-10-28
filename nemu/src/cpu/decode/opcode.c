@@ -454,33 +454,33 @@
 #include "cpu/instr.h"
 
 instr_func opcode_entry[256] = {
-    /* 0x00 - 0x03*/ __ref_add_r2rm_b, __ref_add_r2rm_v, inv, inv,//10.1700:add_r2rm_b,01add_r2rm_v,02cmps_v,03cmps_v
-    /* 0x04 - 0x07*/ inv, __ref_add_i2a_v, inv, inv,//10.1704cmps_v,05add_i2a_v,06cmps_v,07cmps_v
-    /* 0x08 - 0x0b*/ inv, __ref_or_r2rm_v, __ref_or_rm2r_b, inv,//10.1708cmps_v,09or_r2rm_v,0aor_rm2r_b_v,0bcmps_v
+    /* 0x00 - 0x03*/ add_r2rm_b, add_r2rm_v, inv, inv,//10.1700:add_r2rm_b,01add_r2rm_v,02cmps_v,03cmps_v
+    /* 0x04 - 0x07*/ inv, add_i2a_v, inv, inv,//10.1704cmps_v,05add_i2a_v,06cmps_v,07cmps_v
+    /* 0x08 - 0x0b*/ inv, or_r2rm_v, or_rm2r_b, inv,//10.1708cmps_v,09or_r2rm_v,0aor_rm2r_b_v,0bcmps_v
     /* 0x0c - 0x0f*/ inv, inv, inv, opcode_2_byte,
-    /* 0x10 - 0x13*/ inv, __ref_adc_r2rm_v, inv, inv,//11:adc_r2rm_v
+    /* 0x10 - 0x13*/ inv, adc_r2rm_v, inv, inv,//11:adc_r2rm_v
     /* 0x14 - 0x17*/ inv, inv, inv, inv,
-    /* 0x18 - 0x1b*/ __ref_sbb_r2rm_b, __ref_sbb_r2rm_v, __ref_sbb_rm2r_b, __ref_sbb_rm2r_v,//1b:sbb_rm2r_v
-    /* 0x1c - 0x1f*/ __ref_sbb_i2a_b, __ref_sbb_i2a_v, inv, inv,
-    /* 0x20 - 0x23*/ inv, __ref_and_r2rm_v, __ref_and_rm2r_b, inv,//22:and_rm2r_b,21:and_r2rm_v
+    /* 0x18 - 0x1b*/ sbb_r2rm_b, sbb_r2rm_v, sbb_rm2r_b, sbb_rm2r_v,//1b:sbb_rm2r_v
+    /* 0x1c - 0x1f*/ sbb_i2a_b, sbb_i2a_v, inv, inv,
+    /* 0x20 - 0x23*/ inv, and_r2rm_v, and_rm2r_b, inv,//22:and_rm2r_b,21:and_r2rm_v
     /* 0x24 - 0x27*/ inv, inv, inv, inv,
-    /* 0x28 - 0x2b*/ inv, __ref_sub_r2rm_v, inv, __ref_sub_rm2r_v,
+    /* 0x28 - 0x2b*/ inv, sub_r2rm_v, inv, sub_rm2r_v,
     /* 0x2c - 0x2f*/ inv, inv, inv, inv,
-    /* 0x30 - 0x33*/ inv, __ref_xor_r2rm_v, inv, inv,//31:xor_r2rm_v
+    /* 0x30 - 0x33*/ inv, xor_r2rm_v, inv, inv,//31:xor_r2rm_v
     /* 0x34 - 0x37*/ inv, inv, inv, inv,
-    /* 0x38 - 0x3b*/ __ref_cmp_r2rm_b, __ref_cmp_r2rm_v, __ref_cmp_rm2r_b, __ref_cmp_rm2r_v,//39:cmp_r2rm_v,3a:cmp_rm2r_b
-    /* 0x3c - 0x3f*/ __ref_cmp_i2a_b, __ref_cmp_i2a_v, inv, inv,//3c:cmp_i2a_b
-    /* 0x40 - 0x43*/ __ref_inc_r_v, inv, __ref_inc_r_v, inv,//42:inc_r_v,40:inc_r_v
-    /* 0x44 - 0x47*/ inv, inv, inv, __ref_inc_r_v,//47:inc_r_v
-    /* 0x48 - 0x4b*/ __ref_dec_r_v, inv, inv, inv,
+    /* 0x38 - 0x3b*/ cmp_r2rm_b, cmp_r2rm_v, cmp_rm2r_b, cmp_rm2r_v,//39:cmp_r2rm_v,3a:cmp_rm2r_b
+    /* 0x3c - 0x3f*/ cmp_i2a_b, cmp_i2a_v, inv, inv,//3c:cmp_i2a_b
+    /* 0x40 - 0x43*/ inc_r_v, inv, inc_r_v, inv,//42:inc_r_v,40:inc_r_v
+    /* 0x44 - 0x47*/ inv, inv, inv, _inc_r_v,//47:inc_r_v
+    /* 0x48 - 0x4b*/ dec_r_v, inv, inv, inv,
     /* 0x4c - 0x4f*/ inv, inv, inv, inv,
-    /* 0x50 - 0x53*/ __ref_push_r_v, __ref_push_r_v, __ref_push_r_v, __ref_push_r_v,//53 :push_r_v,51:push_r_v,52:push_r_v,50:push_r_v
-    /* 0x54 - 0x57*/ __ref_push_r_v, __ref_push_r_v, __ref_push_r_v, __ref_push_r_v,//55push_r_v,57:push_r_v,56:push_r_v
-    /* 0x58 - 0x5b*/ __ref_pop_r_v, __ref_pop_r_v, __ref_pop_r_v, __ref_pop_r_v,//5b:pop_r_v
-    /* 0x5c - 0x5f*/ __ref_pop_r_v, __ref_pop_r_v, __ref_pop_r_v, __ref_pop_r_v,//5d:pop_r_v,5e:pop_r_v,5f:pop_r_v
-    /* 0x60 - 0x63*/ __ref_pusha, __ref_popa, inv, inv,
+    /* 0x50 - 0x53*/ push_r_v, push_r_v, push_r_v, push_r_v,//53 :push_r_v,51:push_r_v,52:push_r_v,50:push_r_v
+    /* 0x54 - 0x57*/ push_r_v, push_r_v, push_r_v, push_r_v,//55push_r_v,57:push_r_v,56:push_r_v
+    /* 0x58 - 0x5b*/ pop_r_v, pop_r_v, pop_r_v, pop_r_v,//5b:pop_r_v
+    /* 0x5c - 0x5f*/ pop_r_v, pop_r_v, pop_r_v, pop_r_v,//5d:pop_r_v,5e:pop_r_v,5f:pop_r_v
+    /* 0x60 - 0x63*/ inv, inv, inv, inv,
     /* 0x64 - 0x67*/ inv, inv, data_size_16, inv,
-    /* 0x68 - 0x6b*/ __ref_push_i_v, __ref_imul_irm2r_v, __ref_push_i_b, __ref_imul_i8rm2r_v,
+    /* 0x68 - 0x6b*/ push_i_v, imul_irm2r_v, push_i_b, __ref_imul_i8rm2r_v,
     /* 0x6c - 0x6f*/ inv, inv, inv, inv,
     /* 0x70 - 0x73*/ __ref_jo_short_, __ref_jno_short_, __ref_jb_short_, __ref_jae_short_,
     /* 0x74 - 0x77*/ je_short_, __ref_jne_short_, __ref_jna_short_, __ref_ja_short_,//74je_short_,75:jne_short_,76:jna_short_
