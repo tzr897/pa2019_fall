@@ -17,7 +17,7 @@ make_instr_func(ret_near)
 
 make_instr_func(ret_near_imm16)
 {
-    int offset;
+    //int offset;
     OPERAND i1,i2;
 
     i1.data_size=data_size;
