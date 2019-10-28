@@ -57,9 +57,9 @@ instr_func opcode_entry[256] = {
     /* 0xd4 - 0xd7*/ inv, inv, inv, inv,
     /* 0xd8 - 0xdb*/ group_x87_d8, group_x87_d9, group_x87_da, group_x87_db,
     /* 0xdc - 0xdf*/ group_x87_dc, group_x87_dd, group_x87_de, group_x87_df,
-    /* 0xe0 - 0xe3*/ inv, inv, inv, inv,//__ref_jecxz_short_,
+    /* 0xe0 - 0xe3*/ inv, inv, inv, inv,
     /* 0xe4 - 0xe7*/ inv, inv, inv, inv,
-    /* 0xe8 - 0xeb*/ call_near, jmp_near, __ref_jmp_far_imm, jmp_short,//e8call_near, e9jmp_near,eb:jmp_short
+    /* 0xe8 - 0xeb*/ call_near, jmp_near, inv, jmp_short,//  __ref_jmp_far_imm   e8call_near, e9jmp_near,eb:jmp_short
     /* 0xec - 0xef*/ inv, inv, inv, inv,
     /* 0xf0 - 0xf3*/ inv, break_point, inv, rep_repe,
     /* 0xf4 - 0xf7*/ hlt, inv, group_3_b, group_3_v,//group_3_v,10.17f7group_3_v->cmps_v,f6group_3_b->cmps_v,f5cmps_v
@@ -114,7 +114,6 @@ instr_func group_3_v_entry[8] =
 /* 0xff */
 instr_func group_5_indirect_entry[8] =
     {inc_rm_v, dec_rm_v, inv, inv, __ref_jmp_near_indirect, inv, push_rm_v, inv};
-    //{__ref_inc_rm_v, __ref_dec_rm_v, __ref_call_near_indirect, inv, __ref_jmp_near_indirect, inv, __ref_push_rm_v, inv};//000:inc_rm_v,110:push,001:dec_rm_v,100:jmp_near_ind
 
 instr_func group_7_entry[8] =
     {inv, inv, inv, inv, inv, inv, inv, inv};
