@@ -522,15 +522,15 @@ instr_func opcode_entry[256] = {
 
 /* 0x80 */
 instr_func group_1_b_entry[8] =
-    {inv, inv, inv, __ref_sbb_i2rm_b, __ref_and_i2rm_b, inv, inv, __ref_cmp_i2rm_b};//111:cmp_i2rm_b
+    {inv, inv, inv, sbb_i2rm_b, and_i2rm_b, inv, inv, cmp_i2rm_b};//111:cmp_i2rm_b
 
 /* 0x81 */
 instr_func group_1_v_entry[8] =
-    {__ref_add_i2rm_v, inv, inv, __ref_sbb_i2rm_v, __ref_and_i2rm_v, __ref_sub_i2rm_v, inv, __ref_cmp_i2rm_v};//000:add_i2rm_v,101:sub_i2rm_v,111:cmp_i2rm_v,100:and_i2rm_v
+    {add_i2rm_v, inv, inv, sbb_i2rm_v, and_i2rm_v, sub_i2rm_v, inv, cmp_i2rm_v};//000:add_i2rm_v,101:sub_i2rm_v,111:cmp_i2rm_v,100:and_i2rm_v
 
 /* 0x83 */
 instr_func group_1_bv_entry[8] =
-    {__ref_add_i2rm_bv, inv, inv, __ref_sbb_i2rm_bv, __ref_and_i2rm_bv, __ref_sub_i2rm_bv, inv, __ref_cmp_i2rm_bv};//111:cmp_i2rm_bv,101:sub_i2rm_v,100:and_i2rm_bv,000:add_i2rm_bv
+    {add_i2rm_bv, inv, inv, sbb_i2rm_bv, and_i2rm_bv, sub_i2rm_bv, inv, cmp_i2rm_bv};//111:cmp_i2rm_bv,101:sub_i2rm_v,100:and_i2rm_bv,000:add_i2rm_bv
 
 /* 0xc0 */
 instr_func group_2_b_entry[8] =
@@ -558,15 +558,15 @@ instr_func group_2_cv_entry[8] =
 
 /* 0xf6 */
 instr_func group_3_b_entry[8] =
-    {__ref_test_i2rm_b, inv, inv, inv, inv, inv, inv, inv};//000:test_i2rm_b
+    {test_i2rm_b, inv, inv, inv, inv, inv, inv, inv};//000:test_i2rm_b
 
 /* 0xf7 */
 instr_func group_3_v_entry[8] =
-    {__ref_test_i2rm_v, inv, __ref_not_rm_v, inv, __ref_mul_rm2a_v, __ref_imul_rm2a_v, inv, __ref_idiv_rm2a_v};//111:idiv_rm2a_v,100:mul_rm2a_v,101:imul_rm2a_v,000:test_i2rm_v
+    {test_i2rm_v, inv, not_rm_v, inv, mul_rm2a_v, imul_rm2a_v, inv, idiv_rm2a_v};//111:idiv_rm2a_v,100:mul_rm2a_v,101:imul_rm2a_v,000:test_i2rm_v
 
 /* 0xff */
 instr_func group_5_indirect_entry[8] =
-    {__ref_inc_rm_v, __ref_dec_rm_v, __ref_call_near_indirect, inv, __ref_jmp_near_indirect, inv, __ref_push_rm_v, inv};
+    {inc_rm_v, dec_rm_v, inv, inv, __ref_jmp_near_indirect, inv, push_rm_v, inv};
     //{__ref_inc_rm_v, __ref_dec_rm_v, __ref_call_near_indirect, inv, __ref_jmp_near_indirect, inv, __ref_push_rm_v, inv};//000:inc_rm_v,110:push,001:dec_rm_v,100:jmp_near_ind
 
 instr_func group_7_entry[8] =
@@ -637,22 +637,22 @@ instr_func opcode_2_byte_entry[256] = {
     /* 0x74 - 0x77*/ inv, inv, inv, inv,
     /* 0x78 - 0x7b*/ inv, inv, inv, inv,
     /* 0x7c - 0x7f*/ inv, inv, inv, inv,
-    /* 0x80 - 0x83*/ __ref_jo_near, __ref_jno_near, __ref_jb_near, __ref_jae_near,
-    /* 0x84 - 0x87*/ __ref_je_near, __ref_jne_near, __ref_jna_near, __ref_ja_near,//86:jna_near,84:je_near,87:ja_near
-    /* 0x88 - 0x8b*/ __ref_js_near, __ref_jns_near, __ref_jp_near, __ref_jnp_near,
-    /* 0x8c - 0x8f*/ __ref_jl_near, __ref_jge_near, __ref_jle_near, __ref_jg_near,//8c:jl_near,8e:jle_near
-    /* 0x90 - 0x93*/ __ref_seto_b, __ref_setno_b, __ref_setc_b, __ref_setae_b,
-    /* 0x94 - 0x97*/ __ref_sete_b, __ref_setne_b, __ref_setbe_b, __ref_seta_b,
-    /* 0x98 - 0x9b*/ __ref_sets_b, __ref_setns_b, __ref_setp_b, __ref_setnp_b,
-    /* 0x9c - 0x9f*/ __ref_setl_b, __ref_setge_b, __ref_setle_b, __ref_setg_b,
+    /* 0x80 - 0x83*/ inv, inv, inv, jae_near,
+    /* 0x84 - 0x87*/ je_near, jne_near, jna_near, ja_near,//86:jna_near,84:je_near,87:ja_near
+    /* 0x88 - 0x8b*/ js_near, jns_near, inv, inv,
+    /* 0x8c - 0x8f*/ jl_near, inv, jle_near, jg_near,//8c:jl_near,8e:jle_near
+    /* 0x90 - 0x93*/ inv, inv, inv, inv,
+    /* 0x94 - 0x97*/ inv, setne_b, inv, inv,
+    /* 0x98 - 0x9b*/ inv, inv, inv, inv,
+    /* 0x9c - 0x9f*/ inv, inv, inv, inv,
     /* 0xa0 - 0xa3*/ inv, inv, inv, bt_r2rm_v,
     /* 0xa4 - 0xa7*/ inv, inv, inv, inv,
     /* 0xa8 - 0xab*/ inv, inv, inv, inv,
-    /* 0xac - 0xaf*/ inv, inv, inv, __ref_imul_rm2r_v,//af:imul_rm2r_v
+    /* 0xac - 0xaf*/ inv, inv, inv, imul_rm2r_v,//af:imul_rm2r_v
     /* 0xb0 - 0xb3*/ inv, inv, inv, inv,
-    /* 0xb4 - 0xb7*/ inv, inv, __ref_mov_zrm82r_v, __ref_mov_zrm162r_l,
+    /* 0xb4 - 0xb7*/ inv, inv, mov_zrm82r_v, mov_zrm162r_l,
     /* 0xb8 - 0xbb*/ inv, inv, inv, inv,
-    /* 0xbc - 0xbf*/ inv, inv, __ref_mov_srm82r_v, __ref_mov_srm162r_l,
+    /* 0xbc - 0xbf*/ inv, inv, mov_srm82r_v, mov_srm162r_l,
     /* 0xc0 - 0xc3*/ inv, inv, inv, inv,
     /* 0xc4 - 0xc7*/ inv, inv, inv, inv,
     /* 0xc8 - 0xcb*/ inv, inv, inv, inv,
