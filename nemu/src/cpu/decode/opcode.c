@@ -185,7 +185,7 @@ instr_func opcode_2_byte_entry[256] = {
     /* 0x78 - 0x7b*/ inv, inv, inv, inv,
     /* 0x7c - 0x7f*/ inv, inv, inv, inv,
     /* 0x80 - 0x83*/ inv, inv,inv, inv,//__ref_jo_near, __ref_jno_near, __ref_jb_near, __ref_jae_near,
-    /* 0x84 - 0x87*/ je_near, inv, jna_near, ja_near,//86:jna_near,84:je_near,87:ja_near
+    /* 0x84 - 0x87*/ je_near, jne_near, jna_near, ja_near,//86:jna_near,84:je_near,87:ja_near
     /* 0x88 - 0x8b*/ js_near, inv,inv, inv,//__ref_js_near, __ref_jns_near, __ref_jp_near, __ref_jnp_near,
     /* 0x8c - 0x8f*/ jl_near, inv, jle_near, inv,//8c:jl_near,8e:jle_near
     /* 0x90 - 0x93*/ inv, inv, inv, inv,//__ref_seto_b, __ref_setno_b, __ref_setc_b, __ref_setae_b,
