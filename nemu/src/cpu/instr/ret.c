@@ -27,7 +27,7 @@ make_instr_func(ret_near_imm16)
     operand_read(&i1);
     cpu.esp+=data_size/8;
     //offset=sign_ext(i1.val,data_size);
-    cpu.eip+=i1.val;
+    cpu.eip=i1.val;
     
 
     i2.data_size=data_size;
