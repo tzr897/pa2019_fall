@@ -238,7 +238,7 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 	src=src&(0xFFFFFFFF>>(32-data_size));
 	res=dest<<(src-1);	
 	t=res;
-	sign=t>>(data_size-1);
+	//sign=t>>(data_size-1);
 	res=t<<1;
 	res=res&(0xFFFFFFFF>>(32-data_size));
 	set_PF(res);
