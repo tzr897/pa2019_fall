@@ -26,16 +26,14 @@ make_instr_func(ret_near_imm16)
     i1.sreg=SREG_DS;
     operand_read(&i1);
     cpu.esp+=new_data_size/8;
-    //offset=sign_ext(i1.val,data_size);
     cpu.eip=i1.val;
     
-
     i2.data_size=new_data_size;
     i2.type=OPR_IMM;
     i2.addr=cpu.eip+1;
     i2.sreg=SREG_CS;
     operand_read(&i2);
-    cpu.esp+=i2.val;
+    cpu.esp+=new_data_size/8;
 
     return 0;
 }
