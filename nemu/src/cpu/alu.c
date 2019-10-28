@@ -244,7 +244,7 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 	set_PF(res);
 	set_ZF(res,data_size);
 	set_SF(res,data_size);
-	cpu.eflags.CF=sign;
+	cpu.eflags.CF=0;
 	return res;
 #endif
 }
