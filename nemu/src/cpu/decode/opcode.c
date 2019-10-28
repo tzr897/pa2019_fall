@@ -21,7 +21,7 @@ instr_func opcode_entry[256] = {
     /* 0x44 - 0x47*/ inv, inv, inv, inc_r_v,//47:inc_r_v
     /* 0x48 - 0x4b*/ dec_r_v, inv, inv, inv,
     /* 0x4c - 0x4f*/ inv, inv, inv, inv,
-    /* 0x50 - 0x53*/ __ref_push_r_v, push_r_v, push_r_v, push_r_v,//53 :push_r_v,51:push_r_v,52:push_r_v,50:push_r_v
+    /* 0x50 - 0x53*/ push_r_v, push_r_v, push_r_v, push_r_v,//53 :push_r_v,51:push_r_v,52:push_r_v,50:push_r_v
     /* 0x54 - 0x57*/ push_r_v, push_r_v, push_r_v, push_r_v,//55push_r_v,57:push_r_v,56:push_r_v
     /* 0x58 - 0x5b*/ pop_r_v, pop_r_v, pop_r_v, pop_r_v,//5b:pop_r_v
     /* 0x5c - 0x5f*/ pop_r_v, pop_r_v, pop_r_v, pop_r_v,//5d:pop_r_v,5e:pop_r_v,5f:pop_r_v
