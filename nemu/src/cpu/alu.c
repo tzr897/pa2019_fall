@@ -358,7 +358,7 @@ void set_SF(uint32_t result,size_t data_size)
 void set_PF(uint32_t result)
 {
 	uint32_t i,count=8;
-	for(i=1;i<128;i*=2)
+	for(i=1;i<=128;i*=2)
 	{
 		if((result&i)==0)
 			count--;
