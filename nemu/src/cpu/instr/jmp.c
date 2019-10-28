@@ -46,7 +46,7 @@ make_instr_func(jmp_near_indirect)
         //rel.sreg = SREG_CS;
         rel.data_size = data_size;
         //rel.addr = eip + 1;
-
+        modrm_rm(cpu.eip, &rel);
         operand_read(&rel);
 
         if(data_size==16)
