@@ -19,14 +19,15 @@ make_instr_func(ret_near_imm16)
 {
     int offset;
     OPERAND i1,i2;
+
     i1.data_size=data_size;
     i1.type=OPR_MEM;
     i1.addr=cpu.esp;
     i1.sreg=SREG_DS;
-    operand_write(&i1);
+    operand_read(&i1);
     cpu.esp+=data_size/8;
-    offset=sign_ext(i1.val,data_size);
-    cpu.eip+=offset+1+data_size/8;
+    //offset=sign_ext(i1.val,data_size);
+    cpu.eip+=i1.val;
     
 
     i2.data_size=data_size;
