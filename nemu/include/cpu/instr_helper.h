@@ -212,7 +212,7 @@ static inline bool inv_cc();
 
 #define condition_g \
 	(((cpu.eflags.SF^cpu.eflags.OF)|cpu.eflags.ZF)==0)
-	//((0==cpu.eflags.ZF)&&(0==(cpu.eflags.SF^cpu.eflags.OF)))
+	//((0==cpu.eflags.ZF)&&(0==(cpu.eflags.SF^cpu.eflags.OF)))//
 
 #define condition_ge \
 	((cpu.eflags.SF^cpu.eflags.OF)==0)
@@ -223,7 +223,7 @@ static inline bool inv_cc();
 	//((1==(cpu.eflags.SF^cpu.eflags.OF))&&(cpu.eflags.ZF==0))
 
 #define condition_le \
-	(((cpu.eflags.SF^cpu.eflags.OF)&cpu.eflags.ZF)==1)
+	(((cpu.eflags.SF^cpu.eflags.OF)|cpu.eflags.ZF)==1)
 	//((1==cpu.eflags.ZF)||(1==(cpu.eflags.SF^cpu.eflags.OF)))
 
 #define condition_ecxz \
