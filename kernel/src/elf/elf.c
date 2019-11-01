@@ -14,18 +14,18 @@ void ide_read(uint8_t *, uint32_t, uint32_t);
 void create_video_mapping();
 uint32_t get_ucr3();
 
-uint32_t loader()
+uint32_t loader()//renwu:shixian loader()
 {
-	Elf32_Ehdr *elf;
+	Elf32_Ehdr *elf;//elf tou duiying de shujujiegou
 	Elf32_Phdr *ph, *eph;
 
-#ifdef HAS_DEVICE_IDE
+#ifdef HAS_DEVICE_IDE//shixian cipan hou cai yong,xianbukan
 	uint8_t buf[4096];
 	ide_read(buf, ELF_OFFSET_IN_DISK, 4096);
 	elf = (void *)buf;
 	Log("ELF loading from hard disk.");
 #else
-	elf = (void *)0x0;
+	elf = (void *)0x0;//shixian dui elf tou de jiexi
 	Log("ELF loading from ram disk.");
 #endif
 
