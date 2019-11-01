@@ -17,7 +17,7 @@ uint32_t get_ucr3();
 uint32_t loader()//renwu:shixian loader()
 {
 	Elf32_Ehdr *elf;//elf tou duiying de shujujiegou
-	Elf32_Phdr *ph, *eph;
+	Elf32_Phdr *ph, *eph;//chengxutoubiao
 
 #ifdef HAS_DEVICE_IDE//shixian cipan hou cai yong,xianbukan
 	uint8_t buf[4096];
@@ -30,11 +30,11 @@ uint32_t loader()//renwu:shixian loader()
 #endif
 
 	/* Load each program segment */
-	ph = (void *)elf + elf->e_phoff;
-	eph = ph + elf->e_phnum;
+	ph = (void *)elf + elf->e_phoff;//zhixiang chengxutoubiao de shoudizhi
+	eph = ph + elf->e_phnum;//jieshudizhi
 	for (; ph < eph; ph++)
 	{
-		if (ph->p_type == PT_LOAD)
+		if (ph->p_type == PT_LOAD)//
 		{
 
 			// remove this panic!!!
