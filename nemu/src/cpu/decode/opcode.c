@@ -120,15 +120,15 @@ instr_func group_7_entry[8] =
 
 /* 0xd8 */
 instr_func group_x87_d8_entry[8] =
-    {x87_fadds, x87_fmuls, inv, inv, x87_fsubs, inv, x87_fdivs, inv};
+    {__ref_x87_fadds, __ref_x87_fmuls, inv, inv, __ref_x87_fsubs, inv, __ref_x87_fdivs, inv};
 
 /* 0xd9 */
 instr_func group_x87_d9_entry[8] =
-    {x87_flds, x87_fxch, x87_fsts, x87_fstps, inv, x87_fldx, inv, x87_fnstcw};
+    {__ref_x87_flds, __ref_x87_fxch, __ref_x87_fsts, __ref_x87_fstps, inv, __ref_x87_fldx, inv, __ref_x87_fnstcw};
 
 /* 0xda */
 instr_func group_x87_da_entry[8] =
-    {inv, inv, inv, inv, inv, x87_fucompp, inv, inv};
+    {inv, inv, inv, inv, inv, __ref_x87_fucompp, inv, inv};
 
 /* 0xdb */
 instr_func group_x87_db_entry[8] =
