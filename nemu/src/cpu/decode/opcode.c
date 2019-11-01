@@ -3,7 +3,7 @@
 instr_func opcode_entry[256] = {
     /* 0x00 - 0x03*/ add_r2rm_b, add_r2rm_v, add_rm2r_b, add_rm2r_v,//10.1700:add_r2rm_b,01add_r2rm_v
     /* 0x04 - 0x07*/ inv, add_i2a_v, inv, inv,//10.1704cmps_v,05add_i2a_v
-    /* 0x08 - 0x0b*/ inv, or_r2rm_v, or_rm2r_b, inv,//09or_r2rm_v,0aor_rm2r_b_v
+    /* 0x08 - 0x0b*/ inv, __ref_or_r2rm_v, or_rm2r_b, inv,//09or_r2rm_v,0aor_rm2r_b_v
     /* 0x0c - 0x0f*/ inv, inv, inv, opcode_2_byte,
     /* 0x10 - 0x13*/ adc_r2rm_b, adc_r2rm_v, inv, inv,//11:adc_r2rm_v
     /* 0x14 - 0x17*/ inv, inv, inv, inv,
@@ -13,7 +13,7 @@ instr_func opcode_entry[256] = {
     /* 0x24 - 0x27*/ inv, inv, inv, inv,
     /* 0x28 - 0x2b*/ inv, sub_r2rm_v, inv, sub_rm2r_v,
     /* 0x2c - 0x2f*/ inv, inv, inv, inv,
-    /* 0x30 - 0x33*/ inv, xor_r2rm_v, inv, inv,//31:xor_r2rm_v
+    /* 0x30 - 0x33*/ inv, __ref_xor_r2rm_v, inv, inv,//31:xor_r2rm_v
     /* 0x34 - 0x37*/ xor_i2a_b, inv, inv, inv,
     /* 0x38 - 0x3b*/ cmp_r2rm_b, cmp_r2rm_v, cmp_rm2r_b, cmp_rm2r_v,//39:cmp_r2rm_v,3a:cmp_rm2r_b
     /* 0x3c - 0x3f*/ cmp_i2a_b, cmp_i2a_v, inv, inv,//3c:cmp_i2a_b
@@ -109,7 +109,7 @@ instr_func group_3_b_entry[8] =
 
 /* 0xf7 */
 instr_func group_3_v_entry[8] =
-    {test_i2rm_v, inv, not_rm_v, inv, mul_rm2a_v, imul_rm2a_v, inv, idiv_rm2a_v};//111:idiv_rm2a_v,100:mul_rm2a_v,101:imul_rm2a_v,000:test_i2rm_v
+    {test_i2rm_v, inv, __ref_not_rm_v, inv, mul_rm2a_v, imul_rm2a_v, inv, idiv_rm2a_v};//111:idiv_rm2a_v,100:mul_rm2a_v,101:imul_rm2a_v,000:test_i2rm_v
 
 /* 0xff */
 instr_func group_5_indirect_entry[8] =
