@@ -67,5 +67,5 @@ make_instr_func(call_near_indirect)
         }
 
         return 0;
- */
+ 
 }
