@@ -21,7 +21,7 @@ instr_func opcode_entry[256] = {
     /* 0x44 - 0x47*/ inv, inv, inc_r_v, inc_r_v,//47:inc_r_v
     /* 0x48 - 0x4b*/ dec_r_v, dec_r_v, inv, inv,
     /* 0x4c - 0x4f*/ dec_r_v, inv, inv, inv,
-    /* 0x50 - 0x53*/ push_r_v, __ref_push_r_v, push_r_v, __ref_push_r_v,//53 :push_r_v,51:push_r_v,52:push_r_v,50:push_r_v
+    /* 0x50 - 0x53*/ __ref_push_r_v, __ref_push_r_v, __ref_push_r_v, __ref_push_r_v,//53 :push_r_v,51:push_r_v,52:push_r_v,50:push_r_v
     /* 0x54 - 0x57*/ push_r_v, __ref_push_r_v, __ref_push_r_v, __ref_push_r_v,//55push_r_v,57:push_r_v,56:push_r_v
     /* 0x58 - 0x5b*/ pop_r_v, pop_r_v, pop_r_v, pop_r_v,//5b:pop_r_v
     /* 0x5c - 0x5f*/ pop_r_v, pop_r_v, pop_r_v, pop_r_v,//5d:pop_r_v,5e:pop_r_v,5f:pop_r_v
@@ -30,7 +30,7 @@ instr_func opcode_entry[256] = {
     /* 0x68 - 0x6b*/ push_i_v, imul_irm2r_v, push_i_b, imul_i8rm2r_v,
     /* 0x6c - 0x6f*/ inv, inv, inv, inv,
     /* 0x70 - 0x73*/ inv, inv, jb_short_, jae_short_,
-    /* 0x74 - 0x77*/ je_short_, jne_short_, jna_short_, ja_short_,//74je_short_,75:jne_short_,76:jna_short_
+    /* 0x74 - 0x77*/ je_short_, __ref_jne_short_, jna_short_, ja_short_,//74je_short_,75:jne_short_,76:jna_short_
     /* 0x78 - 0x7b*/ js_short_, inv, inv, inv,
     /* 0x7c - 0x7f*/ jl_short_, jge_short_, jle_short_, jg_short_,//7f:jg_short_,7e:jle_short_,7c:jl_short_,7d:jge_short_
     /* 0x80 - 0x83*/ group_1_b, group_1_v, nemu_trap, group_1_bv,//10.1783group_1_bv
