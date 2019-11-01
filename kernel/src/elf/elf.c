@@ -34,12 +34,16 @@ uint32_t loader()//renwu:shixian loader()
 	eph = ph + elf->e_phnum;//jieshudizhi
 	for (; ph < eph; ph++)
 	{
-		if (ph->p_type == PT_LOAD)//
+		if (ph->p_type == PT_LOAD)//shuming xuyao load
 		{
 
 			// remove this panic!!!
-			panic("Please implement the loader");
-
+			//panic("Please implement the loader");
+			//tihuan wei copy de guocheng
+			//src:ph->p_offset
+			//dest:ph->p_vaddr
+			//size:ph->p_filesz
+			//memcpy(,,)
 /* TODO: copy the segment from the ELF file to its proper memory area */
 
 /* TODO: zeror the memory area [vaddr + file_sz, vaddr + mem_sz) */
