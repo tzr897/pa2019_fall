@@ -25,7 +25,7 @@ uint32_t loader()//renwu:shixian loader()
 	elf = (void *)buf;
 	Log("ELF loading from hard disk.");
 #else
-	elf = (void *)0x0;//shixian dui elf tou de jiexi
+	elf = (void *)0x0;//jiexi elf tou,0x0 shi elf tou de weizhi
 	Log("ELF loading from ram disk.");
 #endif
 
