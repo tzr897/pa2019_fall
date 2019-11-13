@@ -123,6 +123,28 @@ static bool make_token(char *e)
 	return true;
 }
 
+uint32_t eval(p,q)
+{
+	if(p>q)
+	{
+		//bad
+	}
+	else if(p==q)
+	{
+
+	}
+	else if(check_parentheses(p,q)==true)
+	{
+		//
+		return eval(p+1,q-1);
+	}
+	else
+	{
+		//
+	}
+	
+}
+
 uint32_t expr(char *e, bool *success)/////////
 {
 	if (!make_token(e))
