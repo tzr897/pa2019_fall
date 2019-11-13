@@ -34,6 +34,14 @@ static struct rule
 
 	{" +", NOTYPE}, // white space
 	{"\\+", '+'},
+	//
+	{"[0-9]{1,10}", NUM},
+	{"-", '-'},
+	{"\\*", '*'},
+	{"\\(", '('},
+	{"\\)", ')'}
+
+	//
 };
 
 #define NR_REGEX (sizeof(rules) / sizeof(rules[0]))
@@ -122,7 +130,7 @@ uint32_t expr(char *e, bool *success)/////////
 		*success = false;
 		return 0;
 	}
-	
+
 
 
 
