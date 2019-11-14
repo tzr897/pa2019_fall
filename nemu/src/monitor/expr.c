@@ -123,20 +123,22 @@ static bool make_token(char *e)
 	return true;
 }
 
-uint32_t eval(p,q)
+//s:当前待求值表达式在tokens[]数组中的起始位置
+//e:当前待求值表达式在tokens[]数组中的结束位置
+uint32_t eval(int s, int e, bool *success)
 {
-	if(p>q)
+	if(s>e)
 	{
-		//bad
+		
 	}
-	else if(p==q)
+	else if(s==e)
 	{
 
 	}
-	else if(check_parentheses(p,q)==true)
+	else if(check_parentheses(s,e)==true)
 	{
 		//
-		return eval(p+1,q-1);
+		return eval(s+1,e-1);
 	}
 	else
 	{
@@ -153,7 +155,10 @@ uint32_t expr(char *e, bool *success)/////////
 		return 0;
 	}
 
-
+	for(uint32_t i=0;i<nr_token;i++)
+	{
+		if(tokens[i].type=='*' && (i==0||tokens[i-1].type==))
+	}
 
 
 
