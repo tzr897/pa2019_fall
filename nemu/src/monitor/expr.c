@@ -129,11 +129,14 @@ uint32_t eval(int s, int e, bool *success)
 {
 	if(s>e)
 	{
-		
+		/*Bad expression*/
 	}
 	else if(s==e)
 	{
-
+		/* Single token.
+		* For now this token should be a number. 
+		* Return the value of the number.
+		*/
 	}
 	else if(check_parentheses(s,e)==true)
 	{
