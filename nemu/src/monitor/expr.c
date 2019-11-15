@@ -37,11 +37,17 @@ static struct rule
 	//
 	{"[0-9]{1,10}", NUM}, //dec
 	{"-", '-'},
+	{"+", '+'},
+	{"*", '*'},
+	{"/", '/'},
+	
 	{"\\*", '*'},
 	{"\\(", '('},
 	{"\\)", ')'}
-
+	{"\\-", '-'},
+	{"\\/", '/'},
 	//
+
 };
 
 #define NR_REGEX (sizeof(rules) / sizeof(rules[0]))
@@ -140,12 +146,12 @@ uint32_t eval(int s, int e, bool *success)
 	}
 	else if(check_parentheses(s,e)==true)
 	{
-		//
+		
 		return eval(s+1,e-1);
 	}
 	else
 	{
-		//
+		
 	}
 	
 }
