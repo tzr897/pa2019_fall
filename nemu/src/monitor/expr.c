@@ -164,22 +164,19 @@ bool check_parentheses(int s, int e)
 		}
 		else if(tokens[i]==')')
 		{
-			if(l>r)
-			{
-				r++;
-			}
-			else
-			{
-				return false;
-			}
-			
+			r++;
 		}
-		else
+		if(l==r)
 		{
-			;
+			break;
+			return false;
 		}		
 	}
-	if(l==r)
+	if(tokens[e]==')')
+	{
+		r++;
+	}
+	if((l==r)&&(tokens[s]=='(')&&(tokens[q]==')'))
 	{
 		return true;
 	}
@@ -187,8 +184,6 @@ bool check_parentheses(int s, int e)
 	{
 		return false;
 	}
-	
-
 }
 
 //s:当前待求值表达式在tokens[]数组中的起始位置
