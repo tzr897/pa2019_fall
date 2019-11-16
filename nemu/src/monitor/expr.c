@@ -19,6 +19,8 @@ enum
 	SYMB,
 	//
 	HEX,
+	NE,
+	
 	/* TODO: Add more token types */
 
 };
@@ -52,14 +54,18 @@ static struct rule
 	{"\\$e[abcd]x", REG},
 	{"\\$e[bs]p", REG},
 	{"\\$e[ds]i", REG},
-	
+	//
+	{"[a-zA-Z]+[a-zA-Z0-9_]*",SYMB},
+
+
 	//
 	{"==", EQ},
 	{"0[xX][0-9a-fA-F]+", HEX},
 	//
 	{"!", '!'},
-	{"!=", '!='},
-	{""}
+	{"!=", NE},
+	{"%", '%'},
+
 	
 
 
