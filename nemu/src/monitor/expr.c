@@ -116,6 +116,7 @@ static bool make_token(char *e)
 
 				switch (rules[i].token_type)
 				{
+
 				default:
 					tokens[nr_token].type = rules[i].token_type;
 					nr_token++;
@@ -151,6 +152,7 @@ uint32_t eval(int s, int e, bool *success)
 		* For now this token should be a number. 
 		* Return the value of the number.
 		*/
+		return eval(s+1,e-1);
 	}
 	else if(check_parentheses(s,e)==true)
 	{
