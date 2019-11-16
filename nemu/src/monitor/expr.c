@@ -36,20 +36,30 @@ static struct rule
 	{" +", NOTYPE}, // white space
 	{"\\+", '+'},
 	//
+	{"\\-", '-'},
+	{"\\*", '*'},
+	{"\\/", '/'},
+	//
 	{"[0-9]{1,10}", NUM}, //dec
 	{"-", '-'},
 	{"+", '+'},
 	{"*", '*'},
 	{"/", '/'},
-
-	{"\\*", '*'},
+	//
 	{"\\(", '('},
 	{"\\)", ')'}
-	{"\\-", '-'},
-	{"\\/", '/'},
+	//
+	{"\\$e[abcd]x", REG},
+	{"\\$e[bs]p", REG},
+	{"\\$e[ds]i", REG},
+	
 	//
 	{"==", EQ},
 	{"0[xX][0-9a-fA-F]+", HEX},
+	//
+	{"!", '!'},
+	{"!=", '!='},
+	{""}
 	
 
 
@@ -136,6 +146,12 @@ static bool make_token(char *e)
 	return true;
 }
 
+
+bool check_parentheses(int s, int e)
+{
+
+}
+
 //s:当前待求值表达式在tokens[]数组中的起始位置
 //e:当前待求值表达式在tokens[]数组中的结束位置
 uint32_t eval(int s, int e, bool *success)
@@ -152,7 +168,7 @@ uint32_t eval(int s, int e, bool *success)
 		* For now this token should be a number. 
 		* Return the value of the number.
 		*/
-		return eval(s+1,e-1);
+		
 	}
 	else if(check_parentheses(s,e)==true)
 	{
