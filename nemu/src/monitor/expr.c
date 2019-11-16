@@ -16,8 +16,9 @@ enum
 	EQ,
 	NUM,
 	REG,
-	SYMB
-
+	SYMB,
+	//
+	HEX,
 	/* TODO: Add more token types */
 
 };
@@ -40,13 +41,18 @@ static struct rule
 	{"+", '+'},
 	{"*", '*'},
 	{"/", '/'},
-	
+
 	{"\\*", '*'},
 	{"\\(", '('},
 	{"\\)", ')'}
 	{"\\-", '-'},
 	{"\\/", '/'},
 	//
+	{"==", EQ},
+	{"0[xX][0-9a-fA-F]+", HEX},
+	
+
+
 
 };
 
@@ -136,6 +142,8 @@ uint32_t eval(int s, int e, bool *success)
 	if(s>e)
 	{
 		/*Bad expression*/
+		*success=false;
+		return 0;
 	}
 	else if(s==e)
 	{
