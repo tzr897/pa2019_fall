@@ -20,7 +20,7 @@ enum
 	//
 	HEX,
 	NE,
-	
+
 	/* TODO: Add more token types */
 
 };
@@ -155,6 +155,39 @@ static bool make_token(char *e)
 
 bool check_parentheses(int s, int e)
 {
+	int i,l=0,r=0;
+	for(i=s;i<e;++i)
+	{
+		if(tokens[i]=='(')
+		{
+			l++;
+		}
+		else if(tokens[i]==')')
+		{
+			if(l>r)
+			{
+				r++;
+			}
+			else
+			{
+				return false;
+			}
+			
+		}
+		else
+		{
+			;
+		}		
+	}
+	if(l==r)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	
 
 }
 
