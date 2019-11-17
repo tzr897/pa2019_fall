@@ -153,6 +153,8 @@ static bool make_token(char *e)
 }
 
 
+
+
 bool check_parentheses(int s, int e)
 {
 	int i,l=0,r=0;
@@ -185,6 +187,12 @@ bool check_parentheses(int s, int e)
 		return false;
 	}
 }
+
+
+
+
+
+
 
 //s:当前待求值表达式在tokens[]数组中的起始位置
 //e:当前待求值表达式在tokens[]数组中的结束位置
@@ -220,7 +228,7 @@ uint32_t eval(int s, int e, bool *success)
 		case '*': return val1*val2;break;
 		case '/': return val1/val2;break;
 			
-		
+
 		
 		default:
 			break;
