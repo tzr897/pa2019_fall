@@ -207,11 +207,24 @@ uint32_t eval(int s, int e, bool *success)
 	else if(check_parentheses(s,e)==true)
 	{
 		
-		return eval(s+1,e-1);
+		return eval(s+1,e-1,success);
 	}
 	else
 	{
+		uint32_t val1,val2;
+		op=the position of dominant operator;
+		switch (op_type)
+		{
+		case '+': return val1+val2;break;
+		case '-': return val1-val2;break;
+		case '*': return val1*val2;break;
+		case '/': return val1/val2;break;
+			
 		
+		
+		default:
+			break;
+		}
 	}
 	
 }
@@ -226,7 +239,10 @@ uint32_t expr(char *e, bool *success)/////////
 
 	for(uint32_t i=0;i<nr_token;i++)
 	{
-		if(tokens[i].type=='*' && (i==0||tokens[i-1].type==))
+		if(tokens[i].type=='*' && (i==0||tokens[i-1].type==))//bu
+		{
+			tokens[i].type=DEREF;
+		}
 	}
 
 
