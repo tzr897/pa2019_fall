@@ -213,60 +213,60 @@ bool check_parentheses(int s, int e)
 //e:当前待求值表达式在tokens[]数组中的结束位置
 uint32_t eval(int s, int e, bool *success)
 {
-	if(s>e)
-	{
-		/*Bad expression*/
-		*success=false;
-		return 0;
-	}
-	else if(s==e)
-	{
-		/* Single token.
-		* For now this token should be a number. 
-		* Return the value of the number.
-		*/
+	// if(s>e)
+	// {
+	// 	/*Bad expression*/
+	// 	*success=false;
+	// 	return 0;
+	// }
+	// else if(s==e)
+	// {
+	// 	/* Single token.
+	// 	* For now this token should be a number. 
+	// 	* Return the value of the number.
+	// 	*/
 		
-	}
-	else if(check_parentheses(s,e)==true)
-	{
+	// }
+	// else if(check_parentheses(s,e)==true)
+	// {
 		
-		return eval(s+1,e-1,success);
-	}
-	else
-	{
-		uint32_t val1,val2;
-		op=the position of dominant operator;
-		switch (op_type)
-		{
-		case '+': return val1+val2;break;
-		case '-': return val1-val2;break;
-		case '*': return val1*val2;break;
-		case '/': return val1/val2;break;
+	// 	return eval(s+1,e-1,success);
+	// }
+	// else
+	// {
+	// 	uint32_t val1,val2;
+	// 	op=the position of dominant operator;
+	// 	switch (op_type)
+	// 	{
+	// 	case '+': return val1+val2;break;
+	// 	case '-': return val1-val2;break;
+	// 	case '*': return val1*val2;break;
+	// 	case '/': return val1/val2;break;
 			
 
 		
-		default:
-			break;
-		}
-	}
+	// 	default:
+	// 		break;
+	// 	}
+	// }
 	
 }
 
 uint32_t expr(char *e, bool *success)/////////
 {
-	if (!make_token(e))
-	{
-		*success = false;
-		return 0;
-	}
+	// if (!make_token(e))
+	// {
+	// 	*success = false;
+	// 	return 0;
+	// }
 
-	for(uint32_t i=0;i<nr_token;i++)
-	{
-		if(tokens[i].type=='*' && (i==0||tokens[i-1].type==))//bu
-		{
-			tokens[i].type=DEREF;
-		}
-	}
+	// for(uint32_t i=0;i<nr_token;i++)
+	// {
+	// 	if(tokens[i].type=='*' && (i==0||tokens[i-1].type==))//bu
+	// 	{
+	// 		tokens[i].type=DEREF;
+	// 	}
+	// }
 
 
 
