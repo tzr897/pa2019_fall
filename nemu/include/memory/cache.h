@@ -1,8 +1,8 @@
-struct CacheLine
+typedef struct 
 {
     
 
-};
+}CacheLine;
 
 
 void init_cache();
