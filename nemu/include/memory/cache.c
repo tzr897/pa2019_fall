@@ -8,13 +8,13 @@
 #include "device/mm_io.h"
 #include "memory/cache.h"
 
-CacheLine cache[1024];
+CacheLine mycache[1024];
 
 void init_cache()
 {
     for(int i=0;i<1024;++i)
     {
-        cache[i].valid_bit=0;
+        mycache[i].valid_bit=0;
     }
 }
 
@@ -26,6 +26,9 @@ uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
 	return ret;
      */
     uint32_t ret=0;
+    uint32_t group=(paddr>>6)&0x7f;
+    uint32_t mark;
+    uint32_t baddr;
 
 }
 
