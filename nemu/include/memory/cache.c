@@ -8,5 +8,5 @@
 #include "device/mm_io.h"
 #include "memory/cache.h"
 
-struct CacheLine vcache;
+CacheLine cache[1024];
 
