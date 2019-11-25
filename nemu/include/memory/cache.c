@@ -38,11 +38,17 @@ uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
         }
         if(8==i)
         {
-            int a;
+            //int a;
             srand((unsigned)time(NULL));
-            a=rand()%8;
+            i=rand()%8;
+            cache[group*8+i].valid_bit=1;
+            cache[group*8+i].tag=mark;
+            memcpy(&(cache[group*8+i]),&paddr,len);
         }
     }
+
+    if()
+
     return ret;
 }
 
