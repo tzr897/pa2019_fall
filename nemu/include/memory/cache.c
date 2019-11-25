@@ -25,11 +25,22 @@ uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
 	memcpy(&ret, hw_mem + paddr, len);
 	return ret;
      */
+    int i;
     uint32_t ret=0;
     uint32_t mark=(paddr>>13)&0x7ffff;
     uint32_t group=(paddr>>6)&0x7f;
     uint32_t baddr=paddr&0x3f;
-
+    for(i=0;i<8;++i)
+    {
+        if(cache[group*8+i].valid_bit==1)&&(cache[group*8+i].tag==mark)
+        {
+            break;
+        }
+        if(8==i)
+        {
+            
+        }
+    }
 }
 
 void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache)
