@@ -85,7 +85,13 @@ void vaddr_write(vaddr_t vaddr, uint8_t sreg, size_t len, uint32_t data)
 void init_mem()
 {
 	// clear the memory on initiation
+	//
+#ifdef CACHE_ENABLED
+	init_cache();
+#else
+	//
 	memset(hw_mem, 0, MEM_SIZE_B);
+#endif
 
 #ifdef TLB_ENABLED
 	make_all_tlb();
