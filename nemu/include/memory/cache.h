@@ -1,7 +1,7 @@
 #ifndef __INSTR_CACHE_H__
 #define __INSTR_CACHE_H__
 
-include "nemu.h"
+#include "nemu.h"
 
 typedef struct 
 {
