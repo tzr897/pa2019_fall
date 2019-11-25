@@ -1,5 +1,5 @@
-#ifndef __INSTR_CACHE_H__
-#define __INSTR_CACHE_H__
+//#ifndef __INSTR_CACHE_H__
+//#define __INSTR_CACHE_H__
 
 #include "nemu.h"
 
@@ -21,4 +21,4 @@ void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache);
 
 
 
-#endif
+//#endif
