@@ -38,7 +38,9 @@ uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
         }
         if(8==i)
         {
-            
+            int a;
+            srand((unsigned)time(NULL));
+            a=rand()%8;
         }
     }
 }
