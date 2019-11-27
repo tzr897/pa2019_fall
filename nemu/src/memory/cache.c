@@ -53,9 +53,11 @@ uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
             
             cache[group*8+i].valid_bit=1;
             cache[group*8+i].tag=mark;
-            memcpy(cache[group*8+i].block, hw_mem+ , len);
+            memcpy(cache[group*8+i].block, hw_mem+paddr-baddr, 64);
         }
     }
+    //i yiqueding
+    if()
 
     
 
