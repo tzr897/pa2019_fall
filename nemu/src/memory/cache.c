@@ -99,6 +99,7 @@ void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache)
             {
                 size_t out=baddr+len-64;
                 memcpy(&cache[group*8+i].block+baddr, data, (64-baddr);
+                
             }
             
             
