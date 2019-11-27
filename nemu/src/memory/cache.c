@@ -101,7 +101,6 @@ void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache)
                 uint32_t data1=0;
                 uint32_t data2=0;
                 data1=(data>>((64-baddr)*8));
-                //memcpy(&cache[group*8+i].block+baddr, data, (64-baddr);
                 cache_write(paddr+(64-baddr), out, data1, cache);
                 cache_write(paddr, 64-baddr, data, cache); 
             }
