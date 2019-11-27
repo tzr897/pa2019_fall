@@ -8,7 +8,7 @@
 
 uint8_t hw_mem[MEM_SIZE_B];
 
-Cache *L1_dcache=*cache;//
+//Cache *L1_dcache=*cache;//
 
 
 uint32_t hw_mem_read(paddr_t paddr, size_t len)
@@ -27,7 +27,7 @@ uint32_t paddr_read(paddr_t paddr, size_t len)
 {
 	uint32_t ret = 0;
 #ifdef CACHE_ENABLED
-        ret=cache_read(paddr, len, &L1_dcache);
+        ret=cache_read(paddr, len, &cache);
 #else
 		ret = hw_mem_read(paddr, len);
 #endif
@@ -48,7 +48,7 @@ uint32_t paddr_read(paddr_t paddr, size_t len)
 void paddr_write(paddr_t paddr, size_t len, uint32_t data)
 {
 #ifdef CACHE_ENABLED
-        cache_write(paddr, len, data, &L1_dcache);
+        cache_write(paddr, len, data, &cache);
 #else
 		hw_mem_write(paddr, len, data);
 #endif
