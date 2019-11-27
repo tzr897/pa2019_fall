@@ -91,7 +91,11 @@ void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache)
         }
         else
         {
-            memcpy()
+            if((baddr+len)<=64)
+            {
+                memcpy(&cache[group*8+i].block)
+            }
+            
         }
         
     }
