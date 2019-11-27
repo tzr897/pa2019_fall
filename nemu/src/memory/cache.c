@@ -57,14 +57,17 @@ uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
         }
     }
     //i yiqueding
-    if((baddr+len)<64)//bukuahang
+    if((baddr+len)<=64)//bukuahang
     {
-        memcpy(&ret, &cache[group*8+i].block, len);
+        memcpy(&ret, &cache[group*8+i].block+baddr, len);
     }
     else//kuahang
     {
         size_t out=baddr+len-64;
-
+        uint32_t ret1=0;
+        uint32_t ret2=0;
+        memcpy(&ret2, &cache[group*8+i].block+baddr, (64-baddr);
+        ret1=cache_read(paddr+(64-baddr), out, cache)
     }
     
 
