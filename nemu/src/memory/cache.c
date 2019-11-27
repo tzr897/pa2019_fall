@@ -14,7 +14,7 @@ void init_cache()
 {
     for(int i=0;i<1024;++i)
     {
-        mycache[i].valid_bit=0;
+        L1_dcache[i].valid_bit=0;
     }
 }
 
@@ -63,7 +63,8 @@ uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
     }
     else//kuahang
     {
-        
+        size_t out=baddr+len-64;
+
     }
     
 
