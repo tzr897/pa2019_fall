@@ -85,6 +85,14 @@ void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache)
         {
             break;
         }
+        if(8==i)
+        {
+            memcpy(hw_mem+paddr, &data, len);
+        }
+        else
+        {
+            
+        }
         
     }
 
