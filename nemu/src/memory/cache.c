@@ -93,8 +93,14 @@ void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache)
         {
             if((baddr+len)<=64)
             {
-                memcpy(&cache[group*8+i].block)
+                memcpy(&cache[group*8+i].block+baddr, &data, len);
             }
+            else
+            {
+                size_t out=baddr+len-64;
+                memcpy(&cache[group*8+i].block+baddr, data, (64-baddr);
+            }
+            
             
         }
         
