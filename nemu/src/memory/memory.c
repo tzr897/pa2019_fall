@@ -10,6 +10,7 @@ uint8_t hw_mem[MEM_SIZE_B];
 
 CacheLine L1_dcache;//
 
+
 uint32_t hw_mem_read(paddr_t paddr, size_t len)
 {
 	uint32_t ret = 0;
