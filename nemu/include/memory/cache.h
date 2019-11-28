@@ -10,7 +10,7 @@ typedef struct
     uint8_t block[64];
 }CacheLine;
 
-extern CacheLine Cache[1024];
+extern CacheLine Cache[];
 
 void init_cache();
 
