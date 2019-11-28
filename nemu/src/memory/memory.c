@@ -27,7 +27,7 @@ uint32_t paddr_read(paddr_t paddr, size_t len)
 {
 	uint32_t ret = 0;
 #ifdef CACHE_ENABLED
-        ret=cache_read(paddr, len, &Cache[0]);
+        ret=cache_read(paddr, len, Cache[0]);
 #else
 		ret = hw_mem_read(paddr, len);
 #endif
@@ -37,7 +37,7 @@ uint32_t paddr_read(paddr_t paddr, size_t len)
 void paddr_write(paddr_t paddr, size_t len, uint32_t data)
 {
 #ifdef CACHE_ENABLED
-        cache_write(paddr, len, data, &Cache[0]);
+        cache_write(paddr, len, data, Cache[0]);
 #else
 		hw_mem_write(paddr, len, data);
 #endif
