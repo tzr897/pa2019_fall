@@ -100,11 +100,13 @@ CR0 cr0; // control register 0
 
 
 //11.28 begin
+
 typedef struct 
 {
 	uint32_t limit :16;
 	uint32_t base :32;
 }GDTR;
+
 typedef union 
 {
 	struct 
