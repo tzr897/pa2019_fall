@@ -8,7 +8,6 @@
 #include "device/mm_io.h"
 #include "memory/cache.h"
 
-//CacheLine L1_dcache[1024];
 CacheLine Cache[1024];
 
 void init_cache()
