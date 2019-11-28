@@ -21,11 +21,6 @@ void init_cache()
 
 uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
 {
-    /*
-    uint32_t ret = 0;
-	memcpy(&ret, hw_mem + paddr, len);
-	return ret;
-     */
     int i;
     uint32_t ret=0;
     uint32_t mark=(paddr>>13)&0x7ffff;
