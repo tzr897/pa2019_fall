@@ -84,6 +84,20 @@ typedef struct
 	uint8_t dummy_intr[7];
 #endif
 
+//11.28begin
+GDTR gdtr; // GDTR
+union 
+{ // segment registers
+	SegReg segReg[6];
+	struct { SegReg es, cs, ss, ds, fs, gs; };
+};
+CR0 cr0; // control register 0
+//11.28end
+
+
+} CPU_STATE;
+
+
 
 //11.28 begin
 typedef struct 
@@ -130,18 +144,14 @@ typedef struct
 	};
 }SegReg;
 
-GDTR gdtr; // GDTR
-union 
-{ // segment registers
-	SegReg segReg[6];
-	struct { SegReg es, cs, ss, ds, fs, gs; };
-};
-CR0 cr0; // control register 0
-
 //11.28 end
 
 
-} CPU_STATE;
+
+
+
+
+
 
 enum
 {
