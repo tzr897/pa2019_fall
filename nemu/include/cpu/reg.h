@@ -129,6 +129,15 @@ typedef struct
 		uint32_t soft_use :1;
 	};
 }SegReg;
+
+GDTR gdtr; // GDTR
+union 
+{ // segment registers
+	SegReg segReg[6];
+	struct { SegReg es, cs, ss, ds, fs, gs; };
+};
+CR0 cr0; // control register 0
+
 //11.28 end
 
 
