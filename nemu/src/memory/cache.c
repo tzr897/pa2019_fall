@@ -19,7 +19,7 @@ void init_cache()
     }
 }
 
-uint32_t cache_read(paddr_t paddr, size_t len, CacheLine* cache)
+uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
 {
     int i;
     uint32_t ret=0;
@@ -69,7 +69,7 @@ uint32_t cache_read(paddr_t paddr, size_t len, CacheLine* cache)
     return ret;
 }
 
-void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine* cache)
+void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache)
 {
     int i;
     uint32_t mark=(paddr>>13)&0x7ffff;
