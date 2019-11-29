@@ -34,6 +34,7 @@ uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
     }
         if(8==i)
         {
+            i=0;
             for(i=0;i<8;++i)
             {
                 if(cache[group*8+i].valid_bit==0)
