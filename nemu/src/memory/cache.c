@@ -97,8 +97,9 @@ void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache)
             size_t out=baddr+len-64;
             uint32_t data1=0;
             data1=(data>>((64-baddr)*8));
-            cache_write(paddr+(64-baddr), out, data1, cache);
             cache_write(paddr, 64-baddr, data, cache); 
+            cache_write(paddr+(64-baddr), out, data1, cache);
+            
         }
     }
     //}
