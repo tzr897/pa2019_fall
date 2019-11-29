@@ -32,25 +32,25 @@ uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
             break;
         }
     }
+    if(8==i)
+    {
+        i=0;
+        for(i=0;i<8;++i)
+        {
+            if(cache[group*8+i].valid_bit==0)
+            {
+                break;
+            }
+        }
         if(8==i)
         {
-            i=0;
-            for(i=0;i<8;++i)
-            {
-                if(cache[group*8+i].valid_bit==0)
-                {
-                    break;
-                }
-            }
-            if(8==i)
-            {
-                srand((unsigned)time(NULL));
-                i=rand()%8;
-            } 
-            cache[group*8+i].valid_bit=1;
-            cache[group*8+i].tag=mark;
-            memcpy(&cache[group*8+i].block, hw_mem+paddr-baddr, 64);
-        }
+            srand((unsigned)time(NULL));
+            i=rand()%8;
+        } 
+        cache[group*8+i].valid_bit=1;
+        cache[group*8+i].tag=mark;
+        memcpy(&cache[group*8+i].block, hw_mem+paddr-baddr, 64);
+    }
     //}
     //i yiqueding
     if((baddr+len)<=64)//bukuahang
