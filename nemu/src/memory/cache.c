@@ -49,20 +49,20 @@ uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
         } 
         cache[group*8+i].valid_bit=1;
         cache[group*8+i].tag=mark;
-        memcpy(&cache[group*8+i].block, hw_mem+paddr-baddr, 64);
+        memcpy(cache[group*8+i].block, hw_mem+paddr-baddr, 64);
     }
     //}
     //i yiqueding
     if((baddr+len)<=64)//bukuahang
     {
-        memcpy(&ret, &cache[group*8+i].block+baddr, len);
+        memcpy(&ret, &cache[group*8+i].block[baddr], len);
     }
     else//kuahang
     {
         size_t out=baddr+len-64;
         uint32_t ret1=0;
         uint32_t ret2=0;
-        memcpy(&ret2, &cache[group*8+i].block+baddr, (64-baddr));
+        memcpy(&ret2, &cache[group*8+i].block[baddr], (64-baddr));
         ret1=cache_read(paddr+(64-baddr), out, cache);
         ret=(ret1<<((64-baddr)*8))|ret2;
     }
@@ -82,24 +82,24 @@ void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache)
             break;
         }
     }
-        if(8==i)
+    if(8==i)
+    {
+        memcpy(hw_mem+paddr, &data, len);
+    }
+    else
+    {
+        if((baddr+len)<=64)
         {
-            memcpy(hw_mem+paddr, &data, len);
+            memcpy(&cache[group*8+i].block+baddr, &data, len);
         }
         else
         {
-            if((baddr+len)<=64)
-            {
-                memcpy(&cache[group*8+i].block+baddr, &data, len);
-            }
-            else
-            {
-                size_t out=baddr+len-64;
-                uint32_t data1=0;
-                data1=(data>>((64-baddr)*8));
-                cache_write(paddr+(64-baddr), out, data1, cache);
-                cache_write(paddr, 64-baddr, data, cache); 
-            }
+            size_t out=baddr+len-64;
+            uint32_t data1=0;
+            data1=(data>>((64-baddr)*8));
+            cache_write(paddr+(64-baddr), out, data1, cache);
+            cache_write(paddr, 64-baddr, data, cache); 
         }
+    }
     //}
 }
