@@ -43,7 +43,7 @@ uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
             }
             if(8==i)
             {
-                //srand((unsigned)time(NULL));
+                srand((unsigned)time(NULL));
                 i=rand()%8;
             } 
             cache[group*8+i].valid_bit=1;
