@@ -37,7 +37,7 @@ uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
             i=0;
             for(i=0;i<8;++i)
             {
-                if(cache[group*8+i].valid_bit==1)
+                if(cache[group*8+i].valid_bit==0)
                 {
                     break;
                 }
