@@ -31,6 +31,7 @@ uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
         {
             break;
         }
+    }
         if(8==i)
         {
             for(i=0;i<8;++i)
@@ -49,7 +50,7 @@ uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
             cache[group*8+i].tag=mark;
             memcpy(cache[group*8+i].block, hw_mem+paddr-baddr, 64);
         }
-    }
+    //}
     //i yiqueding
     if((baddr+len)<=64)//bukuahang
     {
@@ -79,6 +80,7 @@ void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache)
         {
             break;
         }
+    }
         if(8==i)
         {
             memcpy(hw_mem+paddr, &data, len);
@@ -98,5 +100,5 @@ void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache)
                 cache_write(paddr, 64-baddr, data, Cache); 
             }
         }
-    }
+    //}
 }
