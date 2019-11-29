@@ -103,16 +103,24 @@ void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache)
     {
         if((baddr+len)<=64)
         {
-            memcpy(&cache[group*8+i].block+baddr, &data, len);
+            memcpy(&cache[group*8+i].block[baddr], &data, len);
+            memcpy(hw_mem+paddr, &data, len);
         }
         else
         {
             size_t out=baddr+len-64;
-            uint32_t data1=0;
-            data1=(data>>((64-baddr)*8));
-            cache_write(paddr, 64-baddr, data, cache); 
+            uint32_t data1=data1=(data>>((64-baddr)*8));
+            memcpy(hw_mem+paddr, &data, 64-baddr);
             cache_write(paddr+(64-baddr), out, data1, cache);
-            
+            memcpy(&cache[group*8+i].block[baddr], &data, 64-baddr);
+            /*
+            size_t out=baddr+len-64;
+        uint32_t ret1=0;
+        uint32_t ret2=0;
+        memcpy(&ret2, &cache[group*8+i].block[baddr], (64-baddr));
+        ret1=cache_read(paddr+(64-baddr), out, cache);
+        ret=(ret1<<((64-baddr)*8))|ret2;
+             */
         }
     }
     //}
