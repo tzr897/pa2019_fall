@@ -74,24 +74,6 @@ void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache)
     uint32_t mark=(paddr>>13)&0x7ffff;
     uint32_t group=(paddr>>6)&0x7f;
     uint32_t baddr=paddr&0x3f;
-    // for(i=0;i<8;++i)
-    // {
-    //     if((cache[group*8+i].valid_bit==1)&&(cache[group*8+i].tag==mark))
-    //     {
-    //         if(baddr+len<=64)
-    //         {
-    //             memcpy(&cache[group*8+i].block[baddr], &data, len);
-    //         }
-    //         else
-    //         {
-    //             size_t out=baddr+len-64;
-    //             uint32_t data1=(data>>((64-baddr)*8));
-    //             cache_write(paddr, 64-baddr, data, cache);
-    //             cache_write(paddr+(64-baddr), out, data1, cache);
-    //         }
-            
-    //     }
-    // }
     for(i=0;i<8;i++)
     {
         if((cache[group*8+i].valid_bit==1)&&(cache[group*8+i].tag==mark))
@@ -107,14 +89,10 @@ void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache)
         }
         else
         {
-            // size_t out=baddr+len-64;
-            // uint32_t data1=(data>>((64-baddr)*8));
-            // memcpy(hw_mem+paddr, &data, 64-baddr);
-            // cache_write(paddr+(64-baddr), out, data1, cache);
-                size_t out=baddr+len-64;
-                uint32_t data1=(data>>((64-baddr)*8));
-                cache_write(paddr, 64-baddr, data, cache);
-                cache_write(paddr+(64-baddr), out, data1, cache);      
+            size_t out=baddr+len-64;
+            uint32_t data1=(data>>((64-baddr)*8));
+            cache_write(paddr, 64-baddr, data, cache);
+            cache_write(paddr+(64-baddr), out, data1, cache);         
         }
         
     }
@@ -127,16 +105,11 @@ void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache)
         }
         else
         {
-            // size_t out=baddr+len-64;
-            // uint32_t data1=(data>>((64-baddr)*8));
-            // memcpy(&cache[group*8+i].block[baddr], &data, 64-baddr);
-            // memcpy(hw_mem+paddr, &data, 64-baddr);
-            // cache_write(paddr+(64-baddr), out, data1, cache);
             size_t out=baddr+len-64;
-                uint32_t data1=(data>>((64-baddr)*8));
-                cache_write(paddr, 64-baddr, data, cache);
-                cache_write(paddr+(64-baddr), out, data1, cache);    
-                memcpy(hw_mem+paddr, &data, 64-baddr);
+            uint32_t data1=(data>>((64-baddr)*8));
+            cache_write(paddr, 64-baddr, data, cache);
+            cache_write(paddr+(64-baddr), out, data1, cache);    
+            memcpy(hw_mem+paddr, &data, 64-baddr);
         }
     }
 }
