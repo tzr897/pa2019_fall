@@ -101,13 +101,13 @@ CR0 cr0; // control register 0
 
 //11.28 begin
 
-typedef struct 
+typedef struct//GDTR 
 {
 	uint32_t limit :16;
 	uint32_t base :32;
 }GDTR;
 
-typedef union 
+typedef union//CR0 
 {
 	struct 
 	{
@@ -122,7 +122,7 @@ typedef union
 	uint32_t val; 
 }CR0;
 
-typedef struct 
+typedef struct//SegReg 
 {
 // the 16-bit visible part, i.e., the selector
 	union 
