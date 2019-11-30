@@ -2,5 +2,6 @@
 
 make_instr_func(lgdt)
 {
+    OPERAND rm;
     
 }
