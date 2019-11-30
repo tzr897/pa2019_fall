@@ -86,8 +86,8 @@ typedef struct
 
 //11.28begin
 GDTR gdtr; // GDTR
-union 
-{ // segment registers
+union // segment registers
+{ 
 	SegReg segReg[6];
 	struct { SegReg es, cs, ss, ds, fs, gs; };
 };
