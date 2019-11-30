@@ -2,6 +2,9 @@
 
 make_instr_func(lgdt)
 {
-    //OPERAND rm;
-    return 1;
+    int len=1;
+    OPERAND rm;
+    len+=modrm_rm(eip + 1, &rm);
+
+    return len;
 }
