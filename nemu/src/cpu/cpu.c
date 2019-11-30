@@ -33,6 +33,9 @@ void init_cpu(const uint32_t init_eip)
 	{
 		cpu.segReg[i].val = 0x0;
 	}
+	//11.30begin
+	
+	//11.30end
 #endif
 #ifdef IA32_INTR
 	cpu.idtr.base = cpu.idtr.limit = 0x0;
