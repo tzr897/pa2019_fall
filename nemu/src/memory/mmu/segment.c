@@ -19,7 +19,7 @@ void load_sreg(uint8_t sreg)
 	 * The visible part of 'sreg' should be assigned by mov or ljmp already.
 	 */
 	SegDesc s;
-	s = *(hw_mem + (cpu.segReg[sreg].index<<3) + cpu.gdtr.base);
+	s = (uint32_t*)(hw_mem + (cpu.segReg[sreg].index<<3) + cpu.gdtr.base);
 
 	cpu.segReg[sreg].base=(s.base_31_24<<24)|(s.base_23_16<<16)|s.base_15_0;
 	cpu.segReg[sreg].limit=(s.limit_19_16<<16)|s.limit_15_0;
