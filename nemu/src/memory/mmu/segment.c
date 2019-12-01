@@ -9,7 +9,6 @@ uint32_t segment_translate(uint32_t offset, uint8_t sreg)
 	 * by reading the invisible part of the segment register 'sreg'
 	 */
 	return offset + cpu.segReg[sreg].base;
-	//return 0;
 }
 
 // load the invisible part of a segment register
@@ -21,7 +20,6 @@ void load_sreg(uint8_t sreg)
 	SegDesc s;
 	uint32_t taddr;
 	taddr = (uint32_t)hw_mem + (cpu.segReg[sreg].index<<3) + cpu.gdtr.base;
-	//s = (void*)((uint32_t)hw_mem + (cpu.segReg[sreg].index<<3) + cpu.gdtr.base);
 	s.val[0]=laddr_read(taddr, 4);
 	s.val[1]=laddr_read(taddr+4, 4);
 	cpu.segReg[sreg].base=(s.base_31_24<<24)|(s.base_23_16<<16)|s.base_15_0;
@@ -30,8 +28,8 @@ void load_sreg(uint8_t sreg)
 	cpu.segReg[sreg].soft_use=s.soft_use;
 
 	assert(cpu.segReg[sreg].base==0);
-	//assert(s.present==1);
-	//assert(s.granularity==1);
+	assert(s.present==1);
+	assert(s.granularity==1);
 }
 /*
 typedef struct//SegReg 
