@@ -19,7 +19,7 @@ void load_sreg(uint8_t sreg)
 	 * The visible part of 'sreg' should be assigned by mov or ljmp already.
 	 */
 	SegDesc s;
-	//assert(cpu.)
+	//assert(s.)
 
 	
 }
