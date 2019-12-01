@@ -30,8 +30,8 @@ void load_sreg(uint8_t sreg)
 	cpu.segReg[sreg].soft_use=s.soft_use;
 
 	assert(cpu.segReg[sreg].base==0);
-	//assert(s.present==1);
-	//assert(s.granularity==1);
+	assert(s.present==1);
+	assert(s.granularity==1);
 }
 /*
 typedef struct//SegReg 
