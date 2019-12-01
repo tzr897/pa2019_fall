@@ -110,7 +110,7 @@ make_instr_func(mov_srm162r_l) {
         return len;
 }
 
-
+/////////////////////////////////////////
 make_instr_func(mov_c2r_l)
 {
         int len = 1;
@@ -141,3 +141,8 @@ make_instr_func(mov_r2c_l)
 
 	return len;
 }
+
+// make_instr_func(mov_rm2s_w)
+// {
+
+// }
