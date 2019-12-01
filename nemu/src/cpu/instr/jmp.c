@@ -61,3 +61,27 @@ make_instr_func(jmp_near_indirect)
 
         return 0;
 }
+
+
+make_instr_func(jmp_far_imm)
+{
+        OPERAND rel;
+        rel.type = OPR_IMM;
+        rel.sreg = SREG_CS;
+        rel.data_size = data_size;
+        rel.addr = eip + 1;
+
+        operand_read(&rel);
+        if(data_size==16)
+        {          
+                cpu.eip=rel.val&0xffff;
+        }
+        else
+        {
+                cpu.eip=rel.val;
+        }
+
+        return 0;
+
+
+}
