@@ -142,7 +142,17 @@ make_instr_func(mov_r2c_l)
 	return len;
 }
 
-// make_instr_func(mov_rm2s_w)
-// {
+make_instr_func(mov_rm2s_w)
+{
+        int len = 1;
+        OPERAND r, rm;
+        r.data_size = 32;
+        rm.data_size = 16;
+        len += modrm_r_rm(eip + 1, &r, &rm);
 
-// }
+        operand_read(&rm);
+        r.val = rm.val;
+        operand_write(&r);
+
+        return len;
+}
