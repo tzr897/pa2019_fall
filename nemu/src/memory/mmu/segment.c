@@ -22,8 +22,8 @@ void load_sreg(uint8_t sreg)
 	uint32_t taddr;
 	taddr = (uint32_t)hw_mem + (cpu.segReg[sreg].index<<3) + cpu.gdtr.base;
 	//s = (void*)((uint32_t)hw_mem + (cpu.segReg[sreg].index<<3) + cpu.gdtr.base);
-	s.val[0]=hw_mem_read(taddr,4);
-	s.val[1]=hw_mem_read(taddr+4,4);
+	s.val[0]=laddr_read(taddr,4);
+	s.val[1]=laddr_read(taddr+4,4);
 	cpu.segReg[sreg].base=(s.base_31_24<<24)|(s.base_23_16<<16)|s.base_15_0;
 	cpu.segReg[sreg].limit=(s.limit_19_16<<16)|s.limit_15_0;
 	cpu.segReg[sreg].privilege_level=s.privilege_level;
