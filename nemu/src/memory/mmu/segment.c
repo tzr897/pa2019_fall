@@ -19,7 +19,7 @@ void load_sreg(uint8_t sreg)
 	 */
 	SegDesc s;
 	uint32_t taddr;
-	taddr = (uint32_t)hw_mem + (cpu.segReg[sreg].index<<3) + cpu.gdtr.base;
+	taddr = (uint32_t)hw_mem + (cpu.segReg[sreg].index*8) + cpu.gdtr.base;
 	s.val[0]=paddr_read(taddr, 4);
 	s.val[1]=paddr_read(taddr+4, 4);
 	cpu.segReg[sreg].base=(s.base_31_24<<24)|(s.base_23_16<<16)|s.base_15_0;
