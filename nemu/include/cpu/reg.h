@@ -9,8 +9,8 @@ typedef union//CR3
 {
 	struct 
 	{
-		uint32_t pdbr :20;
 		uint32_t reserve:12;
+		uint32_t pdbr :20;
 	};
 	uint32_t val; 
 }CR3;
