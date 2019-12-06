@@ -3,6 +3,19 @@
 
 #include "nemu.h"
 
+
+//12.6 begin
+typedef union//CR3
+{
+	struct 
+	{
+		uint32_t pdbr :20;
+		uint32_t reserve:12;
+	};
+	uint32_t val; 
+}CR3;
+//12.6 end
+
 //11.28 begin
 
 typedef struct//GDTR 
