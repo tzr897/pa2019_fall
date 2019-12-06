@@ -45,7 +45,7 @@ uint32_t laddr_read(laddr_t laddr, size_t len)
 {
 	// return paddr_read(laddr, len);
 	assert(len==1 || len==2 || len==4);
-	if(/*cr0 */)
+	if(cr0.pg == 1/*cr0 */)
 	{
 		if(/*data cross the  page boundary */)
 		{
