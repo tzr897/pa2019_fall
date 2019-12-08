@@ -55,7 +55,7 @@ uint32_t loader()//renwu:shixian loader()
 
 
 			//12.8
-			uint32_t p_a = mm_malloc(ph->p_vaddr, ph->p_memsz);
+			mm_malloc(ph->p_vaddr, ph->p_memsz);
 			//memcpy((void*)p_a, (void*)ph->p_offset, ph->p_filesz);
 			//memset((void*)(p_a + ph->p_filesz), 0x0, (ph->p_memsz - ph->p_filesz));
 			
