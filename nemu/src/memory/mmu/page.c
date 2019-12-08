@@ -20,7 +20,10 @@ paddr_t page_translate(laddr_t laddr)
 	uint32_t page = (laddr >> 12) & 0x3ff;
 	uint32_t offset = laddr & 0xfff;
 	paddr_t res = 0;
+	res=(((cr3.pbdr+dir*4)+page*4)<<12)+offset;
 	
+	//assert()
+	return res;
 
 
 
