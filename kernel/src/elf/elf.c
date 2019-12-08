@@ -53,8 +53,8 @@ uint32_t loader()//renwu:shixian loader()
 
 
 			//12.8
-			uint32_t p_a = mm_malloc(ph->p_vaddr, ph->p_memsz);
-			memcpy((void*)p_a, (void*)ph->p_offset, ph->p_filesz);
+			uint32_t p_a = mm_malloc(ph->p_vaddr, ph->p_memsz*8);
+			memcpy((void*)p_a, (void*)ph->p_offset, ph->p_filesz*8);
 			//12.8
 
 #ifdef IA32_PAGE
