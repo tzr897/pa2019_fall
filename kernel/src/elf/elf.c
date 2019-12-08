@@ -48,16 +48,16 @@ uint32_t loader()//renwu:shixian loader()
 			//memset()
 /* TODO: copy the segment from the ELF file to its proper memory area */
 			//memcpy((void *)ph->p_vaddr,(void *)ph->p_offset,ph->p_filesz);//3-3
-			memcpy((void *)ph->p_vaddr,(void *)ph->p_offset,ph->p_filesz*8);//3-3
+			//memcpy((void *)ph->p_vaddr,(void *)ph->p_offset,ph->p_filesz*8);//3-3
 /* TODO: zeror the memory area [vaddr + file_sz, vaddr + mem_sz) */
 			//memset((void *)(ph->p_vaddr+ph->p_filesz),0x0,(ph->p_memsz-ph->p_filesz));//3-3
-			memset((void *)(ph->p_vaddr+ph->p_filesz*8),0x0,(ph->p_memsz-ph->p_filesz)*8);//3-3
+			//memset((void *)(ph->p_vaddr+ph->p_filesz*8),0x0,(ph->p_memsz-ph->p_filesz)*8);//3-3
 
 
 			//12.8
-			//uint32_t p_a = mm_malloc(ph->p_vaddr, ph->p_memsz);
-			//memcpy((void*)p_a, (void*)ph->p_offset, ph->p_filesz);
-			//memset((void *)(p_a+ph->p_filesz),0x0,(ph->p_memsz-ph->p_filesz));
+			uint32_t p_a = mm_malloc(ph->p_vaddr, ph->p_memsz);
+			memcpy((void*)p_a, (void*)ph->p_offset, ph->p_filesz);
+			memset((void *)(p_a+ph->p_filesz),0x0,(ph->p_memsz-ph->p_filesz));
 			//12.8
 
 #ifdef IA32_PAGE
