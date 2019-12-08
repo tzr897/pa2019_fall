@@ -70,6 +70,18 @@ void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 {
 	if(cpu.cr0.pg)
 	{
+		uint32_t dir = laddr >> 22;
+		uint32_t page = (laddr >> 12) & 0x3ff;
+		uint32_t offset = laddr & 0xfff;
+		if(offset+len > 0x1000)/*data cross the  page boundary */
+		{
+			
+		}
+		else
+		{
+			paddr_t paddr = page_translate(laddr);
+			return paddr_read(paddr, len);
+		}
 
 	}
 	else
