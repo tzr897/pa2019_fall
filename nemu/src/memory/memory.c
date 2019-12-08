@@ -56,9 +56,9 @@ uint32_t laddr_read(laddr_t laddr, size_t len)
 			size_t len1, len2;
 			len1 = offset + len - 0x1000;
 			len2 = len - len1;
-			res1 = laddr_read(laddr, len1);
-			res2 = laddr_read(laddr+len1, len2);
-			return (res1 << len2) | res2;
+			res1 = laddr_read(laddr + len2, len1);
+			res2 = laddr_read(laddr, len2);
+			return (res1 << len2*8) | res2;
 		}
 		else
 		{
@@ -81,12 +81,16 @@ void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 		uint32_t offset = laddr & 0xfff;
 		if(offset+len > 0x1000)//data cross the page boundary
 		{
-			uint32_t data1,data2;
+			uint32_t data1;
 			size_t len1, len2;
+			data1 = data >> (len2*8);
 			len1 = offset + len - 0x1000;
 			len2 = len - len1;
-			
+			laddr_write(laddr, len2, data);
+			laddr_write(laddr + len2, len1, data1)
 
+            // cache_write(paddr, 64-baddr, data, cache);
+            // cache_write(paddr+(64-baddr), out, data1, cache);  
 		
 		}
 		else
