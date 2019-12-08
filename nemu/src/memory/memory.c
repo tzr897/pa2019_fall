@@ -87,7 +87,7 @@ void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 			len1 = offset + len - 0x1000;
 			len2 = len - len1;
 			laddr_write(laddr, len2, data);
-			laddr_write(laddr + len2, len1, data1)
+			laddr_write(laddr + len2, len1, data1);
 
             // cache_write(paddr, 64-baddr, data, cache);
             // cache_write(paddr+(64-baddr), out, data1, cache);  
