@@ -56,35 +56,17 @@ paddr_t page_translate(laddr_t laddr)
 	uint32_t page = (laddr >> 12) & 0x3ff;
 	uint32_t offset = laddr & 0xfff;
 	paddr_t res = 0;
+
 	PDE pde;
-	PTE pte;
-	
+	pde = *((uint32_t)hw_mem + cpu.cr3.pdbr<<12 + dir*4);
+	assert(pde.present==1);
 
-	
-	
-	
-	
-	
-	res=(((cr3.pbdr+dir*4)+page*4)<<12)+offset;
-	
-	//assert()
+	PTE *pte;
+	pte = *((uint32_t)hw_mem + pde.page_frame<<12 + page*4);
+	assert(pte.present==1);
+
+	res = pte.page_frame<<12 | offset;
 	return res;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #else
