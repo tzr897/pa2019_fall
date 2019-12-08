@@ -47,15 +47,17 @@ uint32_t laddr_read(laddr_t laddr, size_t len)
 	assert(len==1 || len==2 || len==4);
 	if(cpu.cr0.pg)
 	{
-		if(/*data cross the  page boundary */)
+		uint32_t dir = laddr >> 22;
+		uint32_t page = (laddr >> 12) & 0x3ff;
+		uint32_t offset = laddr & 0xfff;
+		if(offset+len > 0x1000)/*data cross the  page boundary */
 		{
-			/* this is a special case, you can handle it later. */
-			//assert(0);
+			
 		}
 		else
 		{
-			hwaddr_t hwaddr = page_translate(laddr);
-			return hwaddr_read(hwaddr, len);
+			paddr_t paddr = page_translate(laddr);
+			return paddr_read(paddr, len);
 		}
 	}
 	else
