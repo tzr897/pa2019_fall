@@ -72,7 +72,7 @@ void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 	}
 	else
 	{
-		paddr_write(laddr, len, data);
+		paddr_write(laddr, len, data);//12.8
 	}
 	
 }
