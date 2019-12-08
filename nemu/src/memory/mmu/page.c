@@ -1,5 +1,6 @@
 #include "cpu/cpu.h"
 #include "memory/memory.h"
+#include "assert.h"
 
 // translate from linear address to physical address
 paddr_t page_translate(laddr_t laddr)
