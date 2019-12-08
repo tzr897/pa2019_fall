@@ -66,7 +66,15 @@ uint32_t laddr_read(laddr_t laddr, size_t len)
 
 void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 {
-	paddr_write(laddr, len, data);
+	if(cpu.cr0.pg)
+	{
+
+	}
+	else
+	{
+		paddr_write(laddr, len, data);
+	}
+	
 }
 
 uint32_t vaddr_read(vaddr_t vaddr, uint8_t sreg, size_t len)
