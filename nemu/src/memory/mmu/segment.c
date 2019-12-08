@@ -26,7 +26,7 @@ void load_sreg(uint8_t sreg)
 	cpu.segReg[sreg].limit=(s.limit_19_16<<16)|s.limit_15_0;
 	cpu.segReg[sreg].privilege_level=s.privilege_level;
 	cpu.segReg[sreg].soft_use=s.soft_use;
-
+	printf("%x\n",taddr);
 	assert(cpu.segReg[sreg].base==0);
 	
 	assert(s.present==1);
