@@ -82,10 +82,10 @@ void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 		if(offset+len > 0x1000)//data cross the page boundary
 		{
 			uint32_t data1;
-			size_t len1, len2;
-			data1 = data >> (len2*8);
+			size_t len1, len2;		
 			len1 = offset + len - 0x1000;
 			len2 = len - len1;
+			data1 = data >> (len2*8);
 			laddr_write(laddr, len2, data);
 			laddr_write(laddr + len2, len1, data1);
 
