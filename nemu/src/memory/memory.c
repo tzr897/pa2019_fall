@@ -58,8 +58,7 @@ uint32_t laddr_read(laddr_t laddr, size_t len)
 			len2 = len - len1;
 			res1 = laddr_read(laddr, len1);
 			res2 = laddr_read(laddr+len1, len2);
-			return res1|
-			
+			return (res1 << len2) | res2;
 		}
 		else
 		{
