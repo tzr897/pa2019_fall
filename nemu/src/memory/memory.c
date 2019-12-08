@@ -45,7 +45,7 @@ uint32_t laddr_read(laddr_t laddr, size_t len)
 {
 	// return paddr_read(laddr, len);
 	assert(len==1 || len==2 || len==4);
-	if(cpu.cr0.pg)
+	if(cpu.cr0.pg==1&&cpu.cr0.pe==1)
 	{
 		//uint32_t dir = laddr >> 22;
 		//uint32_t page = (laddr >> 12) & 0x3ff;
@@ -74,7 +74,7 @@ uint32_t laddr_read(laddr_t laddr, size_t len)
 
 void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 {
-	if(cpu.cr0.pg)
+	if(cpu.cr0.pg==1&&cpu.cr0.pe==1)
 	{
 		//uint32_t dir = laddr >> 22;
 		//uint32_t page = (laddr >> 12) & 0x3ff;
