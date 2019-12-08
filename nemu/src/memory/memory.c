@@ -75,12 +75,12 @@ void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 		uint32_t offset = laddr & 0xfff;
 		if(offset+len > 0x1000)/*data cross the  page boundary */
 		{
-			
+		;	
 		}
 		else
 		{
 			paddr_t paddr = page_translate(laddr);
-			return paddr_read(paddr, len);
+			laddr_write(paddr, len, data);
 		}
 
 	}
