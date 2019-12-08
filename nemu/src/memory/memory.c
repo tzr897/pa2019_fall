@@ -118,6 +118,7 @@ uint32_t vaddr_read(vaddr_t vaddr, uint8_t sreg, size_t len)
 	if(cpu.cr0.pe)//11.30
 	{
 		laddr=segment_translate(vaddr,sreg);
+		printf("pa!!!!\n");
 	}
 	return laddr_read(laddr, len);
 #endif
