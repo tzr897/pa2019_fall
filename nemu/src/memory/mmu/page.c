@@ -6,8 +6,8 @@
 paddr_t page_translate(laddr_t laddr)
 {
 #ifndef TLB_ENABLED
-	// printf("\nPlease implement page_translate()\n");
-	// assert(0);
+	printf("\nPlease implement page_translate()\n");
+	assert(0);
 // typedef union//CR3
 // {
 // 	struct 
