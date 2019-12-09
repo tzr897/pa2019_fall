@@ -103,6 +103,7 @@ void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 			paddr_write(paddr, len, data);
 		}
 	}
+	;
 	//paddr_write(paddr, len, data);
 #else
 	paddr_write(laddr, len, data);//12.8
