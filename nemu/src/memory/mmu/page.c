@@ -78,7 +78,7 @@ paddr_t page_translate(laddr_t laddr)
 
 	PTE *pte;
 	pte=(PTE*)((uint32_t)hw_mem + (pde->page_frame<<12) + page*4);
-	//assert(pte->present==1);
+	assert(pte->present==1);
 
 	res=(pte->page_frame<<12) | offset;
 	return res;
