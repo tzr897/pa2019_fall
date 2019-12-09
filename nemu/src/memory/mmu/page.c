@@ -81,7 +81,7 @@ paddr_t page_translate(laddr_t laddr)
 	assert(pte->present==1);
 	printf("pte ok\n");
 
-	res=(pte->page_frame<<12) | offset;
+	res=(pte->page_frame<<12) + offset;
 	return res;
 
 
