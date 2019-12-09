@@ -65,7 +65,7 @@ paddr_t page_translate(laddr_t laddr)
 	pte.val = paddr_read(((uint32_t)hw_mem + (pde.page_frame<<12) + page*4), 4);
 	assert(pte.present==1);
 
-	res = pte.page_frame<<12 | offset;
+	res = pte.page_frame<<12 + offset;
 	return res;
 
 
