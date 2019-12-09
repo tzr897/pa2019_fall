@@ -52,7 +52,7 @@ paddr_t page_translate(laddr_t laddr)
 // 	};
 // 	uint32_t val;
 // } PTE;
-	uint32_t dir = laddr >> 22;
+	uint32_t dir = (laddr >> 22)&0x3ff;
 	uint32_t page = (laddr >> 12) & 0x3ff;
 	uint32_t offset = laddr & 0xfff;
 	paddr_t res = 0;
