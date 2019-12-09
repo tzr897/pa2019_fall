@@ -31,6 +31,6 @@ void load_sreg(uint8_t sreg)
 	//printf("s.val1:%x",s.val[1]);
 	assert(cpu.segReg[sreg].base==0);
 	
-	//assert(s.present==1);
-	//assert(s.granularity==1);
+	assert(s.present==1);
+	assert(s.granularity==1);
 }
