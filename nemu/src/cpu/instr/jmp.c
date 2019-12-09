@@ -80,6 +80,7 @@ make_instr_func(jmp_far_imm)
         {
                 cpu.eip=rel.val;
         }
+        eip+=KOFFSET;
 
         return 0;
 
