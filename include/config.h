@@ -6,7 +6,7 @@
 // PA 3
 #define CACHE_ENABLED//11.21
 #define IA32_SEG//11.30             // protect mode enable
-#define IA32_PAGE//12.6            // virtual memory management is now complete
+//#define IA32_PAGE//12.6            // virtual memory management is now complete
 //#define TLB_ENABLED
 
 // PA 4
