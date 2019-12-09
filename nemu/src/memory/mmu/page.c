@@ -71,16 +71,15 @@ paddr_t page_translate(laddr_t laddr)
 
 
 
-	int i=0,j=0;
 	PDE *pde;
 	pde=(PDE*)((uint32_t)hw_mem + (cpu.cr3.pdbr<<12) + dir*4);
 	assert(pde->present==1);
-	printf("pde ok%d\n",i++);
+	printf("pde ok\n");
 
 	PTE *pte;
 	pte=(PTE*)((uint32_t)hw_mem + (pde->page_frame<<12) + page*4);
 	assert(pte->present==1);
-	printf("pte ok%d\n",j++);
+	printf("pte ok\n");
 
 	res=(pte->page_frame<<12) | offset;
 	return res;
