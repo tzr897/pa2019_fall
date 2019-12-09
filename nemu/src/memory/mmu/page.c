@@ -73,7 +73,7 @@ paddr_t page_translate(laddr_t laddr)
 
 
 	PDE *pde;
-	pde=(PDE*)((uint32_t)hw_mem + (cpu.cr3.pdbr<<12) + dir);
+	pde=(PDE*)((uint32_t)hw_mem + (cpu.cr3.pdbr<<12) + dir*4);
 	assert(pde->present==1);
 
 	PTE *pte;
