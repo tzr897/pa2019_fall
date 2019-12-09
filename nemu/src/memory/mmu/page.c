@@ -6,8 +6,8 @@
 paddr_t page_translate(laddr_t laddr)
 {
 #ifndef TLB_ENABLED
-	// printf("\nPlease implement page_translate()\n");
-	// assert(0);
+	printf("\nPlease implement page_translate()\n");
+	assert(0);
 // typedef union//CR3
 // {
 // 	struct 
@@ -71,7 +71,7 @@ paddr_t page_translate(laddr_t laddr)
 
 
 
-	
+
 	// PDE *pde;
 	// pde=(PDE*)((uint32_t)hw_mem + (cpu.cr3.pdbr<<12) + dir*4);
 	// assert(pde->present==1);
