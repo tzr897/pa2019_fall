@@ -54,10 +54,10 @@ uint32_t loader()//renwu:shixian loader()
 			//memset((void *)(ph->p_vaddr+ph->p_filesz*8),0x0,(ph->p_memsz-ph->p_filesz)*8);//3-3
 
 
-			//12.8
+			//12.8 begin
 			uint32_t p_a=mm_malloc(ph->p_vaddr, ph->p_memsz);
 			memcpy((void*)p_a, (void*)ph->p_offset, ph->p_filesz);
-			//12.8
+			//12.8 end
 
 #ifdef IA32_PAGE
 			/* Record the program break for future use */
