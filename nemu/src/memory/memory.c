@@ -45,7 +45,7 @@ uint32_t laddr_read(laddr_t laddr, size_t len)
 {
 	assert(len==1 || len==2 || len==4);
 #ifdef IA32_PAGE
-	hwaddr_t hwaddr=laddr;
+	uint32_t hwaddr=laddr;
 	if(cpu.cr0.pg==1&&cpu.cr0.pe==1)
 	{
 		//uint32_t dir = laddr >> 22;
@@ -76,7 +76,7 @@ uint32_t laddr_read(laddr_t laddr, size_t len)
 void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 {
 #ifdef IA32_PAGE
-	hwaddr_t hwaddr=laddr;
+	uint32_t hwaddr=laddr;
 	if(cpu.cr0.pg==1&&cpu.cr0.pe==1)
 	{
 		//uint32_t dir = laddr >> 22;
