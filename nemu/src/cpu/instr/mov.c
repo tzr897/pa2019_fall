@@ -117,12 +117,13 @@ make_instr_func(mov_c2r_l)
 	OPERAND r, rm;
 	r.data_size = data_size;
 	rm.data_size = data_size;
+        rm.type=OPR_CREG;
 	len += modrm_r_rm(eip + 1, &rm, &r);
 	
 	operand_read(&rm);
 	r.val = rm.val;
 	operand_write(&r);
-        load_sreg((uint8_t)rm.val);
+        //load_sreg((uint8_t)rm.val);
         //load_sreg();
 	return len;
 
@@ -134,13 +135,14 @@ make_instr_func(mov_r2c_l)
 	OPERAND r, rm;
 	r.data_size = data_size;
 	rm.data_size = data_size;
+        r.type=OPR_CREG;
 	len += modrm_r_rm(eip + 1, &r, &rm);
 	
 	operand_read(&rm);
 	r.val = rm.val;
 	operand_write(&r);
 
-        load_sreg((uint8_t)r.val);
+        //load_sreg((uint8_t)r.val);
 
 	return len;
 }
