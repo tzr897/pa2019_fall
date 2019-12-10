@@ -125,7 +125,6 @@ make_instr_func(mov_c2r_l)
         rm.type=OPR_CREG;
         
 	operand_read(&rm);
-
 	r.val = rm.val;
 	operand_write(&r);
         
@@ -149,7 +148,6 @@ make_instr_func(mov_r2c_l)
 	operand_read(&rm);
 	r.val = rm.val;
 	operand_write(&r);
-        
 
 	return len;
 }
