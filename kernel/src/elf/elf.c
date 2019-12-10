@@ -3,7 +3,7 @@
 #include "string.h"
 
 #include <elf.h>
-#include <stdio.h>//
+//#include <stdio.h>//
 #ifdef HAS_DEVICE_IDE
 #define ELF_OFFSET_IN_DISK 0
 #endif
@@ -58,7 +58,7 @@ uint32_t loader()//renwu:shixian loader()
 			uint32_t p_a=mm_malloc(ph->p_vaddr, ph->p_memsz);
 			memcpy((void*)p_a, (void*)ph->p_offset, ph->p_filesz);
 
-			printf("p_a:%d\n",p_a);
+			Log($p_a);
 
 			//12.8 end
 
