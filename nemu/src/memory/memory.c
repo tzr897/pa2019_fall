@@ -45,7 +45,7 @@ uint32_t laddr_read(laddr_t laddr, size_t len)
 {
 	// return paddr_read(laddr, len);
 	assert(len==1 || len==2 || len==4);
-#ifdef IA32_PAGE
+//#ifdef IA32_PAGE
 	paddr_t paddr=laddr;
 	if(cpu.cr0.pg==1&&cpu.cr0.pe==1)
 	{
@@ -69,14 +69,14 @@ uint32_t laddr_read(laddr_t laddr, size_t len)
 		}
 	}
 	return paddr_read(paddr, len);
-#else
+else
 	return paddr_read(laddr, len);
-#endif
+//#endif
 }
 
 void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 {
-#ifdef IA32_PAGE
+//#ifdef IA32_PAGE
 	paddr_t paddr=laddr;
 	if(cpu.cr0.pg==1&&cpu.cr0.pe==1)
 	{
@@ -99,9 +99,9 @@ void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 		}
 	}
 	paddr_write(paddr, len, data);
-#else
+else
 	paddr_write(laddr, len, data);//12.8
-#endif
+//#endif
 }
 
 uint32_t vaddr_read(vaddr_t vaddr, uint8_t sreg, size_t len)
