@@ -122,7 +122,7 @@ make_instr_func(mov_c2r_l)
 	operand_read(&rm);
 	r.val = rm.val;
 	operand_write(&r);
-        load_sreg((uint8_t)r.val);
+        load_sreg((uint8_t)rm.val);
         //load_sreg();
 	return len;
 
@@ -140,7 +140,7 @@ make_instr_func(mov_r2c_l)
 	r.val = rm.val;
 	operand_write(&r);
 
-        load_sreg((uint8_t)rm.val);
+        load_sreg((uint8_t)r.val);
 
 	return len;
 }
