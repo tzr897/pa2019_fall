@@ -69,7 +69,6 @@ uint32_t laddr_read(laddr_t laddr, size_t len)
 		}
 	}
 	return paddr_read(paddr, len);
-	//return paddr_read(paddr, len);
 #else
 	return paddr_read(laddr, len);
 #endif
@@ -93,19 +92,13 @@ void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 			data1 = data >> (len2*8);
 			laddr_write(laddr, len2, data);
 			laddr_write(laddr + len2, len1, data1);
-
-            // cache_write(paddr, 64-baddr, data, cache);
-            // cache_write(paddr+(64-baddr), out, data1, cache);  
-		
 		}
 		else
 		{
-			paddr = page_translate(laddr);
-			
+			paddr = page_translate(laddr);			
 		}
 	}
 	paddr_write(paddr, len, data);
-	//paddr_write(paddr, len, data);
 #else
 	paddr_write(laddr, len, data);//12.8
 #endif
