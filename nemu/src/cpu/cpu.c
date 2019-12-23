@@ -26,6 +26,9 @@ void init_cpu(const uint32_t init_eip)
 	}
 	cpu.eip = init_eip;
 	cpu.esp = (128 << 20) - 16;
+	//pa4
+	cpu.intr = 0;
+	//pa4
 #ifdef IA32_SEG
 	cpu.cr0.val = 0x0;
 	cpu.gdtr.base = cpu.gdtr.limit = 0x0;
