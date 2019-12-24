@@ -50,6 +50,11 @@ extern uint8_t data_size;
 #include "cpu/instr/sti.h"
 #include "cpu/instr/pusha.h"
 #include "cpu/instr/popa.h"
+#include "cpu/instr/cli.h"
+
+
+
+
 
 /* TODO: add more instructions here */
 
