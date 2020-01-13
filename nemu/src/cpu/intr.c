@@ -10,11 +10,28 @@ void raise_intr(uint8_t intr_no)
 
 // Trigger an exception/interrupt with 'intr_no'
 // 'intr_no' is the index to the IDT
-// Push EFLAGS, CS, and EIP
+
+//Push EFLAGS
+OPERAND p_eflags;
+p_eflags.val=cpu.eflags.val;
+p_eflags.data_size=data_size;
+cpu.esp-=4;
+
+//Push CS
+
+//Push EIP
+
+
+
+
 // Find the IDT entry using 'intr_no'
+
+
 // Clear IF if it is an interrupt
+
+
 // Set EIP to the entry of the interrupt handl
-	
+
 
 
 
