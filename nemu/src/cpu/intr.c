@@ -39,7 +39,8 @@ void raise_intr(uint8_t intr_no)
 	p_cs.addr=cpu.esp;
 	p_cs.sreg=SREG_DS;
 	p_cs.val=cpu.cs;
-	operand_write(&p_cs)
+	operand_write(&p_cs);
+
 //Push EIP
 	OPERAND p_eip;
 	p_eip.data_size=data_size;
@@ -47,7 +48,7 @@ void raise_intr(uint8_t intr_no)
 	p_eip.addr=cpu.esp;
 	p_eip.sreg=SREG_DS;
 	p_eip.val=cpu.eip;
-	operand_write(&p_eip)
+	operand_write(&p_eip);
 
 
 // Find the IDT entry using 'intr_no'
