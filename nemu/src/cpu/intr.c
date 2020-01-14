@@ -55,13 +55,14 @@ void raise_intr(uint8_t intr_no)
 
 
 // Find the IDT entry using 'intr_no'
+	GateDesc gd;
+	gd.val=paddr_read((cpu.intr.base+8*intr_no),2);
 
-	intr
 
 // Clear IF if it is an interrupt
-	if(intr_no==14)
+	if(gd.type==14)
 	{
-		cpu.eflags.if=0;
+		cpu.eflags.IF=0;
 	}
 
 // Set EIP to the entry of the interrupt handl
