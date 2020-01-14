@@ -25,7 +25,7 @@ instr_func opcode_entry[256] = {
     /* 0x54 - 0x57*/ push_r_v, push_r_v, push_r_v, push_r_v,//55push_r_v,57:push_r_v,56:push_r_v
     /* 0x58 - 0x5b*/ pop_r_v, pop_r_v, pop_r_v, pop_r_v,//5b:pop_r_v
     /* 0x5c - 0x5f*/ pop_r_v, pop_r_v, pop_r_v, pop_r_v,//5d:pop_r_v,5e:pop_r_v,5f:pop_r_v
-    /* 0x60 - 0x63*/ __ref_pusha, popa, inv, inv,
+    /* 0x60 - 0x63*/ pusha, popa, inv, inv,
     /* 0x64 - 0x67*/ inv, inv, data_size_16, inv,
     /* 0x68 - 0x6b*/ push_i_v, imul_irm2r_v, push_i_b, imul_i8rm2r_v,
     /* 0x6c - 0x6f*/ inv, inv, inv, inv,
@@ -63,7 +63,7 @@ instr_func opcode_entry[256] = {
     /* 0xec - 0xef*/ inv, inv, inv, inv,
     /* 0xf0 - 0xf3*/ inv, break_point, inv, rep_repe,
     /* 0xf4 - 0xf7*/ hlt, inv, group_3_b, group_3_v,//group_3_v,10.17f7group_3_v->cmps_v,f6group_3_b->cmps_v,f5cmps_v
-    /* 0xf8 - 0xfb*/ clc, inv, cli, __ref_sti,//10.17fbcmps_v,facmps_V,f9cmps_v
+    /* 0xf8 - 0xfb*/ clc, inv, cli, sti,//10.17fbcmps_v,facmps_V,f9cmps_v
     /* 0xfc - 0xff*/ cld, inv, inv, group_5_indirect,//10.17ffcmps_v,fecmps_v,fdcmps_v
 };
 
