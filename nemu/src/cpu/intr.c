@@ -12,7 +12,7 @@ void raise_intr(uint8_t intr_no)
 // 'intr_no' is the index to the IDT
 
 /*
-operand_read(&opr_src);
+	operand_read(&opr_src);
 
     cpu.esp-=data_size/8;
 
@@ -46,10 +46,8 @@ operand_read(&opr_src);
 	cpu.esp-=data_size/8;
 	p_eip.addr=cpu.esp;
 	p_eip.sreg=SREG_DS;
-	p_eip.val=cpu.cs;
+	p_eip.val=cpu.eip;
 	operand_write(&p_eip)
-
-
 
 
 // Find the IDT entry using 'intr_no'
