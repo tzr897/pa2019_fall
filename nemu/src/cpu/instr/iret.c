@@ -32,4 +32,5 @@ make_instr_func(iret)
     cpu.esp+=data_size/8;
 	cpu.cs.val=p_eflags.val;
 	
+    return 0;
 }
