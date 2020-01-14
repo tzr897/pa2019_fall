@@ -66,9 +66,7 @@ void raise_intr(uint8_t intr_no)
 	}
 
 // Set EIP to the entry of the interrupt handl
-	cpu.esp+=2*data_size/8 + data_size/4;
-	cpu.eip=cpu.esp;
-
+	cpu.eip=gd.offset_31_16<<16 | gd.offset_15_0;
 
 
 
