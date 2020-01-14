@@ -10,7 +10,7 @@ make_instr_func(pusha)
     opr_dest.type=OPR_MEM;
     opr_dest.addr=cpu.esp;
     opr_dest.sreg=SREG_DS;//
-    opr_dest.val=cpu.eax.val;
+    opr_dest.val=cpu.eax;
     operand_write(&opr_dest);
     //ecx
     cpu.esp-=data_size/8;
@@ -18,7 +18,7 @@ make_instr_func(pusha)
     opr_dest.type=OPR_MEM;
     opr_dest.addr=cpu.esp;
     opr_dest.sreg=SREG_DS;//
-    opr_dest.val=cpu.ecx.val;
+    opr_dest.val=cpu.ecx;
     operand_write(&opr_dest);
     //edx
     cpu.esp-=data_size/8;
@@ -26,7 +26,7 @@ make_instr_func(pusha)
     opr_dest.type=OPR_MEM;
     opr_dest.addr=cpu.esp;
     opr_dest.sreg=SREG_DS;//
-    opr_dest.val=cpu.edx.val;
+    opr_dest.val=cpu.edx;
     operand_write(&opr_dest);
     //ebx
     cpu.esp-=data_size/8;
@@ -34,7 +34,7 @@ make_instr_func(pusha)
     opr_dest.type=OPR_MEM;
     opr_dest.addr=cpu.esp;
     opr_dest.sreg=SREG_DS;//
-    opr_dest.val=cpu.ebx.val;
+    opr_dest.val=cpu.ebx;
     operand_write(&opr_dest);
     //temp
     cpu.esp-=data_size/8;
@@ -50,7 +50,7 @@ make_instr_func(pusha)
     opr_dest.type=OPR_MEM;
     opr_dest.addr=cpu.esp;
     opr_dest.sreg=SREG_DS;//
-    opr_dest.val=cpu.ebp.val;
+    opr_dest.val=cpu.ebp;
     operand_write(&opr_dest);
     //esi
     cpu.esp-=data_size/8;
@@ -58,7 +58,7 @@ make_instr_func(pusha)
     opr_dest.type=OPR_MEM;
     opr_dest.addr=cpu.esp;
     opr_dest.sreg=SREG_DS;//
-    opr_dest.val=cpu.esi.val;
+    opr_dest.val=cpu.esi;
     operand_write(&opr_dest);
     //edi
     cpu.esp-=data_size/8;
@@ -66,7 +66,7 @@ make_instr_func(pusha)
     opr_dest.type=OPR_MEM;
     opr_dest.addr=cpu.esp;
     opr_dest.sreg=SREG_DS;//
-    opr_dest.val=cpu.edi.val;
+    opr_dest.val=cpu.edi;
     operand_write(&opr_dest);
 
     return 1;
