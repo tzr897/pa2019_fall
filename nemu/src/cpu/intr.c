@@ -27,13 +27,27 @@ operand_read(&opr_src);
 	OPERAND p_eflags;
 	p_eflags.data_size=data_size;
 	cpu.esp-=data_size/8;
+	p_eflags.addr=cpu.esp;
 	p_eflags.sreg=SREG_DS;
 	p_eflags.val=cpu.eflags.val;
 	operand_write(&p_eflags);
 
 //Push CS
-
+	OPERAND p_cs;
+	p_cs.data_size=data_size;
+	cpu.esp-=data_size/8;
+	p_cs.addr=cpu.esp;
+	p_cs.sreg=SREG_DS;
+	p_cs.val=cpu.cs;
+	operand_write(&p_cs)
 //Push EIP
+	OPERAND p_eip;
+	p_eip.data_size=data_size;
+	cpu.esp-=data_size/8;
+	p_eip.addr=cpu.esp;
+	p_eip.sreg=SREG_DS;
+	p_eip.val=cpu.cs;
+	operand_write(&p_eip)
 
 
 
