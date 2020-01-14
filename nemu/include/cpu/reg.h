@@ -3,7 +3,6 @@
 
 #include "nemu.h"
 
-
 //12.6 begin
 typedef union//CR3
 {
@@ -23,6 +22,13 @@ typedef struct//GDTR
 	uint32_t limit :16;
 	uint32_t base :32;
 }GDTR;
+
+typedef struct//IDTR 
+{
+	uint32_t limit :16;
+	uint32_t base :32;
+}IDTR;
+
 
 typedef union//CR0 
 {
