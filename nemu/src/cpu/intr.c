@@ -24,7 +24,7 @@ void raise_intr(uint8_t intr_no)
     operand_write(&opr_dest);
  */
 //Push EFLAGS
-	data_size=32;
+	int new_data_size=32;
 	OPERAND p_eflags;
 	cpu.esp-=data_size/8;
 	p_eflags.data_size=data_size;
