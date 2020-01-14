@@ -10,4 +10,6 @@ make_instr_func(int_)
     i.sreg=SREG_CS;
     operand_read(&i);
     raise_sw_intr(i.val);
-}
+
+    return 0;
+};
