@@ -56,7 +56,7 @@ void raise_intr(uint8_t intr_no)
 
 // Find the IDT entry using 'intr_no'
 	GateDesc gd;
-	gd.val=paddr_read((cpu.intr.base+8*intr_no),2);
+	gd.val=paddr_read((cpu.intr.base+8*intr_no),8);
 
 
 // Clear IF if it is an interrupt
