@@ -69,16 +69,6 @@ void raise_intr(uint8_t intr_no)
 	cpu.eip=gd.offset_31_16<<16 | gd.offset_15_0;
 
 
-
-
-
-
-
-
-
-
-
-
 #endif
 }
 
