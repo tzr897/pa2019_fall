@@ -55,9 +55,14 @@ void raise_intr(uint8_t intr_no)
 
 
 // Clear IF if it is an interrupt
-
+	if(intr_no==14)
+	{
+		cpu.eflags.if=0;
+	}
 
 // Set EIP to the entry of the interrupt handl
+	cpu.esp+=2*data_size/8 + data_size/4;
+	cpu.eip=cpu.esp;
 
 
 
