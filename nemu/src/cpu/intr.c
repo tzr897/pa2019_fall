@@ -25,8 +25,9 @@ void raise_intr(uint8_t intr_no)
  */
 //Push EFLAGS
 	OPERAND p_eflags;
-	p_eflags.data_size=data_size;
 	cpu.esp-=data_size/8;
+	p_eflags.data_size=data_size;
+	p_eflags.type=OPR_MEM;
 	p_eflags.addr=cpu.esp;
 	p_eflags.sreg=SREG_DS;
 	p_eflags.val=cpu.eflags.val;
@@ -34,17 +35,19 @@ void raise_intr(uint8_t intr_no)
 
 //Push CS
 	OPERAND p_cs;
-	p_cs.data_size=data_size;
 	cpu.esp-=data_size/8;
+	p_cs.data_size=data_size;
+	p_cs.type=OPR_MEM;
 	p_cs.addr=cpu.esp;
 	p_cs.sreg=SREG_DS;
-	p_cs.val=cpu.cs;
+	p_cs.val=cpu.cs.val;
 	operand_write(&p_cs);
 
 //Push EIP
 	OPERAND p_eip;
-	p_eip.data_size=data_size;
 	cpu.esp-=data_size/8;
+	p_eip.data_size=data_size;
+	p_eip.type=OPR_MEM;
 	p_eip.addr=cpu.esp;
 	p_eip.sreg=SREG_DS;
 	p_eip.val=cpu.eip;
@@ -53,6 +56,7 @@ void raise_intr(uint8_t intr_no)
 
 // Find the IDT entry using 'intr_no'
 
+	intr
 
 // Clear IF if it is an interrupt
 	if(intr_no==14)
