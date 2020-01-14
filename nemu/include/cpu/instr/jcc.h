@@ -22,5 +22,6 @@ make_instr_func(ja_short_);
 make_instr_func(jns_near);
 make_instr_func(js_short_);
 make_instr_func(jb_short_);
+make_instr_func(jns_short_);
 
 #endif
