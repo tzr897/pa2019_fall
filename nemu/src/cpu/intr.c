@@ -44,7 +44,7 @@ void raise_intr(uint8_t intr_no)
 
 // Find the IDT entry using 'intr_no'
 	GateDesc gd;
-	gd.val[0]=laddr_read((cpu.idtr.base+8*intr_no),8);
+	gd.val[0]=laddr_read((cpu.idtr.base+8*intr_no),4);
 	gd.val[1]=laddr_read((cpu.idtr.base+8*intr_no+4),4);
 
 
