@@ -2,7 +2,7 @@
 
 make_instr_func(pusha)
 {
-    //data_size=32;
+
     //temp <- esp
     uint32_t temp=cpu.esp;
     //eax

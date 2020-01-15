@@ -11,23 +11,10 @@ void raise_intr(uint8_t intr_no)
 // Trigger an exception/interrupt with 'intr_no'
 // 'intr_no' is the index to the IDT
 
-/*
-	operand_read(&opr_src);
-
-    cpu.esp-=data_size/8;
-
-    opr_dest.type=OPR_MEM;
-    opr_dest.addr=cpu.esp;
-    
-    opr_dest.sreg=SREG_DS;//
-    opr_dest.val=opr_src.val;
-    operand_write(&opr_dest);
- */
 //Push EFLAGS
-	int new_data_size=data_size;
 	OPERAND p_eflags;
-	cpu.esp-=new_data_size/8;
-	p_eflags.data_size=new_data_size;
+	cpu.esp-=data_size/8;
+	p_eflags.data_size=data_size;
 	p_eflags.type=OPR_MEM;
 	p_eflags.addr=cpu.esp;
 	p_eflags.sreg=SREG_DS;
@@ -36,8 +23,8 @@ void raise_intr(uint8_t intr_no)
 
 //Push CS
 	OPERAND p_cs;
-	cpu.esp-=new_data_size/8;
-	p_cs.data_size=new_data_size;
+	cpu.esp-=data_size/8;
+	p_cs.data_size=data_size;
 	p_cs.type=OPR_MEM;
 	p_cs.addr=cpu.esp;
 	p_cs.sreg=SREG_DS;
@@ -46,8 +33,8 @@ void raise_intr(uint8_t intr_no)
 
 //Push EIP
 	OPERAND p_eip;
-	cpu.esp-=new_data_size/8;
-	p_eip.data_size=new_data_size;
+	cpu.esp-=data_size/8;
+	p_eip.data_size=data_size;
 	p_eip.type=OPR_MEM;
 	p_eip.addr=cpu.esp;
 	p_eip.sreg=SREG_DS;
