@@ -2,7 +2,7 @@
 
 make_instr_func(popa)
 {
-    data_size=32;
+    //data_size=32;
     //edi
     opr_dest.type=OPR_MEM;
     opr_dest.addr=cpu.esp;
