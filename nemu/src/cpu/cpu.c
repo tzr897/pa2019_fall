@@ -108,7 +108,7 @@ void exec(uint32_t n)
 
 #ifdef IA32_INTR
 		// check for interrupt
-		do_intr();
+		//do_intr();
 #endif
 	}
 	if (nemu_state == NEMU_STOP)
