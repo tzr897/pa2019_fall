@@ -14,7 +14,10 @@ make_instr_func(out_b)
     to.data_size=16;
 
     operand_read(&from);
-    pio_write
+    operand_read(&to);
+    pio_write(to.val, 1, from.val);
+
+    return 1;
 }
 
 make_instr_func(out_v)
