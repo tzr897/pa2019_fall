@@ -12,7 +12,7 @@
 // PA 4
 #define IA32_INTR //pa4-1.3.1           // tells NEMU and Kernel that we are ready for handling exceptions(traps only) and interrupts
 #define HAS_DEVICE_TIMER //pa4-1.3.2
-//#define HAS_DEVICE_SERIAL    // the disturbing 'nemu trap output:' tag will be removed
+#define HAS_DEVICE_SERIAL    // the disturbing 'nemu trap output:' tag will be removed
 //#define HAS_DEVICE_IDE       // the loader will load the elf from the hard disk instead of mem disk
 //#define HAS_DEVICE_KEYBOARD  // keyboard input
 //#define HAS_DEVICE_VGA       // we then have display
