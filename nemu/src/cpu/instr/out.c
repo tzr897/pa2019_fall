@@ -2,7 +2,7 @@
 
 make_instr_func(out_b)
 {
-    return 0;
+    return 0
 }
 
 make_instr_func(out_v)
