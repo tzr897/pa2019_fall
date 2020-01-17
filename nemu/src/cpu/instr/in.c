@@ -1,4 +1,5 @@
 #include "cpu/instr.h"
+#include "device/port_io.h"
 
 make_instr_func(in_b)
 {
@@ -41,11 +42,3 @@ make_instr_func(in_v)
 
 //void pio_write(uint16_t port, size_t len, uint32_t data);
 //uint32_t pio_read(uint16_t port, size_t len);
-
-// opr_dest.type=OPR_MEM;
-//     opr_dest.addr=cpu.esp;
-//     opr_dest.data_size=data_size;
-//     opr_dest.sreg=SREG_DS;
-//     operand_read(&opr_dest);
-//     cpu.edi=opr_dest.val;  
-//     cpu.esp+=data_size/8;
