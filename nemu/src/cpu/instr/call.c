@@ -40,5 +40,6 @@ make_instr_func(call_near_indirect)
     {
         cpu.eip=rel.val;
     }
-    return 1; 
+    operand_write(&rel)
+    return 0; 
 }
