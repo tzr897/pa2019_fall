@@ -55,6 +55,8 @@ extern uint8_t data_size;
 #include "cpu/instr/lidt.h"
 #include "cpu/instr/int.h"
 #include "cpu/instr/iret.h"
+#include "cpu/instr/in.h"
+#include "cpu/instr/out.h"
 
 
 /* TODO: add more instructions here */
