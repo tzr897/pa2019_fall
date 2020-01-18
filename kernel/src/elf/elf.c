@@ -64,8 +64,8 @@ uint32_t loader()//renwu:shixian loader()
 			//12.8 end
 
 			//pa4-2.3.2 begin 
-			ide_read((uint8_t*)p_a, (uint32_t)(ph->p_vaddr), (uint32_t)ph->p_memsz);
-			ide_write((uint8_t*)p_a, (uint32_t)(ph->p_offset), ph->p_memsz);
+			ide_read((uint8_t*)ph, (uint32_t)(ph->p_vaddr), (uint32_t)ph->p_memsz);
+			ide_write((uint8_t*)p_a, (uint32_t)(ph->p_offset), ph->p_filesz);
 			//pa4-2.3.2 end
 
 #ifdef IA32_PAGE
