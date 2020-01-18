@@ -3,6 +3,8 @@
 #include "string.h"
 
 #include <elf.h>
+
+#include "ide.h"
 //#include <stdio.h>//
 #ifdef HAS_DEVICE_IDE
 #define ELF_OFFSET_IN_DISK 0
