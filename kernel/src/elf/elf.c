@@ -64,7 +64,7 @@ uint32_t loader()//renwu:shixian loader()
 			//pa4-2.3.2 begin 
 			//ide_read((uint8_t*)p_a, (uint32_t)(ph->p_offset+ELF_OFFSET_IN_DISK), (uint32_t)ph->p_filesz);
 			ide_write((uint8_t*)p_a, (uint32_t)(elf + ELF_OFFSET_IN_DISK), 4096);
-			////pa4-2.3.2 end
+			//pa4-2.3.2 end
 
 #ifdef IA32_PAGE
 			/* Record the program break for future use */
