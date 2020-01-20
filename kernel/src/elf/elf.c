@@ -58,15 +58,34 @@ uint32_t loader()//renwu:shixian loader()
 
 			//12.8 begin
 			uint32_t p_a=mm_malloc(ph->p_vaddr, ph->p_memsz);
-			memcpy((void*)p_a, (void*)ph->p_offset, ph->p_filesz);
+			//memcpy((void*)p_a, (void*)ph->p_offset, ph->p_filesz);
 
 
 			//12.8 end
 
 			//pa4-2.3.2 begin 
-			//ide_read((uint8_t*)ph, (uint32_t)(ph->p_vaddr), (uint32_t)ph->p_memsz);
-			//ide_write((uint8_t*)p_a, (uint32_t)(ph->p_offset), ph->p_filesz);
+			//uint8_t buffer[4096];
+			ide_read((uint8_t*)buffer, ph->p_offset+ELF_OFFSET_IN_DISK, ph->p_filesz);
+			//ide_write((uint8_t*)p_a, (uint32_t)p_a, ph->p_filesz);
 			//pa4-2.3.2 end
+/*
+			void ide_read(uint8_t *buf, uint32_t offset, uint32_t len)
+{
+	uint32_t i;
+	for (i = 0; i < len; i++)
+	{
+		buf[i] = read_byte(offset + i);
+	}
+}
+
+void ide_write(uint8_t *buf, uint32_t offset, uint32_t len)
+{
+	uint32_t i;
+	for (i = 0; i < len; i++)
+	{
+		write_byte(offset + i, buf[i]);
+	}
+} */
 
 #ifdef IA32_PAGE
 			/* Record the program break for future use */
