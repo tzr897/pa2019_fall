@@ -25,7 +25,7 @@ uint32_t loader()//renwu:shixian loader()
 	uint8_t buf[4096];
 	ide_read(buf, ELF_OFFSET_IN_DISK, 4096);
 	elf = (void *)buf;
-	Log("ELF loading from hard disk.");
+	//Log("ELF loading from hard disk.");
 #else
 	elf = (void *)0x0;//jiexi elf tou,0x0 shi elf tou de weizhi
 	Log("ELF loading from ram disk.");
