@@ -41,7 +41,7 @@ make_instr_func(call_near_indirect)
     {
         cpu.eip=rel.val;
     }
-    rel.val=cpu.eip+1+data_size/8;
+    rel.val=cpu.eip+data_size/8;
     operand_write(&rel);
     return 0; 
 }
