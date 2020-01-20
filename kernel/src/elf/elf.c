@@ -64,12 +64,12 @@ uint32_t loader()//renwu:shixian loader()
 			//12.8 end
 
 			//pa4-2.3.2 begin 
-			//uint8_t buffer[4096];
-			ide_read((uint8_t*)p_a, ph->p_offset+ELF_OFFSET_IN_DISK, ph->p_filesz);
-			//ide_write((uint8_t*)p_a, (uint32_t)p_a, ph->p_filesz);
+			uint8_t buffer[4096];
+			ide_read((uint8_t*)buffer, ph->p_offset, ph->p_filesz);
+			ide_write((uint8_t*)p_a, (uint32_t)buffer, ph->p_filesz);
 			//pa4-2.3.2 end
 /*
-			void ide_read(uint8_t *buf, uint32_t offset, uint32_t len)
+void ide_read(uint8_t *buf, uint32_t offset, uint32_t len)
 {
 	uint32_t i;
 	for (i = 0; i < len; i++)
