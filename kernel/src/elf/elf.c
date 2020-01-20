@@ -4,10 +4,28 @@
 
 #include <elf.h>
 
-#include "ide.h"
+//#include "ide.h"
 //#include <stdio.h>//
 #ifdef HAS_DEVICE_IDE
 #define ELF_OFFSET_IN_DISK 0
+
+void ide_read(uint8_t *buf, uint32_t offset, uint32_t len)
+{
+	uint32_t i;
+	for (i = 0; i < len; i++)
+	{
+		buf[i] = read_byte(offset + i);
+	}
+}
+
+void ide_write(uint8_t *buf, uint32_t offset, uint32_t len)
+{
+	uint32_t i;
+	for (i = 0; i < len; i++)
+	{
+		write_byte(offset + i, buf[i]);
+	}
+}
 #endif
 
 #define STACK_SIZE (1 << 20)
