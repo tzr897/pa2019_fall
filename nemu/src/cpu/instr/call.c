@@ -30,6 +30,9 @@ make_instr_func(call_near_indirect)
     modrm_rm(cpu.eip+1, &rel);
         
     rel.data_size = data_size;
+    rel.type=OPR_IMM;
+    rel.addr=cpu.eip+1;
+    rel.sreg=SREG_CS;
     operand_read(&rel);
 
     if(data_size==16)
