@@ -19,7 +19,7 @@ paddr_t page_translate(laddr_t laddr)
 
 	PTE pte;
 	pte.val = paddr_read(((pde.page_frame<<12) + page*4), 4);
-	assert(pte.present==1);
+	//assert(pte.present==1);
 
 	res = (pte.page_frame<<12) + offset;
 	return res;
