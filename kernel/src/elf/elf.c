@@ -58,7 +58,7 @@ uint32_t loader()//renwu:shixian loader()
 
 
 			//12.8 begin
-			//uint32_t p_a=mm_malloc(ph->p_vaddr, ph->p_memsz);
+			uint32_t p_a=mm_malloc(ph->p_vaddr, ph->p_memsz);
 			//memcpy((void*)p_a, (void*)ph->p_offset, ph->p_filesz);
 
 
@@ -66,7 +66,7 @@ uint32_t loader()//renwu:shixian loader()
 
 			//pa4-2.3.2 begin 
 			//uint8_t buffer[ph->p_memsz];
-			ide_read((uint8_t*)ph->p_vaddr, ph->p_offset, ph->p_filesz);
+			ide_read((uint8_t*)p_a, ph->p_offset, ph->p_filesz);
 			//ide_write((uint8_t*)ph->p_vaddr, (uint32_t)buffer, ph->p_filesz);
 			//pa4-2.3.2 end
 /*
