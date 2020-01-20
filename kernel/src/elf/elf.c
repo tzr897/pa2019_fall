@@ -66,7 +66,7 @@ uint32_t loader()//renwu:shixian loader()
 
 			//pa4-2.3.2 begin 
 			//uint8_t buffer[ph->p_memsz];
-			ide_read(p_a, ph->p_offset, ph->p_filesz);
+			ide_read((void*)p_a, ph->p_offset, ph->p_filesz);
 			//ide_write((uint8_t*)ph->p_offset+ELF_OFFSET_IN_DISK, p_a, ph->p_filesz);
 			//pa4-2.3.2 end
 /*
