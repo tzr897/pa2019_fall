@@ -41,17 +41,16 @@ uint32_t paddr_read(paddr_t paddr, size_t len)
 
 void paddr_write(paddr_t paddr, size_t len, uint32_t data)
 {
-	uint32_t ret = 0;
 #ifdef CACHE_ENABLED
         cache_write(paddr, len, data, cache);
 #else
 		if(is_mmio(paddr)==-1)
 		{
-			ret = hw_mem_write(paddr, len, data);
+			hw_mem_write(paddr, len, data);
 		}
 		else
 		{
-			ret = mmio_write(paddr, len, data, is_mmio(paddr));
+			mmio_write(paddr, len, data, is_mmio(paddr));
 		}
 #endif
 }
