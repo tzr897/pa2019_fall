@@ -19,8 +19,8 @@ void create_video_mapping()
 
 	//panic("please implement me");
 
-	PDE *pde=get_updir();
-	
+	//PDE *pde=get_updir();
+
 }
 
 void video_mapping_write_test()
